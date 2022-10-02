@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".HomeActivity">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_round_arrow_back_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txName"
+                style="@style/Text.Content5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Story Detail"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/imgBack"
+                app:layout_constraintStart_toEndOf="@id/imgBack"
+                app:layout_constraintTop_toTopOf="@id/imgBack" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgStory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_300"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toBottomOf="@id/imgBack"
+                app:srcCompat="@drawable/example" />
+
+            <LinearLayout
+                android:id="@+id/llUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/bg_corner50_primary"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/dp_6"
+                android:paddingStart="@dimen/dp_6"
+                android:paddingEnd="@dimen/dp_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgStory">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txAvatar"
+                    style="@style/Text.Header3"
+                    android:layout_width="@dimen/dp_26"
+                    android:layout_height="@dimen/dp_26"
+                    android:background="@drawable/bg_circle_blue50"
+                    android:gravity="center"
+                    android:text="K" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txUserName"
+                    style="@style/Text.Content2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:text="Ahmadkabi" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txDescription"
+                style="@style/Text.Content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_16"
+                android:text="@string/lorem_3"
+                android:textColor="@color/grey_700"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llUser" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

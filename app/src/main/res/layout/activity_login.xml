@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_200"
+        tools:context=".HomeActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/txLogin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_travel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txLogin"
+            style="@style/Text.Header40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            app:layout_constraintBottom_toTopOf="@id/txSubTitle"
+            app:layout_constraintStart_toStartOf="@id/txWanna" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txSubTitle"
+            style="@style/Text.Content3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:text="Share Stories with your classmate"
+            app:layout_constraintBottom_toTopOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="@id/txWanna" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            style="@style/EditText.Background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/sp_10"
+            android:drawableStart="@drawable/ic_round_alternate_email_24"
+            android:drawablePadding="@dimen/dp_10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@id/etPassword" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            style="@style/EditText.Background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:drawableStart="@drawable/ic_round_lock_24"
+            android:drawablePadding="@dimen/dp_10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/txWanna" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txWanna"
+            style="@style/Text.Content4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:text="Wanna Join Us? Register"
+            app:layout_constraintBottom_toTopOf="@id/btnLogin"
+            app:layout_constraintStart_toStartOf="@id/btnLogin" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/MaterialButton.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:text="Login"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

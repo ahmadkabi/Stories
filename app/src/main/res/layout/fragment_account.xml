@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.AccountFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txAvatar"
+        style="@style/Text.Header50"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_120"
+        android:background="@drawable/bg_circle_blue50"
+        android:gravity="center"
+        android:text="A"
+        app:layout_constraintBottom_toTopOf="@id/txName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txName"
+        style="@style/Text.Header7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="Ahmadkabi"
+        app:layout_constraintBottom_toTopOf="@id/btnMake"
+        app:layout_constraintEnd_toEndOf="@id/txAvatar"
+        app:layout_constraintStart_toStartOf="@id/txAvatar"
+        app:layout_constraintTop_toBottomOf="@id/txAvatar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMake"
+        style="@style/MaterialButton.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_40"
+        android:paddingStart="@dimen/dp_50"
+        android:paddingEnd="@dimen/dp_50"
+        android:text="Make New Story"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/txAvatar"
+        app:layout_constraintStart_toStartOf="@id/txAvatar"
+        app:layout_constraintTop_toBottomOf="@id/txName" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        style="@style/MaterialButton.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_40"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:paddingStart="@dimen/dp_50"
+        android:paddingEnd="@dimen/dp_50"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/txAvatar"
+        app:layout_constraintStart_toStartOf="@id/txAvatar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

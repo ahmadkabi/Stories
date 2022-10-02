@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgStory"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_300"
+            android:padding="@dimen/dp_1"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_corner30_primary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_travel" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/bg_corner50_primary"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/dp_6"
+            android:paddingStart="@dimen/dp_6"
+            android:paddingEnd="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txAvatar"
+                style="@style/Text.Header3"
+                android:layout_width="@dimen/dp_26"
+                android:layout_height="@dimen/dp_26"
+                android:background="@drawable/bg_circle_primary"
+                android:gravity="center"
+                android:text="A" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txName"
+                style="@style/Text.Content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:text="Ahmadkabi" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

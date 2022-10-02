@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_round_arrow_back_24" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txName"
+            style="@style/Text.Content5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Story"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/imgBack"
+            app:layout_constraintStart_toEndOf="@id/imgBack"
+            app:layout_constraintTop_toTopOf="@id/imgBack" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="@drawable/shadow_below"
+            app:layout_constraintTop_toBottomOf="@id/imgBack" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBack">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".HomeActivity">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgStory"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_300"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/example3" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgNoData"
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    app:layout_constraintBottom_toBottomOf="@id/imgStory"
+                    app:layout_constraintEnd_toEndOf="@id/imgStory"
+                    app:layout_constraintStart_toStartOf="@id/imgStory"
+                    app:layout_constraintTop_toTopOf="@id/imgStory"
+                    app:srcCompat="@drawable/ic_ssd" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txNoData"
+                    style="@style/Text.Content3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="Your Image will appear here"
+                    app:layout_constraintEnd_toEndOf="@id/imgNoData"
+                    app:layout_constraintStart_toStartOf="@id/imgNoData"
+                    app:layout_constraintTop_toBottomOf="@id/imgNoData" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgCancel"
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:background="@drawable/bg_circle_white"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/imgStory"
+                    app:layout_constraintTop_toTopOf="@id/imgStory"
+                    app:srcCompat="@drawable/ic_round_cancel_24"
+                    app:tint="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDescription"
+                    style="@style/EditText.Multiline.Description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:paddingStart="@dimen/dp_16"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:paddingBottom="@dimen/dp_80"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgStory" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGallery"
+            style="@style/MaterialButton.Secondary.Icon"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="Gallery"
+            app:icon="@drawable/ic_round_photo_library_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnCamera"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCamera"
+            style="@style/MaterialButton.Secondary.Icon"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:text="Camera"
+            app:icon="@drawable/ic_round_camera_alt_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnGallery" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMake"
+            style="@style/MaterialButton.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sp_40"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:paddingStart="@dimen/dp_50"
+            android:paddingEnd="@dimen/dp_50"
+            android:text="Make New Story"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
