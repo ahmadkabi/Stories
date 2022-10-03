@@ -8,6 +8,7 @@
     <string name="title_activity_home2">Home2Activity</string>
     <string name="stories">Stories</string>
     <string name="account">Account</string>
+    <string name="no_camera_permission">Camera permission is not granted</string>
 
 
 
