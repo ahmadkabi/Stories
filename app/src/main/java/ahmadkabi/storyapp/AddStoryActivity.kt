@@ -1,11 +1,11 @@
 package ahmadkabi.storyapp
 
-import ahmadkabi.createCustomTempFile
-import ahmadkabi.gone
+import ahmadkabi.*
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
-import ahmadkabi.uriToFile
-import ahmadkabi.visible
+import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.network.FileUploadResponse
 import android.Manifest
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -20,6 +20,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
 
 class AddStoryActivity : AppCompatActivity() {
@@ -27,6 +35,8 @@ class AddStoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddStoryBinding
     private lateinit var currentPhotoPath: String
     private var getFile: File? = null
+
+    private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
     private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
     private val REQUEST_CODE_PERMISSIONS = 10
@@ -36,9 +46,11 @@ class AddStoryActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
 
+        progressDialog.setCancelable(false)
         binding.imgBack.setOnClickListener { finish() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
         binding.btnGallery.setOnClickListener { startGallery() }
+        binding.btnMake.setOnClickListener { uploadImage() }
         binding.imgCancel.setOnClickListener {
             getFile = null
             binding.imgStory.setImageBitmap(null)
@@ -57,6 +69,7 @@ class AddStoryActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         }
+
 
     }
 
@@ -140,6 +153,74 @@ class AddStoryActivity : AppCompatActivity() {
                 ).show()
                 finish()
             }
+        }
+    }
+
+
+    private fun uploadImage() {
+        if (getFile != null) {
+            binding.imgStory
+
+            progressDialog.show()
+
+            val file = reduceFileImage(getFile as File)
+
+            val description = binding.etDescription.text
+                .toString().toRequestBody("text/plain".toMediaType())
+            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                "photo",
+                file.name,
+                requestImageFile
+            )
+
+            val service = ApiConfig().getApiService().uploadImage(
+                imageMultipart,
+                description,
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k"
+            )
+
+            service.enqueue(object : Callback<FileUploadResponse> {
+                override fun onResponse(
+                    call: Call<FileUploadResponse>,
+                    response: Response<FileUploadResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null && !responseBody.error) {
+                            Toast.makeText(
+                                this@AddStoryActivity,
+                                responseBody.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@AddStoryActivity,
+                            response.message(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        progressDialog.dismiss()
+                    }
+                }
+
+                override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                    Toast.makeText(
+                        this@AddStoryActivity,
+                        "Gagal instance Retrofit",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    progressDialog.dismiss()
+
+                }
+            })
+        } else {
+            Toast.makeText(
+                this@AddStoryActivity,
+                "Silakan masukkan berkas gambar terlebih dahulu.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
