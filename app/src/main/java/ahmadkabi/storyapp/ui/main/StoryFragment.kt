@@ -3,14 +3,21 @@ package ahmadkabi.storyapp.ui.main
 import ahmadkabi.storyapp.DetailActivity
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
+import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.network.GetStoriesResponse
+import ahmadkabi.storyapp.network.Story
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
@@ -42,12 +49,16 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        getStories()
+
+    }
+
     private lateinit var adapter: StoryAdapter
     private fun buildRv() {
         adapter = StoryAdapter()
-        adapter.addItems(
-            resources.getStringArray(R.array.recyclerview_items).toCollection(ArrayList())
-        )
         adapter.listener = this
 
         val itemDecorVertical =
@@ -66,8 +77,53 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
     }
 
-    override fun onItemClickListener(position: Int, item: String) {
+    override fun onItemClickListener(position: Int, item: Story) {
         startActivity(DetailActivity.newIntent(requireContext()))
+    }
+
+
+    private fun getStories() {
+        val service = ApiConfig().getApiService().getStories(
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k",
+        )
+
+        service.enqueue(object : Callback<GetStoriesResponse> {
+            override fun onResponse(
+                call: Call<GetStoriesResponse>,
+                response: Response<GetStoriesResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null && !responseBody.error) {
+                        Toast.makeText(
+                            requireContext(),
+                            responseBody.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    adapter.addItems(response.body()?.listStory)
+
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        response.message(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+//                        progressDialog.dismiss()
+                }
+            }
+
+            override fun onFailure(call: Call<GetStoriesResponse>, t: Throwable) {
+                Toast.makeText(
+                    requireContext(),
+                    "Gagal instance Retrofit",
+                    Toast.LENGTH_SHORT
+                ).show()
+//                    progressDialog.dismiss()
+
+            }
+        })
     }
 
     companion object {

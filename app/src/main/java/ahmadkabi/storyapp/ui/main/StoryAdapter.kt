@@ -2,6 +2,7 @@ package ahmadkabi.storyapp.ui.main
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
+import ahmadkabi.storyapp.network.Story
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 class StoryAdapter :
     RecyclerView.Adapter<StoryAdapter.MyViewHolder>() {
 
-    private val items = arrayListOf<String>()
+    private val items = arrayListOf<Story>()
 
     inner class MyViewHolder(val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -38,17 +39,17 @@ class StoryAdapter :
     override fun onBindViewHolder(holder: StoryAdapter.MyViewHolder, position: Int) {
         val item = items[position]
 
-//        holder.binding.txName.text = item
-
         Glide
             .with(holder.itemView.context)
-            .load("https://story-api.dicoding.dev/images/stories/photos-1664615087142_m3gc6pE4.jpg")
+            .load(item.photoUrl)
             .transform(
                 CenterCrop(),
                 RoundedCorners(holder.itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
             )
             .into(holder.binding.imgStory)
 
+        holder.binding.txAvatar.text = item.name[0].toString()
+        holder.binding.txName.text = item.name
 
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(holder.adapterPosition, item)
@@ -76,20 +77,22 @@ class StoryAdapter :
         }
     }
 
-    fun addItem(item: String) {
+    fun addItem(item: Story) {
         this.items.add(item)
         notifyItemInserted(items.lastIndex)
     }
 
-    fun addItems(items: List<String>) {
-        this.items.addAll(items)
-        notifyDataSetChanged()
+    fun addItems(items: List<Story>?) {
+        if (items != null) {
+            this.items.addAll(items)
+            notifyDataSetChanged()
+        }
     }
 
     lateinit var listener: ItemListener
 
     interface ItemListener {
-        fun onItemClickListener(position: Int, item: String)
+        fun onItemClickListener(position: Int, item: Story)
     }
 
 }

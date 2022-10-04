@@ -12,21 +12,43 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-data class FileUploadResponse(
+data class AddStoryResponse(
     @field:SerializedName("error")
     val error: Boolean,
     @field:SerializedName("message")
     val message: String
 )
 
+data class GetStoriesResponse(
+    val error: Boolean,
+    val message: String,
+    val listStory: ArrayList<Story>
+)
+
+data class Story(
+    val id: String,
+    val name: String,
+    val description: String,
+    val photoUrl: String,
+    val createdAt: Any,
+    val lat: Float,
+    val lon: Float
+)
+
 interface ApiService {
+
+    @GET("/v1/stories")
+    fun getStories(
+        @Header("Authorization") authorization: String
+    ): Call<GetStoriesResponse>
+
     @Multipart
     @POST("/v1/stories")
     fun uploadImage(
+        @Header("Authorization") authorization: String,
         @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody,
-        @Header("Authorization") authorization: String
-    ): Call<FileUploadResponse>
+        @Part("description") description: RequestBody
+    ): Call<AddStoryResponse>
 
 }
 

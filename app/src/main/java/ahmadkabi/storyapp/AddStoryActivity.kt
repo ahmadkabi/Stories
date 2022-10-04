@@ -3,7 +3,7 @@ package ahmadkabi.storyapp
 import ahmadkabi.*
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.FileUploadResponse
+import ahmadkabi.storyapp.network.AddStoryResponse
 import android.Manifest
 import android.app.Dialog
 import android.content.Context
@@ -175,15 +175,15 @@ class AddStoryActivity : AppCompatActivity() {
             )
 
             val service = ApiConfig().getApiService().uploadImage(
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k",
                 imageMultipart,
-                description,
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k"
+                description
             )
 
-            service.enqueue(object : Callback<FileUploadResponse> {
+            service.enqueue(object : Callback<AddStoryResponse> {
                 override fun onResponse(
-                    call: Call<FileUploadResponse>,
-                    response: Response<FileUploadResponse>
+                    call: Call<AddStoryResponse>,
+                    response: Response<AddStoryResponse>
                 ) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
@@ -205,7 +205,7 @@ class AddStoryActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<FileUploadResponse>, t: Throwable) {
+                override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
                     Toast.makeText(
                         this@AddStoryActivity,
                         "Gagal instance Retrofit",
