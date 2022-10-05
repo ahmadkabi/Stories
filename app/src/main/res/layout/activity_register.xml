@@ -86,11 +86,11 @@
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginBottom="@dimen/dp_30"
             android:text="Have an Accoutn? Login"
-            app:layout_constraintBottom_toTopOf="@id/btnLogin"
-            app:layout_constraintStart_toStartOf="@id/btnLogin" />
+            app:layout_constraintBottom_toTopOf="@id/btnRegister"
+            app:layout_constraintStart_toStartOf="@id/btnRegister" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegister"
             style="@style/MaterialButton.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -12,30 +12,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-data class AddStoryResponse(
-    @field:SerializedName("error")
-    val error: Boolean,
-    @field:SerializedName("message")
-    val message: String
-)
-
-data class GetStoriesResponse(
-    val error: Boolean,
-    val message: String,
-    val listStory: ArrayList<Story>
-)
-
-data class Story(
-    val id: String,
-    val name: String,
-    val description: String,
-    val photoUrl: String,
-    val createdAt: Any,
-    val lat: Float,
-    val lon: Float
-)
-
 interface ApiService {
+
+    @POST("/v1/register")
+    fun register(
+        @Body body: RegisterBody
+    ): Call<RegisterResponse>
+
+    @POST("/v1/login")
+    fun login(
+        @Body body: LoginBody
+    ): Call<LoginResponse>
 
     @GET("/v1/stories")
     fun getStories(
@@ -68,3 +55,53 @@ class ApiConfig {
     }
 }
 
+data class AddStoryResponse(
+    @field:SerializedName("error")
+    val error: Boolean,
+    @field:SerializedName("message")
+    val message: String
+)
+
+data class RegisterBody(
+    val name: String,
+    val email: String,
+    val password: String
+)
+
+data class RegisterResponse(
+    val error: Boolean,
+    val message: String
+)
+
+data class LoginBody(
+    val email: String,
+    val password: String
+)
+
+data class LoginResponse(
+    val error: Boolean,
+    val message: String,
+    val loginResult: LoginResult
+)
+
+data class LoginResult(
+    val userId: String,
+    val name: String,
+    val token: String
+)
+
+data class GetStoriesResponse(
+    val error: Boolean,
+    val message: String,
+    val listStory: ArrayList<Story>
+)
+
+data class Story(
+    val id: String,
+    val name: String,
+    val description: String,
+    val photoUrl: String,
+    val createdAt: Any,
+    val lat: Float,
+    val lon: Float
+)
