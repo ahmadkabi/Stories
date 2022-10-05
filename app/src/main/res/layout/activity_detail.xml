@@ -22,11 +22,10 @@
                 app:srcCompat="@drawable/ic_round_arrow_back_24" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txName"
                 style="@style/Text.Content5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Story Detail"
+                android:text="@string/story_detail"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@id/imgBack"
                 app:layout_constraintStart_toEndOf="@id/imgBack"
@@ -65,7 +64,7 @@
                     android:text="K" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/txUserName"
+                    android:id="@+id/txName"
                     style="@style/Text.Content2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

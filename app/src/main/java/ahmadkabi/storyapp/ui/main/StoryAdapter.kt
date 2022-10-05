@@ -48,11 +48,11 @@ class StoryAdapter :
             )
             .into(holder.binding.imgStory)
 
-        holder.binding.txAvatar.text = item.name[0].toString()
+        holder.binding.txAvatar.text = item.name[0].toString().uppercase()
         holder.binding.txName.text = item.name
 
         holder.itemView.setOnClickListener {
-            listener.onItemClickListener(holder.adapterPosition, item)
+            listener.onItemClickListener(item)
         }
 
         setAnimation(holder.itemView, position)
@@ -92,7 +92,7 @@ class StoryAdapter :
     lateinit var listener: ItemListener
 
     interface ItemListener {
-        fun onItemClickListener(position: Int, item: Story)
+        fun onItemClickListener(item: Story)
     }
 
 }

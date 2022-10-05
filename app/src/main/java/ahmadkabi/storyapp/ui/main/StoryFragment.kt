@@ -1,7 +1,6 @@
 package ahmadkabi.storyapp.ui.main
 
-import ahmadkabi.storyapp.DetailActivity
-import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.GetStoriesResponse
@@ -77,8 +76,12 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
     }
 
-    override fun onItemClickListener(position: Int, item: Story) {
-        startActivity(DetailActivity.newIntent(requireContext()))
+    override fun onItemClickListener(item: Story) {
+        val intent = DetailActivity.newIntent(requireContext())
+        intent.putExtra(extraUserName, item.name)
+        intent.putExtra(extraImageUrl, item.photoUrl)
+        intent.putExtra(extraDescription, item.description)
+        startActivity(intent)
     }
 
 

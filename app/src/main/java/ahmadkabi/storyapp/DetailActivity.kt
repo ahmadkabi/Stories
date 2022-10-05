@@ -21,14 +21,17 @@ class DetailActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
         binding.imgBack.setOnClickListener { finish() }
+
         Glide
             .with(this)
-            .load("https://story-api.dicoding.dev/images/stories/photos-1664615087142_m3gc6pE4.jpg")
-//            .transform(
-//                CenterCrop(),
-//                RoundedCorners(resources.getDimensionPixelSize(R.dimen.dp_30))
-//            )
+            .load(intent.getStringExtra(extraImageUrl))
             .into(binding.imgStory)
+
+        val userName: String  = intent.getStringExtra(extraUserName) ?: ""
+        binding.txAvatar.text = userName[0].toString().uppercase()
+        binding.txName.text = userName
+
+        binding.txDescription.text = intent.getStringExtra(extraDescription)
 
     }
 
