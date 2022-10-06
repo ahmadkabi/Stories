@@ -5,28 +5,10 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="name">Name</string>
-    <string name="title_activity_home2">Home2Activity</string>
     <string name="stories">Stories</string>
     <string name="account">Account</string>
     <string name="no_camera_permission">Camera permission is not granted</string>
-
-
-
-    <string-array name="recyclerview_items">
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
-        <item>Item 4</item>
-        <item>Item 5</item>
-        <item>Item 6</item>
-        <item>Item 7</item>
-        <item>Item 8</item>
-        <item>Item 9</item>
-        <item>Item 10</item>
-        <item>Item 11</item>
-    </string-array>
-
-    <string name="lorem_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a tincidunt nisi. Vestibulum volutpat urna id tellus consectetur, sed tempor mi accumsan. Maecenas sit amet lacinia nibh, consequat iaculis metus. Vivamus vel libero pretium, lacinia lorem eget, aliquam diam. Cras quis mi risus. Morbi at tortor sit amet magna malesuada finibus. Aenean bibendum non dolor ut dictum. Donec condimentum viverra risus, ut fringilla enim euismod ac. Phasellus porttitor sollicitudin facilisis.\n\n\nFusce eleifend, massa eu pharetra vulputate, magna nunc cursus mauris, nec rhoncus libero magna et ligula. Nullam sagittis, nisi vitae laoreet pellentesque, nunc nulla tincidunt leo, vel commodo odio magna at velit. In hac habitasse platea dictumst. Nulla a quam non dui bibendum tempus. Vestibulum vehicula neque ut lorem feugiat consectetur. Suspendisse viverra nisl eget elit interdum accumsan. Pellentesque dolor massa, posuere sit amet justo id, tincidunt egestas ipsum. Morbi finibus, ipsum at placerat imperdiet, lorem erat iaculis elit, sit amet fringilla augue metus vel est. Aliquam tristique nulla non nunc commodo vehicula.\n\n\nCurabitur varius tristique purus nec tincidunt. Praesent eget convallis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tristique nisl quis nunc malesuada mollis. Vivamus congue enim a rhoncus elementum. Mauris eu neque lorem. Cras pellentesque volutpat tincidunt. Curabitur in bibendum mi. Sed non facilisis elit.\n\n\nInteger eu sagittis magna. Nulla consectetur erat sed efficitur vehicula. Curabitur dignissim, risus at porttitor sagittis, justo augue egestas velit, hendrerit imperdiet est neque ut velit. Aliquam suscipit sollicitudin vestibulum. Nunc accumsan interdum arcu, sit amet suscipit enim fringilla non. Curabitur ac magna aliquam ex pretium placerat. Quisque in neque quis sapien facilisis pharetra ut ut sem. Donec maximus varius mauris, ut cursus lorem accumsan ac. Ut viverra convallis erat, eleifend elementum enim cursus quis. Maecenas ultricies eu mauris nec ultrices. Quisque tempus lectus et est placerat posuere. Pellentesque molestie turpis convallis, vehicula nisl at, interdum odio. Nunc vestibulum consectetur interdum. Cras erat tortor, iaculis nec libero in, vulputate efficitur erat. Nullam eu rhoncus lorem, non ornare nisi. Praesent consequat gravida porta.</string>
+    <string name="lorem_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a tincidunt nisi. Vestibulum volutpat urna id tellus consectetur, sed tempor mi accumsan. Maecenas sit amet lacinia nibh, consequat iaculis metus. Vivamus vel libero pretium, lacinia lorem eget, aliquam diam. Cras quis mi risus. Morbi at tortor sit amet magna malesuada finibus. Aenean bibendum non dolor ut dictum. Donec condimentum viverra risus, ut fringilla enim euismod ac. Phasellus porttitor sollicitudin facilisis.\n\n\nFusce eleifend, massa eu pharetra vulputate, magna nunc cursus mauris, nec rhoncus libero magna et ligula. Nullam sagittis, nisi vitae laoreet pellentesque, nunc nulla tincidunt leo, vel commodo odio magna at velit. In hac habitasse platea dictumst. Nulla a quam non dui bibendum tempus. Vestibulum vehicula neque ut lorem feugiat consectetur. Suspendisse viverra nisl eget elit interdum accumsan. Pellentesque dolor massa, posuere sit amet justo id, tincidunt egestas ipsum. Morbi finibus, ipsum at placerat imperdiet, lorem erat iaculis elit, sit amet fringilla augue metus vel est. Aliquam tristique nulla non nunc commodo vehicula.\n\n\nCurabitur varius tristique purus nec tincidunt. Praesent eget convallis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tristique nisl quis nunc malesuada mollis. Vivamus congue enim a rhoncus elementum. Mauris eu neque lorem. Cras pellentesque volutpat tincidunt. Curabitur in bibendum mi. Sed non facilisis elit.\n\n\nInteger eu sagittis magna. Nulla consectetur erat sed efficitur vehicula. Curabitur dignissim, risus at porttitor sagittis, justo augue egestas velit, hendrerit imperdiet est neque ut velit. Aliquam suscipit sollicitudin vestibulum. Nunc accumsan interdum arcu, sit amet suscipit enim fringilla non. Curabitur ac magna aliquam ex pretium placerat. Quisque in neque quis sapien facilisis pharetra ut sem. Donec maximus varius mauris, ut cursus lorem accumsan ac. Ut viverra convallis erat, eleifend elementum enim cursus quis. Maecenas ultricies eu mauris nec ultrices. Quisque tempus lectus et est placerat posuere. Pellentesque molestie turpis convallis, vehicula nisl at, interdum odio. Nunc vestibulum consectetur interdum. Cras erat tortor, iaculis nec libero in, vulputate efficitur erat. Nullam eu rhoncus lorem, non ornare nisi. Praesent consequat gravida porta.</string>
     <string name="story_detail">Story Detail</string>
     <string name="new_user_has_been_made">User baru berhasil dibuat, silahkan login</string>
     <string name="gallery">Gallery</string>
