@@ -1,7 +1,7 @@
 package ahmadkabi.storyapp
 
-import ahmadkabi.*
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
+import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.AddStoryResponse
 import android.Manifest
@@ -174,8 +174,10 @@ class AddStoryActivity : AppCompatActivity() {
                 requestImageFile
             )
 
+            val userPreference = UserPreference(this)
+
             val service = ApiConfig().getApiService().uploadImage(
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k",
+                "Bearer ${userPreference.getToken()}",
                 imageMultipart,
                 description
             )

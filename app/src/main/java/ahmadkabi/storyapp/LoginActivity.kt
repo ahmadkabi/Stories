@@ -1,9 +1,11 @@
 package ahmadkabi.storyapp
 
+import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.databinding.ActivityLoginBinding
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.LoginBody
 import ahmadkabi.storyapp.network.LoginResponse
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -18,23 +20,36 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
+    private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
+
+    private lateinit var userPreference: UserPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        userPreference = UserPreference(this)
+        if (userPreference.getUserName() != null) {
+            startActivity(HomeActivity.newIntent(this@LoginActivity))
 
-        binding.txWanna.setOnClickListener {
-            startActivity(RegisterActivity.newIntent(this))
-        }
+        } else {
+            binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        binding.btnLogin.setOnClickListener {
-            login()
+            progressDialog.setCancelable(false)
+
+            binding.txWanna.setOnClickListener {
+                startActivity(RegisterActivity.newIntent(this))
+            }
+            binding.btnLogin.setOnClickListener {
+                login()
+            }
+
         }
 
     }
 
-
     private fun login() {
+        progressDialog.show()
+
         val body = LoginBody(
             binding.etEmail.text.toString(),
             binding.etPassword.text.toString(),
@@ -55,7 +70,12 @@ class LoginActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
 
+                        userPreference.setUser(
+                            responseBody.loginResult.name,
+                            responseBody.loginResult.token
+                        )
                         startActivity(HomeActivity.newIntent(this@LoginActivity))
+                        finish()
 
                     }
 
@@ -65,17 +85,17 @@ class LoginActivity : AppCompatActivity() {
                         response.message(),
                         Toast.LENGTH_SHORT
                     ).show()
-//                        progressDialog.dismiss()
+                    progressDialog.dismiss()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(
                     this@LoginActivity,
-                    "Gagal instance Retrofit",
+                    "Failed",
                     Toast.LENGTH_SHORT
                 ).show()
-//                    progressDialog.dismiss()
+                progressDialog.dismiss()
 
             }
         })

@@ -1,16 +1,15 @@
 package ahmadkabi.storyapp
 
-import ahmadkabi.storyapp.databinding.ActivityLoginBinding
 import ahmadkabi.storyapp.databinding.ActivityRegisterBinding
 import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.LoginBody
 import ahmadkabi.storyapp.network.RegisterBody
 import ahmadkabi.storyapp.network.RegisterResponse
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,25 +18,27 @@ import retrofit2.Response
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
+        progressDialog.setCancelable(false)
+
         binding.txHave.setOnClickListener {
             finish()
         }
-        
-        binding.btnRegister.setOnClickListener { 
+        binding.btnRegister.setOnClickListener {
             register()
         }
 
     }
 
-
-
     private fun register() {
+        progressDialog.show()
+
         val body = RegisterBody(
             binding.etName.text.toString(),
             binding.etEmail.text.toString(),
@@ -55,9 +56,12 @@ class RegisterActivity : AppCompatActivity() {
                     if (responseBody != null && !responseBody.error) {
                         Toast.makeText(
                             this@RegisterActivity,
-                            responseBody.message,
+                            getString(R.string.new_user_has_been_made),
                             Toast.LENGTH_SHORT
                         ).show()
+
+                        finish()
+
                     }
 
                 } else {
@@ -66,17 +70,17 @@ class RegisterActivity : AppCompatActivity() {
                         response.message(),
                         Toast.LENGTH_SHORT
                     ).show()
-//                        progressDialog.dismiss()
+                    progressDialog.dismiss()
                 }
             }
 
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 Toast.makeText(
                     this@RegisterActivity,
-                    "Gagal instance Retrofit",
+                    "Failed",
                     Toast.LENGTH_SHORT
                 ).show()
-//                    progressDialog.dismiss()
+                progressDialog.dismiss()
 
             }
         })

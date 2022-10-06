@@ -1,4 +1,4 @@
-package ahmadkabi
+package ahmadkabi.storyapp.helper
 
 import android.content.ContentResolver
 import android.content.Context

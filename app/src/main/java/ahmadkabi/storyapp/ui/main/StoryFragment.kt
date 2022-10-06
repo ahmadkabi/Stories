@@ -2,6 +2,7 @@ package ahmadkabi.storyapp.ui.main
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
+import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.GetStoriesResponse
 import ahmadkabi.storyapp.network.Story
@@ -86,8 +87,10 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
 
     private fun getStories() {
+        val userPreference = UserPreference(requireContext())
+
         val service = ApiConfig().getApiService().getStories(
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXBnMUloQlNqdG5BbUx2MG8iLCJpYXQiOjE2NjQ0MjMzMTJ9.ejFVl6IqyVJmbV6uNw723MWCskr9HcVhqeIiWPGrb3k",
+            "Bearer ${userPreference.getToken()}",
         )
 
         service.enqueue(object : Callback<GetStoriesResponse> {

@@ -1,7 +1,9 @@
 package ahmadkabi.storyapp.ui.main
 
 import ahmadkabi.storyapp.AddStoryActivity
+import ahmadkabi.storyapp.LoginActivity
 import ahmadkabi.storyapp.databinding.FragmentAccountBinding
+import ahmadkabi.storyapp.helper.UserPreference
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +36,13 @@ class AccountFragment : Fragment() {
 
         binding.btnMake.setOnClickListener {
             startActivity(AddStoryActivity.newIntent(requireContext()))
+        }
+        binding.btnLogout.setOnClickListener {
+            val userPreference = UserPreference(requireContext())
+            userPreference.clear()
+
+            startActivity(LoginActivity.newIntent(requireContext()))
+            requireActivity().finish()
         }
 
         accountViewModel.text.observe(viewLifecycleOwner) {
