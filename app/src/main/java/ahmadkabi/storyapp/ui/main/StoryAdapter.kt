@@ -77,14 +77,12 @@ class StoryAdapter :
         }
     }
 
-    fun addItem(item: Story) {
-        this.items.add(item)
-        notifyItemInserted(items.lastIndex)
-    }
-
-    fun addItems(items: List<Story>?) {
+    fun resetItems(items: List<Story>?) {
         if (items != null) {
+            if (this.items.isNotEmpty()) this.items.clear()
+
             this.items.addAll(items)
+
             notifyDataSetChanged()
         }
     }

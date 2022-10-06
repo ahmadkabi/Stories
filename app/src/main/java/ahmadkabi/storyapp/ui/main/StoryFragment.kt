@@ -6,6 +6,7 @@ import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.GetStoriesResponse
 import ahmadkabi.storyapp.network.Story
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,8 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
     private lateinit var storyViewModel: StoryViewModel
     private var _binding: FragmentStoryBinding? = null
 
+    private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(requireContext()) }
+
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,17 +43,25 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
         _binding = FragmentStoryBinding.inflate(inflater, container, false)
 
-        buildRv()
-
-        storyViewModel.text.observe(viewLifecycleOwner) {
-//            binding.sectionLabel.text = it
-        }
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        storyViewModel.text.observe(viewLifecycleOwner) {
+//            binding.sectionLabel.text = it
+        }
+
+        buildRv()
+
+        binding.swipeRefresh.setOnRefreshListener {
+            binding.swipeRefresh.isRefreshing = true
+
+            getStories()
+
+        }
 
         getStories()
 
@@ -87,6 +98,8 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
 
     private fun getStories() {
+        progressDialog.show()
+
         val userPreference = UserPreference(requireContext())
 
         val service = ApiConfig().getApiService().getStories(
@@ -107,8 +120,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
-                    adapter.addItems(response.body()?.listStory)
+                    adapter.resetItems(response.body()?.listStory)
 
                 } else {
                     Toast.makeText(
@@ -116,17 +128,19 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                         response.message(),
                         Toast.LENGTH_SHORT
                     ).show()
-//                        progressDialog.dismiss()
                 }
+                progressDialog.dismiss()
+                binding.swipeRefresh.isRefreshing = false
+
             }
 
             override fun onFailure(call: Call<GetStoriesResponse>, t: Throwable) {
                 Toast.makeText(
                     requireContext(),
-                    "Gagal instance Retrofit",
+                    "Failed",
                     Toast.LENGTH_SHORT
                 ).show()
-//                    progressDialog.dismiss()
+                progressDialog.dismiss()
 
             }
         })

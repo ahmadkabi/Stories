@@ -14,7 +14,7 @@ object DialogUtils {
         val dialog = Dialog(context)
         val inflate = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null)
         dialog.setContentView(inflate)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return dialog
     }

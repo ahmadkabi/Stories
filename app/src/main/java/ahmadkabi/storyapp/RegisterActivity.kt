@@ -25,8 +25,6 @@ class RegisterActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-        progressDialog.setCancelable(false)
-
         binding.txHave.setOnClickListener {
             finish()
         }

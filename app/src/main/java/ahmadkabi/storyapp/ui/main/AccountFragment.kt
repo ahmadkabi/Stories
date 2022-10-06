@@ -34,6 +34,12 @@ class AccountFragment : Fragment() {
 
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         binding.btnMake.setOnClickListener {
             startActivity(AddStoryActivity.newIntent(requireContext()))
         }
@@ -42,14 +48,18 @@ class AccountFragment : Fragment() {
             userPreference.clear()
 
             startActivity(LoginActivity.newIntent(requireContext()))
-            requireActivity().finish()
+            activity?.finish()
         }
 
         accountViewModel.text.observe(viewLifecycleOwner) {
 //            binding.sectionLabel.text = it
         }
 
-        return binding.root
+        val userPreference = UserPreference(requireContext())
+        val userName = userPreference.getUserName() ?: ""
+        binding.txAvatar.text = userName[0].toString().uppercase()
+        binding.txName.text = userName
+
     }
 
     companion object {

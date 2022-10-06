@@ -46,7 +46,6 @@ class AddStoryActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
 
-        progressDialog.setCancelable(false)
         binding.imgBack.setOnClickListener { finish() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
         binding.btnGallery.setOnClickListener { startGallery() }

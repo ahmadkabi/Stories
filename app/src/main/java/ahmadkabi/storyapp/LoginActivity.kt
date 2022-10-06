@@ -30,11 +30,10 @@ class LoginActivity : AppCompatActivity() {
         userPreference = UserPreference(this)
         if (userPreference.getUserName() != null) {
             startActivity(HomeActivity.newIntent(this@LoginActivity))
+            finish()
 
         } else {
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-
-            progressDialog.setCancelable(false)
 
             binding.txWanna.setOnClickListener {
                 startActivity(RegisterActivity.newIntent(this))
