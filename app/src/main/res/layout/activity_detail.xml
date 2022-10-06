@@ -61,7 +61,7 @@
                     android:layout_height="@dimen/dp_26"
                     android:background="@drawable/bg_circle_blue50"
                     android:gravity="center"
-                    android:text="K" />
+                    android:text="@string/u" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_detail_name"
@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_10"
-                    android:text="Ahmadkabi" />
+                    android:text="@string/username" />
 
             </LinearLayout>
 

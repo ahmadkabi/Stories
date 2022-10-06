@@ -37,7 +37,7 @@
                 android:layout_height="@dimen/dp_26"
                 android:background="@drawable/bg_circle_primary"
                 android:gravity="center"
-                android:text="A" />
+                android:text="@string/u" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_item_name"
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
-                android:text="Ahmadkabi" />
+                android:text="@string/username" />
 
         </LinearLayout>
 

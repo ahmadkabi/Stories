@@ -25,7 +25,7 @@
             style="@style/Text.Header40"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             app:layout_constraintBottom_toTopOf="@id/txSubTitle"
             app:layout_constraintStart_toStartOf="@id/txWanna" />
 
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_30"
-            android:text="Share Stories with your classmate"
+            android:text="@string/share_stories_with_your_classmate"
             app:layout_constraintBottom_toTopOf="@id/ed_login_email"
             app:layout_constraintStart_toStartOf="@id/txWanna" />
 
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginBottom="@dimen/dp_30"
-            android:text="Wanna Join Us? Register"
+            android:text="@string/wanna_join_us_register"
             app:layout_constraintBottom_toTopOf="@id/btnLogin"
             app:layout_constraintStart_toStartOf="@id/btnLogin" />
 
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_20"
-            android:text="Login"
+            android:text="@string/login"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

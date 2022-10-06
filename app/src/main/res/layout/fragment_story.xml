@@ -39,7 +39,7 @@
         style="@style/Text.Header3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Data Available"
+        android:text="@string/no_data_available"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/imgEmpty"
         app:layout_constraintStart_toStartOf="@id/imgEmpty"

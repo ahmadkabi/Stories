@@ -25,7 +25,7 @@
             style="@style/Text.Header40"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register"
             app:layout_constraintBottom_toTopOf="@id/txSubTitle"
             app:layout_constraintStart_toStartOf="@id/txHave" />
 
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_30"
-            android:text="Simple Register and You're Ready"
+            android:text="@string/simple_register_and_you_re_ready"
             app:layout_constraintBottom_toTopOf="@id/ed_register_name"
             app:layout_constraintStart_toStartOf="@id/txHave" />
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginBottom="@dimen/dp_30"
-            android:text="Have an Accoutn? Login"
+            android:text="@string/have_an_account_login"
             app:layout_constraintBottom_toTopOf="@id/btnRegister"
             app:layout_constraintStart_toStartOf="@id/btnRegister" />
 
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_20"
-            android:text="Register"
+            android:text="@string/register"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

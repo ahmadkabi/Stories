@@ -3,6 +3,8 @@ package ahmadkabi.storyapp.ui.main
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
 import ahmadkabi.storyapp.helper.UserPreference
+import ahmadkabi.storyapp.helper.gone
+import ahmadkabi.storyapp.helper.visible
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.GetStoriesResponse
 import ahmadkabi.storyapp.network.Story
@@ -120,7 +122,16 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                    adapter.resetItems(response.body()?.listStory)
+
+                    if(response.body()?.listStory?.isNotEmpty() == true){
+                        adapter.resetItems(response.body()?.listStory)
+
+                        binding.txEmpty.gone()
+                        binding.imgEmpty.gone()
+                    }else{
+                        binding.txEmpty.visible()
+                        binding.imgEmpty.visible()
+                    }
 
                 } else {
                     Toast.makeText(
