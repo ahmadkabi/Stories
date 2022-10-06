@@ -38,9 +38,9 @@ class RegisterActivity : AppCompatActivity() {
         progressDialog.show()
 
         val body = RegisterBody(
-            binding.etName.text.toString(),
-            binding.etEmail.text.toString(),
-            binding.etPassword.text.toString()
+            binding.edRegisterName.text.toString(),
+            binding.edRegisterEmail.text.toString(),
+            binding.edRegisterPassword.text.toString()
         )
         val service = ApiConfig().getApiService().register(body)
 

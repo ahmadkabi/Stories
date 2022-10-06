@@ -43,7 +43,7 @@ class AccountFragment : Fragment() {
         binding.btnMake.setOnClickListener {
             startActivity(AddStoryActivity.newIntent(requireContext()))
         }
-        binding.btnLogout.setOnClickListener {
+        binding.actionLogout.setOnClickListener {
             val userPreference = UserPreference(requireContext())
             userPreference.clear()
 

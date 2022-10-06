@@ -38,8 +38,8 @@ class AddStoryActivity : AppCompatActivity() {
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
-    private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-    private val REQUEST_CODE_PERMISSIONS = 10
+    private val requiredPermission = arrayOf(Manifest.permission.CAMERA)
+    private val requestCodePermission = 10
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class AddStoryActivity : AppCompatActivity() {
         binding.imgBack.setOnClickListener { finish() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
         binding.btnGallery.setOnClickListener { startGallery() }
-        binding.btnMake.setOnClickListener { uploadImage() }
+        binding.buttonAdd.setOnClickListener { uploadImage() }
         binding.imgCancel.setOnClickListener {
             getFile = null
             binding.imgStory.setImageBitmap(null)
@@ -57,15 +57,15 @@ class AddStoryActivity : AppCompatActivity() {
 
             binding.btnCamera.visible()
             binding.btnGallery.visible()
-            binding.btnMake.gone()
+            binding.buttonAdd.gone()
         }
 
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
+                requiredPermission,
+                requestCodePermission
             )
         }
 
@@ -73,7 +73,7 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
 
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+    private fun allPermissionsGranted() = requiredPermission.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
@@ -87,7 +87,7 @@ class AddStoryActivity : AppCompatActivity() {
 
     private fun startTakePhoto() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.resolveActivity(packageManager)
+//        intent.resolveActivity(packageManager)
 
         createCustomTempFile(application).also {
             val photoURI: Uri = FileProvider.getUriForFile(
@@ -114,7 +114,7 @@ class AddStoryActivity : AppCompatActivity() {
             binding.imgCancel.visible()
             binding.btnCamera.gone()
             binding.btnGallery.gone()
-            binding.btnMake.visible()
+            binding.buttonAdd.visible()
         }
     }
 
@@ -132,7 +132,7 @@ class AddStoryActivity : AppCompatActivity() {
             binding.imgCancel.visible()
             binding.btnCamera.gone()
             binding.btnGallery.gone()
-            binding.btnMake.visible()
+            binding.buttonAdd.visible()
         }
     }
 
@@ -143,7 +143,7 @@ class AddStoryActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+        if (requestCode == requestCodePermission) {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
@@ -164,7 +164,7 @@ class AddStoryActivity : AppCompatActivity() {
 
             val file = reduceFileImage(getFile as File)
 
-            val description = binding.etDescription.text
+            val description = binding.edAddDescription.text
                 .toString().toRequestBody("text/plain".toMediaType())
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(

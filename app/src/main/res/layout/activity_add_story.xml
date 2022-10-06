@@ -88,7 +88,7 @@
                     app:tint="@color/black" />
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/etDescription"
+                    android:id="@+id/ed_add_description"
                     style="@style/EditText.Multiline.Description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
             app:layout_constraintStart_toEndOf="@id/btnGallery" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMake"
+            android:id="@+id/button_add"
             style="@style/MaterialButton.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

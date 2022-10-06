@@ -7,7 +7,7 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgStory"
+            android:id="@+id/iv_item_photo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_300"
             android:padding="@dimen/dp_1"
@@ -40,7 +40,7 @@
                 android:text="A" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txName"
+                android:id="@+id/tv_item_name"
                 style="@style/Text.Content2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

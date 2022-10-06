@@ -25,13 +25,13 @@ class DetailActivity : AppCompatActivity() {
         Glide
             .with(this)
             .load(intent.getStringExtra(extraImageUrl))
-            .into(binding.imgStory)
+            .into(binding.ivDetailPhoto)
 
         val userName: String  = intent.getStringExtra(extraUserName) ?: ""
         binding.txAvatar.text = userName[0].toString().uppercase()
-        binding.txName.text = userName
+        binding.tvDetailName.text = userName
 
-        binding.txDescription.text = intent.getStringExtra(extraDescription)
+        binding.tvDetailDescription.text = intent.getStringExtra(extraDescription)
 
     }
 

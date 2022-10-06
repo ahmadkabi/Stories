@@ -46,10 +46,10 @@ class StoryAdapter :
                 CenterCrop(),
                 RoundedCorners(holder.itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
             )
-            .into(holder.binding.imgStory)
+            .into(holder.binding.ivItemPhoto)
 
         holder.binding.txAvatar.text = item.name[0].toString().uppercase()
-        holder.binding.txName.text = item.name
+        holder.binding.tvItemName.text = item.name
 
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(item)

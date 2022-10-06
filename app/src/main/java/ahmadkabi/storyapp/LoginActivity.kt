@@ -50,8 +50,8 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
 
         val body = LoginBody(
-            binding.etEmail.text.toString(),
-            binding.etPassword.text.toString(),
+            binding.edLoginEmail.text.toString(),
+            binding.edLoginPassword.text.toString(),
         )
         val service = ApiConfig().getApiService().login(body)
 

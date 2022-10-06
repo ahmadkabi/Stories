@@ -36,11 +36,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_30"
             android:text="Simple Register and You're Ready"
-            app:layout_constraintBottom_toTopOf="@id/etName"
+            app:layout_constraintBottom_toTopOf="@id/ed_register_name"
             app:layout_constraintStart_toStartOf="@id/txHave" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etName"
+            android:id="@+id/ed_register_name"
             style="@style/EditText.Background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,10 +50,10 @@
             android:drawablePadding="@dimen/dp_10"
             android:hint="@string/name"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/etEmail" />
+            app:layout_constraintBottom_toTopOf="@id/ed_register_email" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etEmail"
+            android:id="@+id/ed_register_email"
             style="@style/EditText.Background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,10 +63,10 @@
             android:drawablePadding="@dimen/dp_10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/etPassword" />
+            app:layout_constraintBottom_toTopOf="@id/ed_register_password" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etPassword"
+            android:id="@+id/ed_register_password"
             style="@style/EditText.Background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
