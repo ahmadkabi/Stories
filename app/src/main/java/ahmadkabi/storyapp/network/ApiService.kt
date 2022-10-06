@@ -1,16 +1,13 @@
 package ahmadkabi.storyapp.network
 
 import okhttp3.MultipartBody
-import retrofit2.Call
-import retrofit2.http.*
-import retrofit2.http.POST
-import okhttp3.RequestBody
-import retrofit2.http.Multipart
-import com.google.gson.annotations.SerializedName
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -56,9 +53,7 @@ class ApiConfig {
 }
 
 data class AddStoryResponse(
-    @field:SerializedName("error")
     val error: Boolean,
-    @field:SerializedName("message")
     val message: String
 )
 

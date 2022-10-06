@@ -81,7 +81,7 @@ class AddStoryActivity : AppCompatActivity() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        val chooser = Intent.createChooser(intent, getString(R.string.choose_a_picture))
         launcherIntentGallery.launch(chooser)
     }
 
@@ -209,7 +209,7 @@ class AddStoryActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
                     Toast.makeText(
                         this@AddStoryActivity,
-                        "Gagal instance Retrofit",
+                        getString(R.string.sorry_something_went_wrong_please_try_again_later),
                         Toast.LENGTH_SHORT
                     ).show()
                     progressDialog.dismiss()
@@ -219,7 +219,7 @@ class AddStoryActivity : AppCompatActivity() {
         } else {
             Toast.makeText(
                 this@AddStoryActivity,
-                "Silakan masukkan berkas gambar terlebih dahulu.",
+                getString(R.string.please_set_image_file_first),
                 Toast.LENGTH_SHORT
             ).show()
         }

@@ -44,6 +44,9 @@
     <string name="simple_register_and_you_re_ready">Simple Register and You\'re Ready</string>
     <string name="logout">Logout</string>
     <string name="no_data_available">No Data Available</string>
+    <string name="sorry_something_went_wrong_please_try_again_later">Sorry something went wrnng. Please try again later</string>
+    <string name="choose_a_picture">Choose a Picture</string>
+    <string name="please_set_image_file_first">Please set image file first</string>
 
     <!--
     <a href="https://www.freepik.com/free-vector/christmas-scribble-pattern-background-vector_18240960.htm#query=handdraw&position=13&from_view=search">Image by rawpixel.com</a> on Freepik

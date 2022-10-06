@@ -1,5 +1,5 @@
 package ahmadkabi.storyapp
 
-val extraUserName = "userName"
-val extraImageUrl = "imageUrl"
-val extraDescription = "description"
+const val extraUserName = "userName"
+const val extraImageUrl = "imageUrl"
+const val extraDescription = "description"

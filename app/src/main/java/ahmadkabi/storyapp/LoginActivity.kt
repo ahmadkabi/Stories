@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(
                     this@LoginActivity,
-                    "Failed",
+                    getString(R.string.sorry_something_went_wrong_please_try_again_later),
                     Toast.LENGTH_SHORT
                 ).show()
                 progressDialog.dismiss()

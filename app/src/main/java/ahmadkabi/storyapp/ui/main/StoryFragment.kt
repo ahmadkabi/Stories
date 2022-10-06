@@ -148,7 +148,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
             override fun onFailure(call: Call<GetStoriesResponse>, t: Throwable) {
                 Toast.makeText(
                     requireContext(),
-                    "Failed",
+                    getString(R.string.sorry_something_went_wrong_please_try_again_later),
                     Toast.LENGTH_SHORT
                 ).show()
                 progressDialog.dismiss()
