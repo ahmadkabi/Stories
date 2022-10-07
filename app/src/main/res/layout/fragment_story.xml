@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_asd" />
+        app:srcCompat="@drawable/ic_o" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txEmpty"

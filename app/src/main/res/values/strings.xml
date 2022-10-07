@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Story App</string>
     <string name="type_here">Type Here</string>
     <string name="email">Email</string>
@@ -10,7 +11,7 @@
     <string name="no_camera_permission">Camera permission is not granted</string>
     <string name="lorem_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a tincidunt nisi. Vestibulum volutpat urna id tellus consectetur, sed tempor mi accumsan. Maecenas sit amet lacinia nibh, consequat iaculis metus. Vivamus vel libero pretium, lacinia lorem eget, aliquam diam. Cras quis mi risus. Morbi at tortor sit amet magna malesuada finibus. Aenean bibendum non dolor ut dictum. Donec condimentum viverra risus, ut fringilla enim euismod ac. Phasellus porttitor sollicitudin facilisis.\n\n\nFusce eleifend, massa eu pharetra vulputate, magna nunc cursus mauris, nec rhoncus libero magna et ligula. Nullam sagittis, nisi vitae laoreet pellentesque, nunc nulla tincidunt leo, vel commodo odio magna at velit. In hac habitasse platea dictumst. Nulla a quam non dui bibendum tempus. Vestibulum vehicula neque ut lorem feugiat consectetur. Suspendisse viverra nisl eget elit interdum accumsan. Pellentesque dolor massa, posuere sit amet justo id, tincidunt egestas ipsum. Morbi finibus, ipsum at placerat imperdiet, lorem erat iaculis elit, sit amet fringilla augue metus vel est. Aliquam tristique nulla non nunc commodo vehicula.\n\n\nCurabitur varius tristique purus nec tincidunt. Praesent eget convallis tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tristique nisl quis nunc malesuada mollis. Vivamus congue enim a rhoncus elementum. Mauris eu neque lorem. Cras pellentesque volutpat tincidunt. Curabitur in bibendum mi. Sed non facilisis elit.\n\n\nInteger eu sagittis magna. Nulla consectetur erat sed efficitur vehicula. Curabitur dignissim, risus at porttitor sagittis, justo augue egestas velit, hendrerit imperdiet est neque ut velit. Aliquam suscipit sollicitudin vestibulum. Nunc accumsan interdum arcu, sit amet suscipit enim fringilla non. Curabitur ac magna aliquam ex pretium placerat. Quisque in neque quis sapien facilisis pharetra ut sem. Donec maximus varius mauris, ut cursus lorem accumsan ac. Ut viverra convallis erat, eleifend elementum enim cursus quis. Maecenas ultricies eu mauris nec ultrices. Quisque tempus lectus et est placerat posuere. Pellentesque molestie turpis convallis, vehicula nisl at, interdum odio. Nunc vestibulum consectetur interdum. Cras erat tortor, iaculis nec libero in, vulputate efficitur erat. Nullam eu rhoncus lorem, non ornare nisi. Praesent consequat gravida porta.</string>
     <string name="story_detail">Story Detail</string>
-    <string name="new_user_has_been_made">User baru berhasil dibuat, silahkan login</string>
+    <string name="your_account_has_been_made">Your account has been made, please login</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="make_new_story">Make New Story</string>
@@ -26,9 +27,15 @@
     <string name="simple_register_and_you_re_ready">Simple Register and You\'re Ready</string>
     <string name="logout">Logout</string>
     <string name="no_data_available">No Data Available</string>
-    <string name="sorry_something_went_wrong_please_try_again_later">Sorry something went wrnng. Please try again later</string>
+    <string name="sorry_something_went_wrong_please_try_again_later">Sorry something went wrong. Please try again later</string>
+    <string name="loading_stories_is_failed_please_try_again_later">Loading stories is failed. Please try again later</string>
+    <string name="sorry_operation_is_failed_please_input_data_correctly">Sorry operation is failed. Please input data correctly</string>
+    <string name="welcome">Welcome</string>
     <string name="choose_a_picture">Choose a Picture</string>
     <string name="please_set_image_file_first">Please set image file first</string>
+    <string name="minimal_password_is_6_characters">Minimal password is 6 characters</string>
+    <string name="new_story_has_been_made">New Story has been made</string>
+    <string name="failed_to_add_new_story_please_input_data_correctly">Failed to add new Story. . Please input data correctly</string>
 
     <!--
     <a href="https://www.freepik.com/free-vector/christmas-scribble-pattern-background-vector_18240960.htm#query=handdraw&position=13&from_view=search">Image by rawpixel.com</a> on Freepik
@@ -38,4 +45,5 @@ Image by <a href="https://www.freepik.com/free-vector/collection-hand-drawn-bull
 Image by <a href="https://www.freepik.com/free-vector/background-with-sketches-travel_892775.htm#query=handdraw&position=0&from_view=search">Freepik</a>
 <a href="https://www.freepik.com/free-vector/attention-attraction-important-announcement-warning-information-sharing-latest-news-loudspeaker-megaphone-bullhorn-with-exclamation-mark_11669171.htm#query=share%20story&position=2&from_view=search">Image by vectorjuice</a> on Freepik
     -->
+
 </resources>

@@ -191,7 +191,7 @@ class AddStoryActivity : AppCompatActivity() {
                         if (responseBody != null && !responseBody.error) {
                             Toast.makeText(
                                 this@AddStoryActivity,
-                                responseBody.message,
+                                getString(R.string.new_story_has_been_made),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -199,7 +199,7 @@ class AddStoryActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(
                             this@AddStoryActivity,
-                            response.message(),
+                            getString(R.string.failed_to_add_new_story_please_input_data_correctly),
                             Toast.LENGTH_SHORT
                         ).show()
                         progressDialog.dismiss()

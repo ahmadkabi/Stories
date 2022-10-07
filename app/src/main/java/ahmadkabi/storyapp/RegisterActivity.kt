@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
                     if (responseBody != null && !responseBody.error) {
                         Toast.makeText(
                             this@RegisterActivity,
-                            getString(R.string.new_user_has_been_made),
+                            getString(R.string.your_account_has_been_made),
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -65,7 +65,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@RegisterActivity,
-                        response.message(),
+                        getString(R.string.sorry_operation_is_failed_please_input_data_correctly),
                         Toast.LENGTH_SHORT
                     ).show()
                     progressDialog.dismiss()

@@ -63,14 +63,16 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
+                        val userName = responseBody.loginResult.name
+
                         Toast.makeText(
                             this@LoginActivity,
-                            responseBody.message,
+                            "${getString(R.string.welcome)} $userName",
                             Toast.LENGTH_SHORT
                         ).show()
 
                         userPreference.setUser(
-                            responseBody.loginResult.name,
+                            userName,
                             responseBody.loginResult.token
                         )
                         startActivity(HomeActivity.newIntent(this@LoginActivity))
@@ -81,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@LoginActivity,
-                        response.message(),
+                        getString(R.string.sorry_operation_is_failed_please_input_data_correctly),
                         Toast.LENGTH_SHORT
                     ).show()
                     progressDialog.dismiss()

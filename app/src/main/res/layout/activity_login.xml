@@ -52,7 +52,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/ed_login_password" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <ahmadkabi.storyapp.widget.PasswordEditText
             android:id="@+id/ed_login_password"
             style="@style/EditText.Background"
             android:layout_width="match_parent"

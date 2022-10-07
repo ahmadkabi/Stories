@@ -37,7 +37,7 @@
                 android:layout_height="@dimen/dp_300"
                 android:scaleType="centerCrop"
                 app:layout_constraintTop_toBottomOf="@id/imgBack"
-                app:srcCompat="@drawable/example" />
+                app:srcCompat="@drawable/ic_o" />
 
             <LinearLayout
                 android:id="@+id/llUser"
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_16"
-                android:text="@string/lorem_3"
+                tools:text="@string/lorem_3"
                 android:textColor="@color/grey_700"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llUser" />

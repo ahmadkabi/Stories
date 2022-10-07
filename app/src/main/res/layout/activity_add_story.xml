@@ -54,7 +54,7 @@
                     app:layout_constraintEnd_toEndOf="@id/imgStory"
                     app:layout_constraintStart_toStartOf="@id/imgStory"
                     app:layout_constraintTop_toTopOf="@id/imgStory"
-                    app:srcCompat="@drawable/ic_ssd" />
+                    app:srcCompat="@drawable/ic_lamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/txNoData"

@@ -116,27 +116,23 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
-                        Toast.makeText(
-                            requireContext(),
-                            responseBody.message,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
 
-                    if(response.body()?.listStory?.isNotEmpty() == true){
-                        adapter.resetItems(response.body()?.listStory)
+                        if(responseBody.listStory.isNotEmpty()){
+                            adapter.resetItems(response.body()?.listStory)
 
-                        binding.txEmpty.gone()
-                        binding.imgEmpty.gone()
-                    }else{
-                        binding.txEmpty.visible()
-                        binding.imgEmpty.visible()
+                            binding.txEmpty.gone()
+                            binding.imgEmpty.gone()
+                        }else{
+                            binding.txEmpty.visible()
+                            binding.imgEmpty.visible()
+                        }
+
                     }
 
                 } else {
                     Toast.makeText(
                         requireContext(),
-                        response.message(),
+                        getString(R.string.loading_stories_is_failed_please_try_again_later),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
