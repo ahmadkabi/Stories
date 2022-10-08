@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.main.account
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

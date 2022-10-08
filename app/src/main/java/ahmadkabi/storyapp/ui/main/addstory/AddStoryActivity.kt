@@ -1,5 +1,6 @@
-package ahmadkabi.storyapp
+package ahmadkabi.storyapp.ui.main.addstory
 
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.network.ApiConfig

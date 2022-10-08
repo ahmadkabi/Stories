@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp
+package ahmadkabi.storyapp.helper
 
 const val extraUserName = "userName"
 const val extraImageUrl = "imageUrl"

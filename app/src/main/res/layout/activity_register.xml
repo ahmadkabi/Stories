@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/purple_200"
-        tools:context=".HomeActivity">
+        tools:context=".ui.main.HomeActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgTop"

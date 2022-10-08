@@ -1,6 +1,10 @@
-package ahmadkabi.storyapp
+package ahmadkabi.storyapp.ui.main.detail
 
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityDetailBinding
+import ahmadkabi.storyapp.helper.extraDescription
+import ahmadkabi.storyapp.helper.extraImageUrl
+import ahmadkabi.storyapp.helper.extraUserName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle

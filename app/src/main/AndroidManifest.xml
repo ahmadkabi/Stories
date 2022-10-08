@@ -19,7 +19,7 @@
         android:theme="@style/Theme.StoryApp"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.main.login.LoginActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
@@ -29,17 +29,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.main.register.RegisterActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.main.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".ui.main.detail.DetailActivity"
             android:exported="true" />
         <activity
-            android:name=".AddStoryActivity"
+            android:name=".ui.main.addstory.AddStoryActivity"
             android:exported="true" />
 
         <provider

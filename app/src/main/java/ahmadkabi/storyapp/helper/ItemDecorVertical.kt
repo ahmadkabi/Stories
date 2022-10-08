@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.helper
 
 import android.graphics.Rect
 import android.view.View

@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.main.story
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.network.ApiConfig

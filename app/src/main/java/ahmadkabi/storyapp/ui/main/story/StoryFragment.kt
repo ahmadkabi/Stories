@@ -1,29 +1,21 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.main.story
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
+import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.helper.gone
-import ahmadkabi.storyapp.helper.visible
-import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.GetStoriesResponse
 import ahmadkabi.storyapp.network.Story
-import android.app.Activity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 

@@ -1,7 +1,7 @@
-package ahmadkabi.storyapp
+package ahmadkabi.storyapp.ui.main
 
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityHomeBinding
-import ahmadkabi.storyapp.ui.main.SectionsPagerAdapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle

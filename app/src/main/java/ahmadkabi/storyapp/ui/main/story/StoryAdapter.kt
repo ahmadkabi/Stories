@@ -1,8 +1,12 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.main.story
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
+import ahmadkabi.storyapp.helper.extraDescription
+import ahmadkabi.storyapp.helper.extraImageUrl
+import ahmadkabi.storyapp.helper.extraUserName
 import ahmadkabi.storyapp.network.Story
+import ahmadkabi.storyapp.ui.main.detail.DetailActivity
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +32,7 @@ class StoryAdapter :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StoryAdapter.MyViewHolder {
+    ): MyViewHolder {
         return MyViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
@@ -39,7 +43,7 @@ class StoryAdapter :
         )
     }
 
-    override fun onBindViewHolder(holder: StoryAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = items[position]
 
         Glide
@@ -88,7 +92,7 @@ class StoryAdapter :
         return items.size
     }
 
-    override fun onViewDetachedFromWindow(holder: StoryAdapter.MyViewHolder) {
+    override fun onViewDetachedFromWindow(holder: MyViewHolder) {
         holder.itemView.rootView.clearAnimation()
     }
 

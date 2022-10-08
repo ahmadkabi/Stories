@@ -1,6 +1,8 @@
-package ahmadkabi.storyapp
+package ahmadkabi.storyapp.ui.main.register
 
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityRegisterBinding
+import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.network.ApiConfig
 import ahmadkabi.storyapp.network.RegisterBody
 import ahmadkabi.storyapp.network.RegisterResponse

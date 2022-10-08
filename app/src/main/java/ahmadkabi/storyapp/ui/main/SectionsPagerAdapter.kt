@@ -1,6 +1,8 @@
 package ahmadkabi.storyapp.ui.main
 
 import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.ui.main.account.AccountFragment
+import ahmadkabi.storyapp.ui.main.story.StoryFragment
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
