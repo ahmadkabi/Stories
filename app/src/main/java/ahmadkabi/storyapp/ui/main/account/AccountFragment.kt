@@ -1,9 +1,10 @@
 package ahmadkabi.storyapp.ui.main.account
 
-import ahmadkabi.storyapp.ui.main.addstory.AddStoryActivity
+import ahmadkabi.storyapp.ui.main.add.AddStoryActivity
 import ahmadkabi.storyapp.ui.main.login.LoginActivity
 import ahmadkabi.storyapp.databinding.FragmentAccountBinding
 import ahmadkabi.storyapp.helper.UserPreference
+import ahmadkabi.storyapp.ui.main.story.StoryViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 
 class AccountFragment : Fragment() {
 
-    private lateinit var accountViewModel: AccountViewModel
+    private lateinit var viewModel: AccountViewModel
     private var _binding: FragmentAccountBinding? = null
 
     // This property is only valid between onCreateView and
@@ -22,7 +23,10 @@ class AccountFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java].apply {
+
+        viewModel = ViewModelProvider(this)[AccountViewModel::class.java].apply {
+//            token = UserPreference(requireContext()).getToken()!!
+
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
     }
@@ -51,7 +55,7 @@ class AccountFragment : Fragment() {
             activity?.finish()
         }
 
-        accountViewModel.text.observe(viewLifecycleOwner) {
+        viewModel.text.observe(viewLifecycleOwner) {
 //            binding.sectionLabel.text = it
         }
 

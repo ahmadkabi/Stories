@@ -59,30 +59,13 @@ class StoryAdapter :
         holder.binding.tvItemName.text = item.name
 
         holder.itemView.setOnClickListener {
-            listener.onItemClickListener(item)
-
-
             val optionsCompat: ActivityOptionsCompat =
                 ActivityOptionsCompat.makeSceneTransitionAnimation(
                     holder.itemView.context as Activity,
                     Pair(holder.binding.ivItemPhoto, "photo"),
                     Pair(holder.binding.llUser, "user")
                 )
-
-            val intent = DetailActivity.newIntent(holder.itemView.context)
-            intent.putExtra(extraUserName, item.name)
-            intent.putExtra(extraImageUrl, item.photoUrl)
-            intent.putExtra(extraDescription, item.description)
-            holder.itemView.context.startActivity(intent, optionsCompat.toBundle())
-
-
-//            val optionsCompat: ActivityOptionsCompat =
-//                ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                    holder.itemView.context as Activity,
-//                    Pair(holder.binding.ivItemPhoto, "photo"),
-//                    Pair(holder.binding.ivItemPhoto, "photo"),
-//                    Pair(holder.binding.ivItemPhoto, "photo"),
-//                )
+            listener.onItemClickListener(item, optionsCompat)
         }
 
         setAnimation(holder.itemView, position)
@@ -120,7 +103,7 @@ class StoryAdapter :
     lateinit var listener: ItemListener
 
     interface ItemListener {
-        fun onItemClickListener(item: Story)
+        fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat)
     }
 
 }

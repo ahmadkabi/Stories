@@ -39,7 +39,7 @@
             android:name=".ui.main.detail.DetailActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.main.addstory.AddStoryActivity"
+            android:name=".ui.main.add.AddStoryActivity"
             android:exported="true" />
 
         <provider
