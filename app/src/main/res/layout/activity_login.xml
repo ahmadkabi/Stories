@@ -20,6 +20,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="@id/txLogin"
+            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+            app:layout_constraintTop_toTopOf="@id/txLogin"
+            app:srcCompat="@drawable/ic_round_settings_24" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txLogin"
             style="@style/Text.Header40"

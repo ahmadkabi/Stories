@@ -4,7 +4,9 @@ import ahmadkabi.storyapp.AddStoryActivity
 import ahmadkabi.storyapp.LoginActivity
 import ahmadkabi.storyapp.databinding.FragmentAccountBinding
 import ahmadkabi.storyapp.helper.UserPreference
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings.ACTION_LOCALE_SETTINGS
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

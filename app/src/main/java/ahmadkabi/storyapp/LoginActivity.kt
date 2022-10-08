@@ -9,6 +9,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -35,6 +36,9 @@ class LoginActivity : AppCompatActivity() {
         } else {
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+            binding.imgSetting.setOnClickListener {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            }
             binding.txWanna.setOnClickListener {
                 startActivity(RegisterActivity.newIntent(this))
             }

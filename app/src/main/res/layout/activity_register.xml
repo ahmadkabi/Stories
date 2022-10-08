@@ -20,6 +20,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="@id/txRegister"
+            app:layout_constraintEnd_toEndOf="@id/btnRegister"
+            app:layout_constraintTop_toTopOf="@id/txRegister"
+            app:srcCompat="@drawable/ic_round_settings_24" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txRegister"
             style="@style/Text.Header40"
@@ -64,7 +74,6 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/ed_register_password" />
-
 
 
         <ahmadkabi.storyapp.widget.PasswordEditText

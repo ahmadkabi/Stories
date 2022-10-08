@@ -26,6 +26,7 @@
     <string name="register">Register</string>
     <string name="simple_register_and_you_re_ready">Simple Register and You\'re Ready</string>
     <string name="logout">Logout</string>
+    <string name="language">Language</string>
     <string name="no_data_available">No Data Available</string>
     <string name="sorry_something_went_wrong_please_try_again_later">Sorry something went wrong. Please try again later</string>
     <string name="loading_stories_is_failed_please_try_again_later">Loading stories is failed. Please try again later</string>
@@ -43,7 +44,6 @@
         <item>https://www.freepik.com/free-vector/collection-hand-drawn-bullet-journal-elements_11155975.htm#query=hand%20drawn&amp;position=4&amp;from_view=keyword</item>
         <item>https://www.freepik.com/free-vector/background-with-sketches-travel_892775.htm#query=handdraw&amp;position=0&amp;from_view=search</item>
     </string-array>
-
     <string-array name="image_by_starline_on_freepik">
         <item>https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&amp;position=18&amp;from_view=search</item>
     </string-array>

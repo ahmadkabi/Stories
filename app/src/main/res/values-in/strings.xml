@@ -26,6 +26,7 @@
     <string name="register">Daftar</string>
     <string name="simple_register_and_you_re_ready">Daftar Simple dan Mudah</string>
     <string name="logout">Keluar</string>
+    <string name="language">Bahasa</string>
     <string name="no_data_available">Tidak ada data yang tersedia</string>
     <string name="sorry_something_went_wrong_please_try_again_later">Maaf terjadi kesalahan. Silahkan coba lagi nanti</string>
     <string name="loading_stories_is_failed_please_try_again_later">Gagal memuat cerita. Silahkan coba lagi nanti</string>

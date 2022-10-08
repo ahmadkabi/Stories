@@ -36,10 +36,12 @@ class EmailEditText : AppCompatEditText{
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                error = if (inInputValid(s)) {
-                    null
-                } else {
-                    context.getString(R.string.please_input_email_address_correctly)
+                if(s.isNotEmpty()){
+                    error = if (inInputValid(s)) {
+                        null
+                    } else {
+                        context.getString(R.string.please_input_email_address_correctly)
+                    }
                 }
             }
 

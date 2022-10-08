@@ -10,7 +10,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 
-class PasswordEditText : AppCompatEditText{
+class PasswordEditText : AppCompatEditText {
 
     constructor(context: Context) : super(context) {
         init()
@@ -20,7 +20,11 @@ class PasswordEditText : AppCompatEditText{
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -35,10 +39,12 @@ class PasswordEditText : AppCompatEditText{
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                error = if (s.length >= 6) {
-                    null
-                } else {
-                    context.getString(R.string.minimal_password_is_6_characters)
+                if (s.isNotEmpty()) {
+                    error = if (s.length >= 6) {
+                        null
+                    } else {
+                        context.getString(R.string.minimal_password_is_6_characters)
+                    }
                 }
             }
 
