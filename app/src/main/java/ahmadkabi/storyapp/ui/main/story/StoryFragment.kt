@@ -2,10 +2,10 @@ package ahmadkabi.storyapp.ui.main.story
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
+import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.network.Story
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater

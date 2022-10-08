@@ -1,11 +1,11 @@
 package ahmadkabi.storyapp.ui.main.story
 
 import ahmadkabi.storyapp.*
+import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
 import ahmadkabi.storyapp.helper.extraDescription
 import ahmadkabi.storyapp.helper.extraImageUrl
 import ahmadkabi.storyapp.helper.extraUserName
-import ahmadkabi.storyapp.network.Story
 import ahmadkabi.storyapp.ui.main.detail.DetailActivity
 import android.app.Activity
 import android.view.LayoutInflater
@@ -14,12 +14,12 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import androidx.core.util.Pair
 
 class StoryAdapter :
     RecyclerView.Adapter<StoryAdapter.MyViewHolder>() {

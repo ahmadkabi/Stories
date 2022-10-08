@@ -1,14 +1,14 @@
 package ahmadkabi.storyapp.ui.main.login
 
 import ahmadkabi.storyapp.R
-import ahmadkabi.storyapp.helper.UserPreference
+import ahmadkabi.storyapp.data.source.remote.model.LoginBody
+import ahmadkabi.storyapp.data.source.remote.model.LoginResponse
 import ahmadkabi.storyapp.databinding.ActivityLoginBinding
 import ahmadkabi.storyapp.helper.DialogUtils
+import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.LoginBody
-import ahmadkabi.storyapp.network.LoginResponse
-import ahmadkabi.storyapp.ui.main.register.RegisterActivity
 import ahmadkabi.storyapp.ui.main.HomeActivity
+import ahmadkabi.storyapp.ui.main.register.RegisterActivity
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent

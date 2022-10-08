@@ -1,5 +1,6 @@
 package ahmadkabi.storyapp.network
 
+import ahmadkabi.storyapp.data.source.remote.model.*
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
@@ -51,52 +52,3 @@ class ApiConfig {
         return retrofit.create(ApiService::class.java)
     }
 }
-
-data class AddStoryResponse(
-    val error: Boolean,
-    val message: String
-)
-
-data class RegisterBody(
-    val name: String,
-    val email: String,
-    val password: String
-)
-
-data class RegisterResponse(
-    val error: Boolean,
-    val message: String
-)
-
-data class LoginBody(
-    val email: String,
-    val password: String
-)
-
-data class LoginResponse(
-    val error: Boolean,
-    val message: String,
-    val loginResult: LoginResult
-)
-
-data class LoginResult(
-    val userId: String,
-    val name: String,
-    val token: String
-)
-
-data class GetStoriesResponse(
-    val error: Boolean,
-    val message: String,
-    val listStory: ArrayList<Story>
-)
-
-data class Story(
-    val id: String,
-    val name: String,
-    val description: String,
-    val photoUrl: String,
-    val createdAt: Any,
-    val lat: Float,
-    val lon: Float
-)

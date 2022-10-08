@@ -1,10 +1,10 @@
 package ahmadkabi.storyapp.ui.main.addstory
 
 import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.data.source.remote.model.AddStoryResponse
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.AddStoryResponse
 import android.Manifest
 import android.app.Dialog
 import android.content.Context

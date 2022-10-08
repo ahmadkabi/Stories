@@ -1,11 +1,11 @@
 package ahmadkabi.storyapp.ui.main.register
 
 import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.data.source.remote.model.RegisterBody
+import ahmadkabi.storyapp.data.source.remote.model.RegisterResponse
 import ahmadkabi.storyapp.databinding.ActivityRegisterBinding
 import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.network.RegisterBody
-import ahmadkabi.storyapp.network.RegisterResponse
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
