@@ -48,7 +48,6 @@ fun View.gone(){
     visibility = GONE
 }
 
-
 fun reduceFileImage(file: File): File {
     val bitmap = BitmapFactory.decodeFile(file.path)
 

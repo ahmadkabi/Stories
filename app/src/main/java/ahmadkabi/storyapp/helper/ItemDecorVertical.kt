@@ -6,10 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ItemDecorVertical(private val topMarginFirstItem: Int, private val endMargin: Int, private val bottomMarginLastItem: Int, private val startMargin: Int, private val topMarginInterItem: Int) : RecyclerView.ItemDecoration() {
 
-    constructor(margin: Int): this (margin, margin, margin, margin, margin)
-    constructor(verticalMargin: Int, horizontalMargin: Int) : this(verticalMargin, horizontalMargin, verticalMargin, horizontalMargin, verticalMargin)
-    constructor(topMargin: Int, endMargin: Int, bottomMargin: Int, startMargin: Int): this (topMargin, endMargin, bottomMargin, startMargin, topMargin)
-
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
