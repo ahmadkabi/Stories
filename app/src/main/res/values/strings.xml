@@ -34,16 +34,18 @@
     <string name="choose_a_picture">Choose a Picture</string>
     <string name="please_set_image_file_first">Please set image file first</string>
     <string name="minimal_password_is_6_characters">Minimal password is 6 characters</string>
+    <string name="please_input_email_address_correctly">Please input email address correctly</string>
     <string name="new_story_has_been_made">New Story has been made</string>
-    <string name="failed_to_add_new_story_please_input_data_correctly">Failed to add new Story. . Please input data correctly</string>
+    <string name="failed_to_add_new_story_please_input_data_correctly">Failed to add new Story. Please input data correctly</string>
 
-    <!--
-    <a href="https://www.freepik.com/free-vector/christmas-scribble-pattern-background-vector_18240960.htm#query=handdraw&position=13&from_view=search">Image by rawpixel.com</a> on Freepik
-Image by <a href="https://www.freepik.com/free-vector/collection-hand-drawn-bullet-journal-elements_11155975.htm#query=hand%20drawn&position=4&from_view=keyword">Freepik</a>
+    <!--    CREDIT      -->
+    <string-array name="image_by__freepik">
+        <item>https://www.freepik.com/free-vector/collection-hand-drawn-bullet-journal-elements_11155975.htm#query=hand%20drawn&amp;position=4&amp;from_view=keyword</item>
+        <item>https://www.freepik.com/free-vector/background-with-sketches-travel_892775.htm#query=handdraw&amp;position=0&amp;from_view=search</item>
+    </string-array>
 
-<a href="https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&position=18&from_view=search">Image by starline</a> on Freepik
-Image by <a href="https://www.freepik.com/free-vector/background-with-sketches-travel_892775.htm#query=handdraw&position=0&from_view=search">Freepik</a>
-<a href="https://www.freepik.com/free-vector/attention-attraction-important-announcement-warning-information-sharing-latest-news-loudspeaker-megaphone-bullhorn-with-exclamation-mark_11669171.htm#query=share%20story&position=2&from_view=search">Image by vectorjuice</a> on Freepik
-    -->
+    <string-array name="image_by_starline_on_freepik">
+        <item>https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&amp;position=18&amp;from_view=search</item>
+    </string-array>
 
 </resources>

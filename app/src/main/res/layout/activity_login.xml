@@ -39,7 +39,7 @@
             app:layout_constraintBottom_toTopOf="@id/ed_login_email"
             app:layout_constraintStart_toStartOf="@id/txWanna" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <ahmadkabi.storyapp.widget.EmailEditText
             android:id="@+id/ed_login_email"
             style="@style/EditText.Background"
             android:layout_width="match_parent"

@@ -52,7 +52,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/ed_register_email" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <ahmadkabi.storyapp.widget.EmailEditText
             android:id="@+id/ed_register_email"
             style="@style/EditText.Background"
             android:layout_width="match_parent"

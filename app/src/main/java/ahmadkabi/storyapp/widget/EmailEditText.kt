@@ -7,10 +7,11 @@ import android.graphics.Canvas
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 
-class PasswordEditText : AppCompatEditText{
+class EmailEditText : AppCompatEditText{
 
     constructor(context: Context) : super(context) {
         init()
@@ -35,15 +36,19 @@ class PasswordEditText : AppCompatEditText{
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                error = if (s.length >= 6) {
+                error = if (inInputValid(s)) {
                     null
                 } else {
-                    context.getString(R.string.minimal_password_is_6_characters)
+                    context.getString(R.string.please_input_email_address_correctly)
                 }
             }
 
             override fun afterTextChanged(s: Editable) {}
         })
+    }
+
+    private fun inInputValid(input: CharSequence): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(input).matches()
     }
 
 }
