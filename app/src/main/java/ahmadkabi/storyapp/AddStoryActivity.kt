@@ -46,7 +46,7 @@ class AddStoryActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
 
-        binding.imgBack.setOnClickListener { finish() }
+        binding.imgBack.setOnClickListener { onBackPressed() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.buttonAdd.setOnClickListener { uploadImage() }

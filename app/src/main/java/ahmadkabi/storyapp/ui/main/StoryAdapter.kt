@@ -1,18 +1,21 @@
 package ahmadkabi.storyapp.ui.main
 
-import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
 import ahmadkabi.storyapp.network.Story
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import androidx.core.util.Pair
 
 class StoryAdapter :
     RecyclerView.Adapter<StoryAdapter.MyViewHolder>() {
@@ -53,6 +56,29 @@ class StoryAdapter :
 
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(item)
+
+
+            val optionsCompat: ActivityOptionsCompat =
+                ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    holder.itemView.context as Activity,
+                    Pair(holder.binding.ivItemPhoto, "photo"),
+                    Pair(holder.binding.llUser, "user")
+                )
+
+            val intent = DetailActivity.newIntent(holder.itemView.context)
+            intent.putExtra(extraUserName, item.name)
+            intent.putExtra(extraImageUrl, item.photoUrl)
+            intent.putExtra(extraDescription, item.description)
+            holder.itemView.context.startActivity(intent, optionsCompat.toBundle())
+
+
+//            val optionsCompat: ActivityOptionsCompat =
+//                ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                    holder.itemView.context as Activity,
+//                    Pair(holder.binding.ivItemPhoto, "photo"),
+//                    Pair(holder.binding.ivItemPhoto, "photo"),
+//                    Pair(holder.binding.ivItemPhoto, "photo"),
+//                )
         }
 
         setAnimation(holder.itemView, position)

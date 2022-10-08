@@ -36,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_300"
                 android:scaleType="centerCrop"
+                android:transitionName="photo"
                 app:layout_constraintTop_toBottomOf="@id/imgBack"
                 app:srcCompat="@drawable/ic_o" />
 
@@ -48,6 +49,7 @@
                 android:background="@drawable/bg_corner50_primary"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:transitionName="user"
                 android:paddingVertical="@dimen/dp_6"
                 android:paddingStart="@dimen/dp_6"
                 android:paddingEnd="@dimen/dp_16"
