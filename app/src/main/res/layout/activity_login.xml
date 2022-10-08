@@ -77,7 +77,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txWanna"
-            style="@style/Text.Content4"
+            style="@style/Text.Content3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
