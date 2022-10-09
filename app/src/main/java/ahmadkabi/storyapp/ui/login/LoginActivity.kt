@@ -55,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-
     private fun login() {
         progressDialog.show()
         viewModel.body.value = LoginBody(
@@ -65,8 +64,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-
-        viewModel.films.observe(this) { result ->
+        viewModel.login.observe(this) { result ->
             when (result.status) {
                 StatusResponse.SUCCESS -> {
                     if (result.body != null) {
@@ -93,7 +91,6 @@ class LoginActivity : AppCompatActivity() {
 
             progressDialog.dismiss()
         }
-
     }
 
     companion object {

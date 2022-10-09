@@ -5,6 +5,7 @@ import ahmadkabi.storyapp.data.source.remote.model.AddStoryResponse
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.ui.register.RegisterViewModel
 import android.Manifest
 import android.app.Dialog
 import android.content.Context
@@ -21,6 +22,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -34,6 +36,8 @@ import java.io.File
 class AddStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddStoryBinding
+    private lateinit var viewModel: AddStoryViewModel
+
     private lateinit var currentPhotoPath: String
     private var getFile: File? = null
 
@@ -46,6 +50,7 @@ class AddStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
+        viewModel = ViewModelProvider(this)[AddStoryViewModel::class.java]
 
         binding.imgBack.setOnClickListener { onBackPressed() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
@@ -176,7 +181,7 @@ class AddStoryActivity : AppCompatActivity() {
 
             val userPreference = UserPreference(this)
 
-            val service = ApiConfig().getApiService().uploadImage(
+            val service = ApiConfig().getApiService().addStory(
                 "Bearer ${userPreference.getToken()}",
                 imageMultipart,
                 description

@@ -15,8 +15,8 @@ class LoginViewModel : ViewModel() {
 
     var body = MutableLiveData<LoginBody>()
 
-    val films =
-        Transformations.switchMap<LoginBody, ApiResponse<LoginResponse>>(body) {
+    val login =
+        Transformations.switchMap(body) {
             val result = MutableLiveData<ApiResponse<LoginResponse>>()
 
             if (body.value != null) {

@@ -1,33 +1,34 @@
 package ahmadkabi.storyapp.ui.register
 
 import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.data.source.remote.model.RegisterBody
-import ahmadkabi.storyapp.data.source.remote.model.RegisterResponse
 import ahmadkabi.storyapp.databinding.ActivityRegisterBinding
 import ahmadkabi.storyapp.helper.DialogUtils
-import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.helper.showToast
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.ViewModelProvider
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var viewModel: RegisterViewModel
+
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
+        observe()
 
         binding.imgSetting.setOnClickListener {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
@@ -43,54 +44,34 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register() {
         progressDialog.show()
-
-        val body = RegisterBody(
+        viewModel.body.value = RegisterBody(
             binding.edRegisterName.text.toString(),
             binding.edRegisterEmail.text.toString(),
             binding.edRegisterPassword.text.toString()
         )
-        val service = ApiConfig().getApiService().register(body)
-
-        service.enqueue(object : Callback<RegisterResponse> {
-            override fun onResponse(
-                call: Call<RegisterResponse>,
-                response: Response<RegisterResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null && !responseBody.error) {
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            getString(R.string.your_account_has_been_made),
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        finish()
-
-                    }
-
-                } else {
-                    Toast.makeText(
-                        this@RegisterActivity,
-                        getString(R.string.operation_is_failed),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    progressDialog.dismiss()
-                }
-            }
-
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                Toast.makeText(
-                    this@RegisterActivity,
-                    getString(R.string.sorry_something_went_wrong),
-                    Toast.LENGTH_SHORT
-                ).show()
-                progressDialog.dismiss()
-
-            }
-        })
     }
 
+    private fun observe() {
+        viewModel.login.observe(this) { result ->
+            when (result.status) {
+                StatusResponse.SUCCESS -> {
+                    if (result.body != null) {
+                        showToast(getString(R.string.your_account_has_been_made))
+                        finish()
+
+                    } else {
+                        showToast(getString(R.string.operation_is_failed))
+                    }
+                }
+                StatusResponse.ERROR -> {
+                    showToast(getString(R.string.sorry_something_went_wrong))
+                }
+                StatusResponse.EMPTY -> {}
+            }
+
+            progressDialog.dismiss()
+        }
+    }
 
     companion object {
         fun newIntent(context: Context): Intent {
