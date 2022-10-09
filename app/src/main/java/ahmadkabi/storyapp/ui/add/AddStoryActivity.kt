@@ -52,7 +52,7 @@ class AddStoryActivity : AppCompatActivity() {
         observe()
 
         binding.imgBack.setOnClickListener { onBackPressed() }
-        binding.btnCamera.setOnClickListener { startTakePhoto() }
+        binding.btnCamera.setOnClickListener { askPermissionOrCapture() }
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.buttonAdd.setOnClickListener { addStory() }
         binding.imgCancel.setOnClickListener {
@@ -80,28 +80,29 @@ class AddStoryActivity : AppCompatActivity() {
         launcherIntentGallery.launch(chooser)
     }
 
-    private fun startTakePhoto() {
-
-        if (!allPermissionsGranted()) {
+    private fun askPermissionOrCapture() {
+        if (allPermissionsGranted()) {
+            capturePhoto()
+        } else {
             ActivityCompat.requestPermissions(
                 this,
                 requiredPermission,
                 requestCodePermission
             )
-        } else {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        }
+    }
 
-            createCustomTempFile(application).also {
-                val photoURI: Uri = FileProvider.getUriForFile(
-                    this@AddStoryActivity,
-                    "ahmadkabi.storyapp",
-                    it
-                )
-                currentPhotoPath = it.absolutePath
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                launcherIntentCamera.launch(intent)
-            }
-
+    private fun capturePhoto() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        createCustomTempFile(application).also {
+            val photoURI: Uri = FileProvider.getUriForFile(
+                this@AddStoryActivity,
+                "ahmadkabi.storyapp",
+                it
+            )
+            currentPhotoPath = it.absolutePath
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            launcherIntentCamera.launch(intent)
         }
     }
 
@@ -147,9 +148,10 @@ class AddStoryActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == requestCodePermission) {
-            if (!allPermissionsGranted()) {
-                showToast(getString(R.string.no_camera_permission))
-                finish()
+            if (allPermissionsGranted()) {
+                capturePhoto()
+            } else {
+                showToast(getString(R.string.please_grant_camera))
             }
         }
     }
