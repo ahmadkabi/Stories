@@ -13,7 +13,7 @@
     <dimen name="dp_26">26dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_18">18dp</dimen>
-    <dimen name="dp_16">16dp</dimen>            <!-- THIS IS DEFAULT PADDING/MARGIN -->
+    <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_14">14dp</dimen>
     <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_8">8dp</dimen>
@@ -27,10 +27,8 @@
     <dimen name="sp_24">24sp</dimen>
     <dimen name="sp_20">20sp</dimen>
     <dimen name="sp_16">16sp</dimen>
-    <dimen name="sp_14">14sp</dimen>            <!-- THIS IS DEFAULT TEXT SIZE -->
+    <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_10">10sp</dimen>
-
-    <!-- Default screen margins, per the Android Design guidelines. -->
 
     <dimen name="edittext_padding_vertical">@dimen/dp_8</dimen>
     <dimen name="edittext_padding_horizontal">@dimen/dp_8</dimen>

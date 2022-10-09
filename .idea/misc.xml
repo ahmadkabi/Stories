@@ -4,17 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.12209889001009082" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_both_bottom_corner40_white.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/bg_circle_blue50.xml" value="0.1565" />
         <entry key="app/src/main/res/drawable/bg_circle_primary.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/bg_circle_primaryoverlay50.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_circle_white.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/bg_corner10_grey200.xml" value="0.1565" />
         <entry key="app/src/main/res/drawable/bg_corner10_white.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/bg_corner18_black.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/bg_corner18_primary.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_corner18_teal500.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/bg_corner18_white.xml" value="0.184" />
         <entry key="app/src/main/res/drawable/bg_corner30_primary.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/bg_corner30_primaryoverlay50.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_corner50_primary.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/bg_username.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_ad.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/ic_adf.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/ic_lamp.xml" value="0.184" />

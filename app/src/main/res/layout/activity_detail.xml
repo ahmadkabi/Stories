@@ -38,7 +38,7 @@
                 android:scaleType="centerCrop"
                 android:transitionName="photo"
                 app:layout_constraintTop_toBottomOf="@id/imgBack"
-                app:srcCompat="@drawable/ic_o" />
+                app:srcCompat="@drawable/ic_lamp" />
 
             <LinearLayout
                 android:id="@+id/llUser"
@@ -49,10 +49,10 @@
                 android:background="@drawable/bg_username"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:transitionName="user"
                 android:paddingVertical="@dimen/dp_6"
                 android:paddingStart="@dimen/dp_6"
                 android:paddingEnd="@dimen/dp_16"
+                android:transitionName="user"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_detail_photo">
 
@@ -82,11 +82,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp_16"
-                tools:text="@string/lorem_3"
                 android:textColor="@color/grey_700"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llUser" />
+                app:layout_constraintTop_toBottomOf="@id/llUser"
+                tools:text="@string/lorem_3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
+
 </layout>

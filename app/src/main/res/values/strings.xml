@@ -37,5 +37,13 @@
     <string name="failed_to_add_new_story">Failed to add new Story. Please input data correctly</string>
 
     <!--    CREDIT      -->
+    <string-array name="image_by__freepik">
+        <item>https://www.freepik.com/free-vector/collection-hand-drawn-bullet-journal-elements_11155975.htm#query=hand%20drawn&amp;position=4&amp;from_view=keyword</item>
+        <item>https://www.freepik.com/free-vector/background-with-sketches-travel_892775.htm#query=handdraw&amp;position=0&amp;from_view=search</item>
+    </string-array>
+    <string-array name="image_by_starline_on_freepik">
+        <item>https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&amp;position=18&amp;from_view=search</item>
+    </string-array>
+
 
 </resources>
