@@ -151,11 +151,7 @@ class AddStoryActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == requestCodePermission) {
             if (!allPermissionsGranted()) {
-                Toast.makeText(
-                    this,
-                    getString(R.string.no_camera_permission),
-                    Toast.LENGTH_SHORT
-                ).show()
+                showToast(getString(R.string.no_camera_permission))
                 finish()
             }
         }

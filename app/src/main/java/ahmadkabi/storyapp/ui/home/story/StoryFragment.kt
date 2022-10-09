@@ -100,11 +100,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                     binding.imgEmpty.visible()
                 }
                 StatusResponse.ERROR -> {
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.sorry_something_went_wrong),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToast(getString(R.string.sorry_something_went_wrong))
                 }
             }
 
