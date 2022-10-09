@@ -1,6 +1,6 @@
 package ahmadkabi.storyapp.ui.home.story
 
-import ahmadkabi.storyapp.*
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
 import android.app.Activity
