@@ -11,16 +11,14 @@ import androidx.fragment.app.Fragment
 
 class AccountFragment : Fragment() {
 
-    private var _binding: FragmentAccountBinding? = null
-
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAccountBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -48,11 +46,6 @@ class AccountFragment : Fragment() {
         fun newInstance(): AccountFragment {
             return AccountFragment()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }

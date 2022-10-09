@@ -23,11 +23,9 @@ import androidx.recyclerview.widget.RecyclerView
 class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
     private lateinit var viewModel: StoryViewModel
-    private var _binding: FragmentStoryBinding? = null
+    private lateinit var binding: FragmentStoryBinding
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(requireContext()) }
-
-    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentStoryBinding.inflate(inflater, container, false)
+        binding = FragmentStoryBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -56,7 +54,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
         viewModel.fetchStories()
 
         binding.btnMake.setOnClickListener {
-            if(activity != null){
+            if (activity != null) {
                 val intent = AddStoryActivity.newIntent(requireActivity())
                 launcherIntentGallery.launch(intent)
             }
@@ -94,7 +92,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
     }
 
-    private fun observe(){
+    private fun observe() {
 
         viewModel.stories.observe(viewLifecycleOwner) { result ->
             when (result.status) {
@@ -124,7 +122,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
     ) { result ->
         if (
             result.resultCode == AppCompatActivity.RESULT_OK &&
-            result.data?.getBooleanExtra(extraIsSuccess,false) == true
+            result.data?.getBooleanExtra(extraIsSuccess, false) == true
         ) {
 
             progressDialog.show()
@@ -147,11 +145,6 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
         fun newInstance(): StoryFragment {
             return StoryFragment()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }
