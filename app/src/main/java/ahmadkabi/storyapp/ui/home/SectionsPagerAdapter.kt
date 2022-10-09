@@ -1,17 +1,13 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.home
 
 import ahmadkabi.storyapp.R
-import ahmadkabi.storyapp.ui.main.account.AccountFragment
-import ahmadkabi.storyapp.ui.main.story.StoryFragment
+import ahmadkabi.storyapp.ui.home.account.AccountFragment
+import ahmadkabi.storyapp.ui.home.story.StoryFragment
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 

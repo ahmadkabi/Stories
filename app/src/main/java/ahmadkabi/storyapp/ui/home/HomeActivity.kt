@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main
+package ahmadkabi.storyapp.ui.home
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityHomeBinding

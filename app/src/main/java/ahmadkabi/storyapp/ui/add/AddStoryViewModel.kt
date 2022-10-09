@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.register
+package ahmadkabi.storyapp.ui.add
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.GetStoriesResponse
@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegisterViewModel : ViewModel() {
+class AddStoryViewModel : ViewModel() {
 
     lateinit var token: String
 

@@ -1,12 +1,8 @@
-package ahmadkabi.storyapp.ui.main.story
+package ahmadkabi.storyapp.ui.home.story
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.ItemStoryBinding
-import ahmadkabi.storyapp.helper.extraDescription
-import ahmadkabi.storyapp.helper.extraImageUrl
-import ahmadkabi.storyapp.helper.extraUserName
-import ahmadkabi.storyapp.ui.main.detail.DetailActivity
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
@@ -81,7 +77,6 @@ class StoryAdapter :
 
     private var lastPosition = -1
     private fun setAnimation(viewToAnimate: View, position: Int) {
-        // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
             val animation: Animation =
                 AnimationUtils.loadAnimation(viewToAnimate.context, android.R.anim.fade_in)
@@ -93,7 +88,6 @@ class StoryAdapter :
     fun resetItems(items: List<Story>?) {
         if (items != null) {
             if (this.items.isNotEmpty()) this.items.clear()
-
             this.items.addAll(items)
 
             notifyDataSetChanged()

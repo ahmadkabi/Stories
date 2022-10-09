@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.login
+package ahmadkabi.storyapp.ui.register
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.GetStoriesResponse
@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel : ViewModel() {
+class RegisterViewModel : ViewModel() {
 
     lateinit var token: String
 

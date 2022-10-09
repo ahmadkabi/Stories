@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.detail
+package ahmadkabi.storyapp.ui.detail
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityDetailBinding

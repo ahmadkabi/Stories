@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.story
+package ahmadkabi.storyapp.ui.home.story
 
 import ahmadkabi.storyapp.*
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
@@ -6,7 +6,7 @@ import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.ui.main.detail.DetailActivity
+import ahmadkabi.storyapp.ui.detail.DetailActivity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -125,13 +125,8 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
     companion object {
 
-        @JvmStatic
         fun newInstance(): StoryFragment {
-            return StoryFragment().apply {
-                arguments = Bundle().apply {
-//                    putInt(ARG_SECTION_NUMBER, sectionNumber)
-                }
-            }
+            return StoryFragment()
         }
     }
 

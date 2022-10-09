@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.register
+package ahmadkabi.storyapp.ui.register
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.model.RegisterBody

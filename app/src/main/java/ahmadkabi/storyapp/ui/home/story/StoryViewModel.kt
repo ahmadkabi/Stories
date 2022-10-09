@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.ui.main.story
+package ahmadkabi.storyapp.ui.home.story
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.GetStoriesResponse
