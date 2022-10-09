@@ -21,8 +21,8 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/dp_10"
-                android:paddingEnd="@dimen/dp_10">
+                android:paddingStart="@dimen/dp_8"
+                android:paddingEnd="@dimen/dp_8">
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabs"

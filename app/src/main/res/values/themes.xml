@@ -126,10 +126,17 @@
         <item name="rippleColor">@color/grey_300</item>
     </style>
 
-    <style name="MaterialButton.Primary2">
-        <item name="android:textColor">@color/black</item>
+    <style name="MaterialButton.AddNewStory">
+        <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:paddingStart">@dimen/dp_50</item>
+        <item name="android:paddingEnd">@dimen/dp_50</item>
         <item name="rippleColor">@color/grey_300</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="android:paddingTop">@dimen/dp_14</item>
+        <item name="android:paddingBottom">@dimen/dp_14</item>
+        <item name="strokeWidth">@dimen/dp_6</item>
+        <item name="cornerRadius">@dimen/dp_30</item>
     </style>
 
 
