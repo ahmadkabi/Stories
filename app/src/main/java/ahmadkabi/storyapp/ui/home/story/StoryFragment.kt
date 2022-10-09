@@ -1,18 +1,19 @@
 package ahmadkabi.storyapp.ui.home.story
 
-import ahmadkabi.storyapp.*
+import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.data.source.remote.model.Story
 import ahmadkabi.storyapp.databinding.FragmentStoryBinding
 import ahmadkabi.storyapp.helper.*
-import ahmadkabi.storyapp.helper.UserPreference
+import ahmadkabi.storyapp.ui.add.AddStoryActivity
 import ahmadkabi.storyapp.ui.detail.DetailActivity
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -53,6 +54,14 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
 
         progressDialog.show()
         viewModel.fetchStories()
+
+        binding.btnMake.setOnClickListener {
+            if(activity != null){
+                val intent = AddStoryActivity.newIntent(requireActivity())
+                launcherIntentGallery.launch(intent)
+            }
+
+        }
 
         binding.swipeRefresh.setOnRefreshListener {
             binding.swipeRefresh.isRefreshing = true
@@ -108,6 +117,20 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
             if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
         }
 
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (
+            result.resultCode == AppCompatActivity.RESULT_OK &&
+            result.data?.getBooleanExtra(extraIsSuccess,false) == true
+        ) {
+
+            progressDialog.show()
+            viewModel.fetchStories()
+
+        }
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {

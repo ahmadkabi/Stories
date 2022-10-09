@@ -142,7 +142,6 @@ class AddStoryActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -179,6 +178,10 @@ class AddStoryActivity : AppCompatActivity() {
                 StatusResponse.SUCCESS -> {
                     if (result.body != null) {
                         showToast(getString(R.string.new_story_has_been_made))
+
+                        val resultIntent = Intent()
+                        resultIntent.putExtra(extraIsSuccess, true)
+                        setResult(RESULT_OK, resultIntent)
                         finish()
 
                     } else {
