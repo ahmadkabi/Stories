@@ -28,16 +28,20 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMake"
-            style="@style/MaterialButton.AddNewStory"
+            style="@style/MaterialButton.PrimaryPurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="@dimen/dp_26"
+            android:paddingStart="@dimen/dp_50"
+            android:paddingEnd="@dimen/dp_50"
             android:text="@string/add_story"
-            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+            app:icon="@drawable/ic_round_add_circle_24"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:strokeColor="@color/white"
+            app:strokeWidth="@dimen/dp_2" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
