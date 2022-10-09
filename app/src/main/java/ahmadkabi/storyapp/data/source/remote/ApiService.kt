@@ -1,4 +1,4 @@
-package ahmadkabi.storyapp.network
+package ahmadkabi.storyapp.data.source.remote
 
 import ahmadkabi.storyapp.data.source.remote.model.*
 import okhttp3.MultipartBody

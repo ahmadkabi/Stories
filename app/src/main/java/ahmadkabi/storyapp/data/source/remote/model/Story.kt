@@ -1,4 +1,5 @@
 package ahmadkabi.storyapp.data.source.remote.model
+
 data class Story(
     val id: String,
     val name: String,

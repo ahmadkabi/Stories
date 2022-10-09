@@ -2,8 +2,7 @@ package ahmadkabi.storyapp.ui.register
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.*
-import ahmadkabi.storyapp.network.ApiConfig
-import androidx.lifecycle.LiveData
+import ahmadkabi.storyapp.data.source.remote.ApiConfig
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel

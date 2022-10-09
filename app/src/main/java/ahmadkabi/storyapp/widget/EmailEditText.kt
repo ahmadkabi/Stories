@@ -1,6 +1,5 @@
 package ahmadkabi.storyapp.widget
 
-
 import ahmadkabi.storyapp.R
 import android.content.Context
 import android.graphics.Canvas

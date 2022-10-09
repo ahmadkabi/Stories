@@ -3,7 +3,7 @@ package ahmadkabi.storyapp.ui.home.story
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.GetStoriesResponse
 import ahmadkabi.storyapp.data.source.remote.model.Story
-import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.data.source.remote.ApiConfig
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,6 +1,5 @@
 package ahmadkabi.storyapp.helper
 
-import ahmadkabi.storyapp.R
 import android.content.ContentResolver
 import android.content.Context
 import android.graphics.Bitmap

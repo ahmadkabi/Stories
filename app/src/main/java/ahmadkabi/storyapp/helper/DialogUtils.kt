@@ -1,7 +1,6 @@
 package ahmadkabi.storyapp.helper
 
 import ahmadkabi.storyapp.R
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
