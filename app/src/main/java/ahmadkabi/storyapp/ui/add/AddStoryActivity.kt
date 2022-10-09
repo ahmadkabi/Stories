@@ -65,16 +65,6 @@ class AddStoryActivity : AppCompatActivity() {
             binding.buttonAdd.gone()
         }
 
-
-        if (!allPermissionsGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                requiredPermission,
-                requestCodePermission
-            )
-        }
-
-
     }
 
 
@@ -91,18 +81,27 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
     private fun startTakePhoto() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//        intent.resolveActivity(packageManager)
 
-        createCustomTempFile(application).also {
-            val photoURI: Uri = FileProvider.getUriForFile(
-                this@AddStoryActivity,
-                "ahmadkabi.storyapp",
-                it
+        if (!allPermissionsGranted()) {
+            ActivityCompat.requestPermissions(
+                this,
+                requiredPermission,
+                requestCodePermission
             )
-            currentPhotoPath = it.absolutePath
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-            launcherIntentCamera.launch(intent)
+        } else {
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
+            createCustomTempFile(application).also {
+                val photoURI: Uri = FileProvider.getUriForFile(
+                    this@AddStoryActivity,
+                    "ahmadkabi.storyapp",
+                    it
+                )
+                currentPhotoPath = it.absolutePath
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                launcherIntentCamera.launch(intent)
+            }
+
         }
     }
 
@@ -165,7 +164,7 @@ class AddStoryActivity : AppCompatActivity() {
             file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         )
 
-        val description = binding.edAddDescription.text .toString()
+        val description = binding.edAddDescription.text.toString()
             .toRequestBody("text/plain".toMediaType())
 
         viewModel.body.value = AddStoryBody(imageMultipart, description)

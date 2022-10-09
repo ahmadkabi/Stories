@@ -28,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
             .load(intent.getStringExtra(extraImageUrl))
             .into(binding.ivDetailPhoto)
 
-        val userName: String  = intent.getStringExtra(extraUserName) ?: ""
+        val userName: String = intent.getStringExtra(extraUserName) ?: ""
         binding.txAvatar.text = userName[0].toString().uppercase()
         binding.tvDetailName.text = userName
 

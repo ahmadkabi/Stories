@@ -27,7 +27,7 @@ internal class UserPreference(context: Context) {
         return preferences.getString(TOKEN, null)
     }
 
-    fun clear(){
+    fun clear() {
         preferences.edit().clear().apply()
     }
 

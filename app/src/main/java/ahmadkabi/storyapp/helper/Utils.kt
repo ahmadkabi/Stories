@@ -43,15 +43,15 @@ fun uriToFile(selectedImg: Uri, context: Context): File {
     return myFile
 }
 
-fun View.visible(){
+fun View.visible() {
     visibility = VISIBLE
 }
 
-fun View.gone(){
+fun View.gone() {
     visibility = GONE
 }
 
-fun AppCompatActivity.showToast(msg: String){
+fun AppCompatActivity.showToast(msg: String) {
     Toast.makeText(
         this,
         msg,
@@ -59,7 +59,7 @@ fun AppCompatActivity.showToast(msg: String){
     ).show()
 }
 
-fun Fragment.showToast(msg: String){
+fun Fragment.showToast(msg: String) {
     Toast.makeText(
         requireContext(),
         msg,

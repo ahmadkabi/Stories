@@ -4,7 +4,13 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemDecorVertical(private val topMarginFirstItem: Int, private val endMargin: Int, private val bottomMarginLastItem: Int, private val startMargin: Int, private val topMarginInterItem: Int) : RecyclerView.ItemDecoration() {
+class ItemDecorVertical(
+    private val topMarginFirstItem: Int,
+    private val endMargin: Int,
+    private val bottomMarginLastItem: Int,
+    private val startMargin: Int,
+    private val topMarginInterItem: Int
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -14,7 +20,7 @@ class ItemDecorVertical(private val topMarginFirstItem: Int, private val endMarg
     ) {
         if (parent.getChildAdapterPosition(view) == 0) {
             outRect.top = topMarginFirstItem
-        }else{
+        } else {
             outRect.top = topMarginInterItem
         }
         outRect.left = startMargin

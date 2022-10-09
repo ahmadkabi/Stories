@@ -17,10 +17,16 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     )
 
     override fun getItem(position: Int): Fragment {
-        return when(position){
-            0 ->{ StoryFragment.newInstance()}
-            1 ->{ AccountFragment.newInstance() }
-            else -> { Fragment() }
+        return when (position) {
+            0 -> {
+                StoryFragment.newInstance()
+            }
+            1 -> {
+                AccountFragment.newInstance()
+            }
+            else -> {
+                Fragment()
+            }
         }
     }
 
