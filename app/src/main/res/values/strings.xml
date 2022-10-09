@@ -24,20 +24,20 @@
     <string name="share_stories_with_your_classmate">Share Stories with your classmate</string>
     <string name="have_an_account_login">Have an Account? Login</string>
     <string name="register">Register</string>
-    <string name="simple_register_and_you_re_ready">Simple Register and You\'re Ready</string>
+    <string name="simple_register_youre_ready">Simple Register and You\'re Ready</string>
     <string name="logout">Logout</string>
     <string name="language">Language</string>
     <string name="no_data_available">No Data Available</string>
-    <string name="sorry_something_went_wrong_please_try_again_later">Sorry something went wrong. Please try again later</string>
-    <string name="loading_stories_is_failed_please_try_again_later">Loading stories is failed. Please try again later</string>
-    <string name="sorry_operation_is_failed_please_input_data_correctly">Sorry operation is failed. Please input data correctly</string>
+    <string name="sorry_something_went_wrong">Sorry something went wrong. Please try again later</string>
+    <string name="loading_stories_is_failed">Loading stories is failed. Please try again later</string>
+    <string name="operation_is_failed">Sorry operation is failed. Please input data correctly</string>
     <string name="welcome">Welcome</string>
     <string name="choose_a_picture">Choose a Picture</string>
     <string name="please_set_image_file_first">Please set image file first</string>
-    <string name="minimal_password_is_6_characters">Minimal password is 6 characters</string>
-    <string name="please_input_email_address_correctly">Please input email address correctly</string>
+    <string name="minimal_password_is_6_char">Minimal password is 6 characters</string>
+    <string name="please_input_email">Please input email address correctly</string>
     <string name="new_story_has_been_made">New Story has been made</string>
-    <string name="failed_to_add_new_story_please_input_data_correctly">Failed to add new Story. Please input data correctly</string>
+    <string name="failed_to_add_new_story">Failed to add new Story. Please input data correctly</string>
 
     <!--    CREDIT      -->
     <string-array name="image_by__freepik">

@@ -200,7 +200,7 @@ class AddStoryActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(
                             this@AddStoryActivity,
-                            getString(R.string.failed_to_add_new_story_please_input_data_correctly),
+                            getString(R.string.failed_to_add_new_story),
                             Toast.LENGTH_SHORT
                         ).show()
                         progressDialog.dismiss()
@@ -210,7 +210,7 @@ class AddStoryActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
                     Toast.makeText(
                         this@AddStoryActivity,
-                        getString(R.string.sorry_something_went_wrong_please_try_again_later),
+                        getString(R.string.sorry_something_went_wrong),
                         Toast.LENGTH_SHORT
                     ).show()
                     progressDialog.dismiss()

@@ -24,19 +24,19 @@
     <string name="share_stories_with_your_classmate">Berbagi Cerita Dengan Teman Sekelas</string>
     <string name="have_an_account_login">Punya Akun? Silahkan Masuk</string>
     <string name="register">Daftar</string>
-    <string name="simple_register_and_you_re_ready">Daftar Simple dan Mudah</string>
+    <string name="simple_register_youre_ready">Daftar Simple dan Mudah</string>
     <string name="logout">Keluar</string>
     <string name="language">Bahasa</string>
     <string name="no_data_available">Tidak ada data yang tersedia</string>
-    <string name="sorry_something_went_wrong_please_try_again_later">Maaf terjadi kesalahan. Silahkan coba lagi nanti</string>
-    <string name="loading_stories_is_failed_please_try_again_later">Gagal memuat cerita. Silahkan coba lagi nanti</string>
-    <string name="sorry_operation_is_failed_please_input_data_correctly">Maaf proses tidak berhasil. Mohon masukan data dengan benar</string>
+    <string name="sorry_something_went_wrong">Maaf terjadi kesalahan. Silahkan coba lagi nanti</string>
+    <string name="loading_stories_is_failed">Gagal memuat cerita. Silahkan coba lagi nanti</string>
+    <string name="operation_is_failed">Maaf proses tidak berhasil. Mohon masukan data dengan benar</string>
     <string name="welcome">Selamat Datang</string>
     <string name="choose_a_picture">Pilih Gambar</string>
     <string name="please_set_image_file_first">Harap mengambil gambar terlebih dahulu</string>
-    <string name="minimal_password_is_6_characters">Password sedikitnya harus 6 huruf</string>
-    <string name="please_input_email_address_correctly">Pastikan format email benar</string>
+    <string name="minimal_password_is_6_char">Password sedikitnya harus 6 huruf</string>
+    <string name="please_input_email">Pastikan format email benar</string>
     <string name="new_story_has_been_made">Cerita baru telah dibuat</string>
-    <string name="failed_to_add_new_story_please_input_data_correctly">Gagal menambahkan Cerita baru. Mohong masukan data dengan benar</string>
+    <string name="failed_to_add_new_story">Gagal menambahkan Cerita baru. Mohong masukan data dengan benar</string>
 
 </resources>

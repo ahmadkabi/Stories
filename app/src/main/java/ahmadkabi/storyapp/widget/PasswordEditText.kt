@@ -43,7 +43,7 @@ class PasswordEditText : AppCompatEditText {
                     error = if (s.length >= 6) {
                         null
                     } else {
-                        context.getString(R.string.minimal_password_is_6_characters)
+                        context.getString(R.string.minimal_password_is_6_char)
                     }
                 }
             }

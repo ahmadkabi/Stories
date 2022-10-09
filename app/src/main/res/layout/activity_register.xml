@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_30"
-            android:text="@string/simple_register_and_you_re_ready"
+            android:text="@string/simple_register_youre_ready"
             app:layout_constraintBottom_toTopOf="@id/ed_register_name"
             app:layout_constraintStart_toStartOf="@id/txHave" />
 

@@ -72,7 +72,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@RegisterActivity,
-                        getString(R.string.sorry_operation_is_failed_please_input_data_correctly),
+                        getString(R.string.operation_is_failed),
                         Toast.LENGTH_SHORT
                     ).show()
                     progressDialog.dismiss()
@@ -82,7 +82,7 @@ class RegisterActivity : AppCompatActivity() {
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 Toast.makeText(
                     this@RegisterActivity,
-                    getString(R.string.sorry_something_went_wrong_please_try_again_later),
+                    getString(R.string.sorry_something_went_wrong),
                     Toast.LENGTH_SHORT
                 ).show()
                 progressDialog.dismiss()

@@ -2,7 +2,7 @@ package ahmadkabi.storyapp.data.source.remote
 
 import ahmadkabi.storyapp.data.source.remote.StatusResponse.*
 
-class ApiResponse<T>(val status: StatusResponse, val body: T? = null, val message: String? = null) {
+class ApiResponse<T>(val status: StatusResponse, val body: T? = null) {
     companion object {
 
         fun <T> success(body: T?): ApiResponse<T> {

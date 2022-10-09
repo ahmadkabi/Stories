@@ -1,5 +1,6 @@
 package ahmadkabi.storyapp.helper
 
+import ahmadkabi.storyapp.R
 import android.content.ContentResolver
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,6 +10,8 @@ import android.os.Environment
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,6 +49,14 @@ fun View.visible(){
 
 fun View.gone(){
     visibility = GONE
+}
+
+fun AppCompatActivity.showToast(msg: String){
+    Toast.makeText(
+        this,
+        msg,
+        Toast.LENGTH_SHORT
+    ).show()
 }
 
 fun reduceFileImage(file: File): File {

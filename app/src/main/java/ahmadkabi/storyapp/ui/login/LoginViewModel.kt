@@ -1,11 +1,11 @@
 package ahmadkabi.storyapp.ui.login
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
-import ahmadkabi.storyapp.data.source.remote.model.GetStoriesResponse
-import ahmadkabi.storyapp.data.source.remote.model.Story
+import ahmadkabi.storyapp.data.source.remote.model.LoginBody
+import ahmadkabi.storyapp.data.source.remote.model.LoginResponse
 import ahmadkabi.storyapp.network.ApiConfig
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,44 +13,42 @@ import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
 
-    lateinit var token: String
+    var body = MutableLiveData<LoginBody>()
 
-    private val _stories = MutableLiveData<ApiResponse<ArrayList<Story>>>()
-    val stories: LiveData<ApiResponse<ArrayList<Story>>>
-        get() = _stories
+    val films =
+        Transformations.switchMap<LoginBody, ApiResponse<LoginResponse>>(body) {
+            val result = MutableLiveData<ApiResponse<LoginResponse>>()
 
-    fun fetchStories() {
+            if (body.value != null) {
+                val service = ApiConfig().getApiService().login(body.value!!)
 
-        val service = ApiConfig().getApiService().getStories(
-            "Bearer $token",
-        )
-
-        service.enqueue(object : Callback<GetStoriesResponse> {
-            override fun onResponse(
-                call: Call<GetStoriesResponse>,
-                response: Response<GetStoriesResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null && !responseBody.error) {
-                        if (responseBody.listStory.isNotEmpty()) {
-                            _stories.value = ApiResponse.success(responseBody.listStory)
-
+                service.enqueue(object : Callback<LoginResponse> {
+                    override fun onResponse(
+                        call: Call<LoginResponse>,
+                        response: Response<LoginResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val responseBody = response.body()
+                            if (responseBody != null && !responseBody.error) {
+                                result.value = ApiResponse.success(responseBody)
+                            } else {
+                                result.value = ApiResponse.success(null)
+                            }
                         } else {
-                            _stories.value = ApiResponse.empty()
+                            result.value = ApiResponse.success(null)
                         }
                     }
-                } else {
-                    _stories.value = ApiResponse.error()
-                }
 
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                        result.value = ApiResponse.error()
+                    }
+                })
+            } else {
+                result.value = ApiResponse.error()
             }
 
-            override fun onFailure(call: Call<GetStoriesResponse>, t: Throwable) {
-                _stories.value = ApiResponse.error()
-            }
-        })
+            result
 
-    }
+        }
 
 }

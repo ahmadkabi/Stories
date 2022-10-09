@@ -102,7 +102,7 @@ class StoryFragment : Fragment(), StoryAdapter.ItemListener {
                 StatusResponse.ERROR -> {
                     Toast.makeText(
                         requireContext(),
-                        result.message,
+                        getString(R.string.sorry_something_went_wrong),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

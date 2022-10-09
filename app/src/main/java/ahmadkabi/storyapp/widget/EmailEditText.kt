@@ -40,7 +40,7 @@ class EmailEditText : AppCompatEditText{
                     error = if (inInputValid(s)) {
                         null
                     } else {
-                        context.getString(R.string.please_input_email_address_correctly)
+                        context.getString(R.string.please_input_email)
                     }
                 }
             }

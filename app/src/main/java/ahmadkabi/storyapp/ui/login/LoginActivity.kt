@@ -1,12 +1,12 @@
 package ahmadkabi.storyapp.ui.login
 
 import ahmadkabi.storyapp.R
+import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.data.source.remote.model.LoginBody
-import ahmadkabi.storyapp.data.source.remote.model.LoginResponse
 import ahmadkabi.storyapp.databinding.ActivityLoginBinding
 import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.network.ApiConfig
+import ahmadkabi.storyapp.helper.showToast
 import ahmadkabi.storyapp.ui.home.HomeActivity
 import ahmadkabi.storyapp.ui.register.RegisterActivity
 import android.app.Dialog
@@ -14,16 +14,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.ViewModelProvider
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var viewModel: LoginViewModel
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
@@ -39,6 +37,9 @@ class LoginActivity : AppCompatActivity() {
 
         } else {
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+            viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
+            observe()
 
             binding.imgSetting.setOnClickListener {
                 startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
@@ -54,60 +55,45 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+
     private fun login() {
         progressDialog.show()
-
-        val body = LoginBody(
+        viewModel.body.value = LoginBody(
             binding.edLoginEmail.text.toString(),
-            binding.edLoginPassword.text.toString(),
+            binding.edLoginPassword.text.toString()
         )
-        val service = ApiConfig().getApiService().login(body)
+    }
 
-        service.enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(
-                call: Call<LoginResponse>,
-                response: Response<LoginResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null && !responseBody.error) {
-                        val userName = responseBody.loginResult.name
+    private fun observe() {
 
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "${getString(R.string.welcome)} $userName",
-                            Toast.LENGTH_SHORT
-                        ).show()
+        viewModel.films.observe(this) { result ->
+            when (result.status) {
+                StatusResponse.SUCCESS -> {
+                    if (result.body != null) {
+                        val userName = result.body.loginResult.name
+
+                        showToast("${getString(R.string.welcome)} $userName")
 
                         userPreference.setUser(
                             userName,
-                            responseBody.loginResult.token
+                            result.body.loginResult.token
                         )
                         startActivity(HomeActivity.newIntent(this@LoginActivity))
                         finish()
 
+                    } else {
+                        showToast(getString(R.string.operation_is_failed))
                     }
-
-                } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        getString(R.string.sorry_operation_is_failed_please_input_data_correctly),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    progressDialog.dismiss()
                 }
+                StatusResponse.ERROR -> {
+                    showToast(getString(R.string.sorry_something_went_wrong))
+                }
+                StatusResponse.EMPTY -> {}
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(
-                    this@LoginActivity,
-                    getString(R.string.sorry_something_went_wrong_please_try_again_later),
-                    Toast.LENGTH_SHORT
-                ).show()
-                progressDialog.dismiss()
+            progressDialog.dismiss()
+        }
 
-            }
-        })
     }
 
     companion object {
