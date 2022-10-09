@@ -33,7 +33,6 @@
     <string name="operation_is_failed">Maaf proses tidak berhasil. Mohon masukan data dengan benar</string>
     <string name="welcome">Selamat Datang</string>
     <string name="choose_a_picture">Pilih Gambar</string>
-    <string name="please_set_image_file_first">Harap mengambil gambar terlebih dahulu</string>
     <string name="minimal_password_is_6_char">Password sedikitnya harus 6 huruf</string>
     <string name="please_input_email">Pastikan format email benar</string>
     <string name="new_story_has_been_made">Cerita baru telah dibuat</string>

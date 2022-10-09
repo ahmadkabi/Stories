@@ -33,7 +33,6 @@
     <string name="operation_is_failed">Sorry operation is failed. Please input data correctly</string>
     <string name="welcome">Welcome</string>
     <string name="choose_a_picture">Choose a Picture</string>
-    <string name="please_set_image_file_first">Please set image file first</string>
     <string name="minimal_password_is_6_char">Minimal password is 6 characters</string>
     <string name="please_input_email">Please input email address correctly</string>
     <string name="new_story_has_been_made">New Story has been made</string>

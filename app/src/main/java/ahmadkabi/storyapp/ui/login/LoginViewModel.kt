@@ -19,33 +19,29 @@ class LoginViewModel : ViewModel() {
         Transformations.switchMap(body) {
             val result = MutableLiveData<ApiResponse<LoginResponse>>()
 
-            if (body.value != null) {
-                val service = ApiConfig().getApiService().login(body.value!!)
+            val service = ApiConfig().getApiService().login(it)
 
-                service.enqueue(object : Callback<LoginResponse> {
-                    override fun onResponse(
-                        call: Call<LoginResponse>,
-                        response: Response<LoginResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            val responseBody = response.body()
-                            if (responseBody != null && !responseBody.error) {
-                                result.value = ApiResponse.success(responseBody)
-                            } else {
-                                result.value = ApiResponse.success(null)
-                            }
+            service.enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null && !responseBody.error) {
+                            result.value = ApiResponse.success(responseBody)
                         } else {
                             result.value = ApiResponse.success(null)
                         }
+                    } else {
+                        result.value = ApiResponse.success(null)
                     }
+                }
 
-                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        result.value = ApiResponse.error()
-                    }
-                })
-            } else {
-                result.value = ApiResponse.error()
-            }
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    result.value = ApiResponse.error()
+                }
+            })
 
             result
 

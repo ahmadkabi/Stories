@@ -1,11 +1,10 @@
 package ahmadkabi.storyapp.ui.add
 
 import ahmadkabi.storyapp.R
-import ahmadkabi.storyapp.data.source.remote.model.AddStoryResponse
+import ahmadkabi.storyapp.data.source.remote.StatusResponse
+import ahmadkabi.storyapp.data.source.remote.model.AddStoryBody
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
-import ahmadkabi.storyapp.network.ApiConfig
-import ahmadkabi.storyapp.ui.register.RegisterViewModel
 import android.Manifest
 import android.app.Dialog
 import android.content.Context
@@ -28,9 +27,6 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.File
 
 class AddStoryActivity : AppCompatActivity() {
@@ -50,12 +46,16 @@ class AddStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
-        viewModel = ViewModelProvider(this)[AddStoryViewModel::class.java]
+        viewModel = ViewModelProvider(this)[AddStoryViewModel::class.java].apply {
+            token = UserPreference(this@AddStoryActivity).getToken()!!
+        }
+
+        observe()
 
         binding.imgBack.setOnClickListener { onBackPressed() }
         binding.btnCamera.setOnClickListener { startTakePhoto() }
         binding.btnGallery.setOnClickListener { startGallery() }
-        binding.buttonAdd.setOnClickListener { uploadImage() }
+        binding.buttonAdd.setOnClickListener { addStory() }
         binding.imgCancel.setOnClickListener {
             getFile = null
             binding.imgStory.setImageBitmap(null)
@@ -161,73 +161,41 @@ class AddStoryActivity : AppCompatActivity() {
         }
     }
 
+    private fun addStory() {
+        progressDialog.show()
 
-    private fun uploadImage() {
-        if (getFile != null) {
-            binding.imgStory
+        val file = reduceFileImage(getFile as File)
+        val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "photo",
+            file.name,
+            file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        )
 
-            progressDialog.show()
+        val description = binding.edAddDescription.text .toString()
+            .toRequestBody("text/plain".toMediaType())
 
-            val file = reduceFileImage(getFile as File)
+        viewModel.body.value = AddStoryBody(imageMultipart, description)
+    }
 
-            val description = binding.edAddDescription.text
-                .toString().toRequestBody("text/plain".toMediaType())
-            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
-                file.name,
-                requestImageFile
-            )
-
-            val userPreference = UserPreference(this)
-
-            val service = ApiConfig().getApiService().addStory(
-                "Bearer ${userPreference.getToken()}",
-                imageMultipart,
-                description
-            )
-
-            service.enqueue(object : Callback<AddStoryResponse> {
-                override fun onResponse(
-                    call: Call<AddStoryResponse>,
-                    response: Response<AddStoryResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        if (responseBody != null && !responseBody.error) {
-                            Toast.makeText(
-                                this@AddStoryActivity,
-                                getString(R.string.new_story_has_been_made),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+    private fun observe() {
+        viewModel.addStory.observe(this) { result ->
+            when (result.status) {
+                StatusResponse.SUCCESS -> {
+                    if (result.body != null) {
+                        showToast(getString(R.string.new_story_has_been_made))
                         finish()
+
                     } else {
-                        Toast.makeText(
-                            this@AddStoryActivity,
-                            getString(R.string.failed_to_add_new_story),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        progressDialog.dismiss()
+                        showToast(getString(R.string.failed_to_add_new_story))
                     }
                 }
-
-                override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
-                    Toast.makeText(
-                        this@AddStoryActivity,
-                        getString(R.string.sorry_something_went_wrong),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    progressDialog.dismiss()
-
+                StatusResponse.ERROR -> {
+                    showToast(getString(R.string.sorry_something_went_wrong))
                 }
-            })
-        } else {
-            Toast.makeText(
-                this@AddStoryActivity,
-                getString(R.string.please_set_image_file_first),
-                Toast.LENGTH_SHORT
-            ).show()
+                StatusResponse.EMPTY -> {}
+            }
+
+            progressDialog.dismiss()
         }
     }
 

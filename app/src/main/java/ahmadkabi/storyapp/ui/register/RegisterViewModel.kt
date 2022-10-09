@@ -19,33 +19,29 @@ class RegisterViewModel : ViewModel() {
         Transformations.switchMap(body) {
             val result = MutableLiveData<ApiResponse<RegisterResponse>>()
 
-            if (body.value != null) {
-                val service = ApiConfig().getApiService().register(body.value!!)
+            val service = ApiConfig().getApiService().register(it)
 
-                service.enqueue(object : Callback<RegisterResponse> {
-                    override fun onResponse(
-                        call: Call<RegisterResponse>,
-                        response: Response<RegisterResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            val responseBody = response.body()
-                            if (responseBody != null && !responseBody.error) {
-                                result.value = ApiResponse.success(responseBody)
-                            } else {
-                                result.value = ApiResponse.success(null)
-                            }
+            service.enqueue(object : Callback<RegisterResponse> {
+                override fun onResponse(
+                    call: Call<RegisterResponse>,
+                    response: Response<RegisterResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null && !responseBody.error) {
+                            result.value = ApiResponse.success(responseBody)
                         } else {
                             result.value = ApiResponse.success(null)
                         }
+                    } else {
+                        result.value = ApiResponse.success(null)
                     }
+                }
 
-                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                        result.value = ApiResponse.error()
-                    }
-                })
-            } else {
-                result.value = ApiResponse.error()
-            }
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    result.value = ApiResponse.error()
+                }
+            })
 
             result
 

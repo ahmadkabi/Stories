@@ -1,8 +1,8 @@
 package ahmadkabi.storyapp.ui.add
 
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
-import ahmadkabi.storyapp.data.source.remote.model.RegisterBody
-import ahmadkabi.storyapp.data.source.remote.model.RegisterResponse
+import ahmadkabi.storyapp.data.source.remote.model.AddStoryBody
+import ahmadkabi.storyapp.data.source.remote.model.AddStoryResponse
 import ahmadkabi.storyapp.network.ApiConfig
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -15,42 +15,39 @@ class AddStoryViewModel : ViewModel() {
 
     lateinit var token: String
 
-    var body = MutableLiveData<RegisterBody>()
+    var body = MutableLiveData<AddStoryBody>()
 
-    val login =
+    val addStory =
         Transformations.switchMap(body) {
-            val result = MutableLiveData<ApiResponse<RegisterResponse>>()
+            val result = MutableLiveData<ApiResponse<AddStoryResponse>>()
+            val service = ApiConfig().getApiService().addStory(
+                "Bearer $token",
+                it.imageMultipart,
+                it.description
+            )
 
-            if (body.value != null) {
-                val service = ApiConfig().getApiService().register(body.value!!)
-
-                service.enqueue(object : Callback<RegisterResponse> {
-                    override fun onResponse(
-                        call: Call<RegisterResponse>,
-                        response: Response<RegisterResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            val responseBody = response.body()
-                            if (responseBody != null && !responseBody.error) {
-                                result.value = ApiResponse.success(responseBody)
-                            } else {
-                                result.value = ApiResponse.success(null)
-                            }
+            service.enqueue(object : Callback<AddStoryResponse> {
+                override fun onResponse(
+                    call: Call<AddStoryResponse>,
+                    response: Response<AddStoryResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null && !responseBody.error) {
+                            result.value = ApiResponse.success(responseBody)
                         } else {
                             result.value = ApiResponse.success(null)
                         }
+                    } else {
+                        result.value = ApiResponse.success(null)
                     }
+                }
 
-                    override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                        result.value = ApiResponse.error()
-                    }
-                })
-            } else {
-                result.value = ApiResponse.error()
-            }
+                override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
+                    result.value = ApiResponse.error()
+                }
+            })
 
             result
-
         }
-
 }
