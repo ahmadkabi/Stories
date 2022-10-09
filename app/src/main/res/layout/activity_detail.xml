@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_10"
-                android:background="@drawable/bg_corner50_primary"
+                android:background="@drawable/bg_username"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:transitionName="user"
@@ -61,7 +61,7 @@
                     style="@style/Text.Header3"
                     android:layout_width="@dimen/dp_26"
                     android:layout_height="@dimen/dp_26"
-                    android:background="@drawable/bg_circle_blue50"
+                    android:background="@drawable/bg_circle_primaryoverlay50"
                     android:gravity="center"
                     android:text="@string/u" />
 

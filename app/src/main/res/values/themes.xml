@@ -51,10 +51,6 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
-    <style name="Text.Content4">
-        <item name="android:textSize">@dimen/sp_18</item>
-    </style>
-
     <style name="Text.Content5">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
@@ -133,19 +129,6 @@
         <item name="cornerRadius">@dimen/dp_26</item>
         <item name="iconGravity">textStart</item>
         <item name="iconTint">@color/white</item>
-    </style>
-
-    <style name="MaterialButton.AddNewStory">
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@color/colorPrimary</item>
-        <item name="android:paddingStart">@dimen/dp_50</item>
-        <item name="android:paddingEnd">@dimen/dp_50</item>
-        <item name="rippleColor">@color/grey_300</item>
-        <item name="strokeColor">@color/white</item>
-        <item name="android:paddingTop">@dimen/dp_14</item>
-        <item name="android:paddingBottom">@dimen/dp_14</item>
-        <item name="strokeWidth">@dimen/dp_6</item>
-        <item name="cornerRadius">@dimen/dp_30</item>
     </style>
 
 

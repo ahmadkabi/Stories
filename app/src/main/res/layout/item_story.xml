@@ -12,7 +12,7 @@
             android:layout_height="@dimen/dp_300"
             android:padding="@dimen/dp_1"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_corner30_primary"
+            android:background="@drawable/bg_corner30_primaryoverlay50"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/bg_corner50_primary"
+            android:background="@drawable/bg_username"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingVertical="@dimen/dp_6"

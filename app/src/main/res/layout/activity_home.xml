@@ -29,7 +29,7 @@
                     android:layout_width="@dimen/dp_300"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    app:tabIndicator="@drawable/bg_corner18_teal500"
+                    app:tabIndicator="@drawable/bg_corner18_primary"
                     app:tabIndicatorColor="@color/colorPrimary"
                     app:tabIndicatorGravity="center"
                     app:tabIndicatorHeight="@dimen/dp_36"
