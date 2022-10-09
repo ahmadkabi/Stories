@@ -2,7 +2,6 @@ package ahmadkabi.storyapp.ui.home
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityHomeBinding
-import ahmadkabi.storyapp.ui.home.story.StoryFragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -21,10 +20,6 @@ class HomeActivity : AppCompatActivity() {
         binding.viewPager.adapter = SectionsPagerAdapter(this, supportFragmentManager)
         binding.tabs.setupWithViewPager(binding.viewPager)
 
-    }
-
-    fun openStoryFragment(){
-        binding.tabs.getTabAt(0)?.select()
     }
 
     companion object {
