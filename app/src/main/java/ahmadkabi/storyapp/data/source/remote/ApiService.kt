@@ -27,6 +27,11 @@ interface ApiService {
         @Header("Authorization") authorization: String
     ): Call<GetStoriesResponse>
 
+    @GET("/v1/stories?location=1")
+    fun getMappedStories(
+        @Header("Authorization") authorization: String
+    ): Call<GetStoriesResponse>
+
     @Multipart
     @POST("/v1/stories")
     fun addStory(

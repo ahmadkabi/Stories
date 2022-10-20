@@ -129,6 +129,18 @@
     </style>
 
 
+    <style name="MaterialButton.Primary.Icon">
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/dp_0</item>
+        <item name="android:paddingLeft">@dimen/dp_0</item>
+        <item name="android:paddingEnd">@dimen/dp_0</item>
+        <item name="android:paddingRight">@dimen/dp_0</item>
+        <item name="android:paddingTop">@dimen/button_padding_vertical_icon</item>
+        <item name="android:paddingBottom">@dimen/button_padding_vertical_icon</item>
+    </style>
+
+
     <style name="MaterialButton.Secondary">
         <item name="android:textColor">@color/black</item>
         <item name="backgroundTint">@color/white</item>

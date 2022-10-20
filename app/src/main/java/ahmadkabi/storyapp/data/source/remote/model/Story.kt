@@ -6,6 +6,6 @@ data class Story(
     val description: String,
     val photoUrl: String,
     val createdAt: Any,
-    val lat: Float,
-    val lon: Float
+    val lat: Float?,
+    val lon: Float?
 )

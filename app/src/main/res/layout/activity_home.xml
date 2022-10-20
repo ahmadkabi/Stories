@@ -18,15 +18,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingStart="@dimen/dp_8"
                 android:paddingEnd="@dimen/dp_8">
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/dp_16"
+                    android:paddingVertical="@dimen/dp_10"
+                    app:srcCompat="@drawable/ic_round_location_on_24"
+                    app:tint="@color/colorPrimary" />
+
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabs"
-                    android:layout_width="@dimen/dp_300"
+                    android:layout_width="@dimen/dp_250"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     app:tabIndicator="@drawable/bg_corner18_primary"
@@ -41,7 +52,7 @@
                     app:tabTextAppearance="@style/TabTitle"
                     app:tabTextColor="@color/grey_500" />
 
-            </FrameLayout>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 

@@ -28,6 +28,7 @@
     <string name="logout">Keluar</string>
     <string name="no_data_available">Tidak ada data yang tersedia</string>
     <string name="sorry_something_went_wrong">Maaf terjadi kesalahan. Silahkan coba lagi nanti</string>
+    <string name="data_is_empty">Data Kosong</string>
     <string name="operation_is_failed">Maaf proses tidak berhasil. Mohon masukan data dengan benar</string>
     <string name="welcome">Selamat Datang</string>
     <string name="choose_a_picture">Pilih Gambar</string>

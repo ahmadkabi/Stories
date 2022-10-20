@@ -2,6 +2,7 @@ package ahmadkabi.storyapp.ui.home
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.databinding.ActivityHomeBinding
+import ahmadkabi.storyapp.ui.map.MapsActivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -19,6 +20,10 @@ class HomeActivity : AppCompatActivity() {
 
         binding.viewPager.adapter = SectionsPagerAdapter(this, supportFragmentManager)
         binding.tabs.setupWithViewPager(binding.viewPager)
+
+        binding.imgMap.setOnClickListener {
+            startActivity(MapsActivity.newIntent(this))
+        }
 
     }
 
