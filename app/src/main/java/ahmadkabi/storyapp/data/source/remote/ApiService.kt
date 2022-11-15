@@ -24,8 +24,10 @@ interface ApiService {
 
     @GET("/v1/stories")
     fun getStories(
-        @Header("Authorization") authorization: String
-    ): Call<GetStoriesResponse>
+        @Header("Authorization") authorization: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): List<Story>
 
     @GET("/v1/stories?location=1")
     fun getMappedStories(

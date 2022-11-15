@@ -3,17 +3,19 @@ package ahmadkabi.storyapp.ui.map
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.databinding.ActivityMapsBinding
-import ahmadkabi.storyapp.helper.*
+import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.ui.home.story.StoryViewModel
+import ahmadkabi.storyapp.helper.showToast
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.maps.*
-
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 

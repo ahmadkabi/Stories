@@ -45,7 +45,7 @@
     <string-array name="image_by_starline_on_freepik">
         <item>https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&amp;position=18&amp;from_view=search</item>
     </string-array>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="retry">Retry</string>
 
 
 </resources>

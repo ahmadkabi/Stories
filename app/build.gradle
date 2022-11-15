@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -34,6 +36,12 @@ android {
         dataBinding true
         viewBinding true
     }
+
+    kotlinOptions{
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
 }
 
 dependencies {
@@ -58,4 +66,10 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha03'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha03'
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+
+    implementation 'androidx.room:room-ktx:2.4.0-rc01'
+    kapt 'androidx.room:room-compiler:2.4.0-rc01'
+
 }
