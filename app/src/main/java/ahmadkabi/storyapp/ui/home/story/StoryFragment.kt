@@ -17,6 +17,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.activity.viewModels
 
 class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 
@@ -46,6 +47,8 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 
         observe()
         buildRv()
+
+        getData()
 
         progressDialog.show()
 //        viewModel.fetchStories()
@@ -127,6 +130,26 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 //            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
 //        }
 
+    }
+
+
+    private fun getData() {
+        val adapter = QuoteListAdapter()
+        binding.recyclerView.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
+            }
+        )
+        viewModel.quote.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
+
+            binding.txEmpty.gone()
+            binding.imgEmpty.gone()
+
+            progressDialog.dismiss()
+            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
+
+        }
     }
 
     private val launcherIntentGallery = registerForActivityResult(

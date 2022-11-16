@@ -49,6 +49,12 @@ interface ApiService {
         @Part("description") description: RequestBody
     ): Call<AddStoryResponse>
 
+    @GET("list")
+    suspend fun getQuote(
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): List<QuoteResponseItem>
+
 }
 
 class ApiConfig {
@@ -59,7 +65,7 @@ class ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/")
+            .baseUrl("https://quote-api.dicoding.dev/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
