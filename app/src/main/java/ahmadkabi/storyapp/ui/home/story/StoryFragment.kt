@@ -27,8 +27,7 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelFactory().create(StoryViewModel::class.java).apply {
-//            token = UserPreference(requireContext()).getToken()!!
+        viewModel = ViewModelFactory(requireContext()).create(StoryViewModel::class.java).apply {
         }
     }
 
@@ -98,6 +97,11 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
     private fun observe() {
         viewModel.stories.observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
+            binding.txEmpty.gone()
+            binding.imgEmpty.gone()
+
+            progressDialog.dismiss()
+            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
         }
 
 //        viewModel.stories.observe(viewLifecycleOwner) { result ->

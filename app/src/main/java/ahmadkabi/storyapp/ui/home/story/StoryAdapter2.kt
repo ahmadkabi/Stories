@@ -58,7 +58,7 @@ class StoryAdapter2 :
                 listener.onItemClickListener(data, optionsCompat)
             }
 
-            setAnimation(itemView, layoutPosition)
+//            setAnimation(itemView, layoutPosition)
             
         }
     }

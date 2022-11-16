@@ -22,12 +22,19 @@ interface ApiService {
         @Body body: LoginBody
     ): Call<LoginResponse>
 
-    @GET("/v1/stories")
-    fun getStories(
+    @GET("/v1/stories?page=1&size=15")
+    suspend fun getStories(
         @Header("Authorization") authorization: String,
-        @Query("page") page: Int,
-        @Query("size") size: Int
+//        @Query("page") page: Int,
+//        @Query("size") size: Int
     ): List<Story>
+
+
+//    @GET("list")
+//    suspend fun getQuote(
+//        @Query("page") page: Int,
+//        @Query("size") size: Int
+//    ): List<QuoteResponseItem>
 
     @GET("/v1/stories?location=1")
     fun getMappedStories(

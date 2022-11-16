@@ -9,7 +9,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 
-class Repository(private val apiService: ApiService) {
+class Repository(private val token: String, private val apiService: ApiService) {
 
     fun getStories(): LiveData<PagingData<Story>> {
         return Pager(
@@ -17,7 +17,7 @@ class Repository(private val apiService: ApiService) {
                 pageSize = 5
             ),
             pagingSourceFactory = {
-                QuotePagingSource(apiService)
+                QuotePagingSource(token, apiService)
             }
         ).liveData
     }
