@@ -21,6 +21,9 @@ class StoryViewModel(quoteRepository: QuoteRepository) : ViewModel() {
     val quote: LiveData<PagingData<QuoteResponseItem>> =
         quoteRepository.getQuote().cachedIn(viewModelScope)
 
+    val story: LiveData<PagingData<Story>> =
+        quoteRepository.getStory().cachedIn(viewModelScope)
+
 
     lateinit var token: String
 

@@ -17,7 +17,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.activity.viewModels
+
 
 class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 
@@ -48,7 +48,8 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
         observe()
         buildRv()
 
-        getData()
+        getDataStory()
+//        getData()
 
         progressDialog.show()
 //        viewModel.fetchStories()
@@ -132,6 +133,25 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
 
     }
 
+
+    private fun getDataStory() {
+        val adapter = StoryListAdapter()
+        binding.recyclerView.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
+            }
+        )
+        viewModel.story.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
+
+            binding.txEmpty.gone()
+            binding.imgEmpty.gone()
+
+            progressDialog.dismiss()
+            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
+
+        }
+    }
 
     private fun getData() {
         val adapter = QuoteListAdapter()

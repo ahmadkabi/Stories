@@ -55,6 +55,13 @@ interface ApiService {
         @Query("size") size: Int
     ): List<QuoteResponseItem>
 
+    @GET("/v1/stories")
+    suspend fun getStory(
+        @Header("Authorization") authorization: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): StoryResponse
+
 }
 
 class ApiConfig {
@@ -65,7 +72,8 @@ class ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://quote-api.dicoding.dev/")
+//            .baseUrl("https://quote-api.dicoding.dev/")
+            .baseUrl("https://story-api.dicoding.dev/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

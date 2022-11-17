@@ -2,6 +2,7 @@ package ahmadkabi.storyapp.data
 
 import ahmadkabi.storyapp.data.source.remote.ApiService
 import ahmadkabi.storyapp.data.source.remote.model.QuoteResponseItem
+import ahmadkabi.storyapp.data.source.remote.model.Story
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -16,6 +17,17 @@ class QuoteRepository(private val quoteDatabase: QuoteDatabase, private val apiS
             ),
             pagingSourceFactory = {
                 QuotePagingSource(apiService)
+            }
+        ).liveData
+    }
+
+    fun getStory(): LiveData<PagingData<Story>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 5
+            ),
+            pagingSourceFactory = {
+                StoryPagingSource(apiService)
             }
         ).liveData
     }
