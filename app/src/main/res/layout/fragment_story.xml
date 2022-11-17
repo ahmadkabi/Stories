@@ -19,7 +19,7 @@
             tools:listitem="@layout/item_story" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMake"
+            android:id="@+id/btnAdd"
             style="@style/MaterialButton.PrimaryPurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

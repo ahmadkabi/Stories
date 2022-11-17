@@ -48,17 +48,13 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
         buildRv()
         observe()
 
-//        getData()
-
         progressDialog.show()
-//        viewModel.fetchStories()
 
-        binding.btnMake.setOnClickListener {
+        binding.btnAdd.setOnClickListener {
             if (activity != null) {
                 val intent = AddStoryActivity.newIntent(requireActivity())
                 launcherIntentGallery.launch(intent)
             }
-
         }
 
     }
@@ -100,6 +96,8 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
 
             progressDialog.dismiss()
 
+            binding.recyclerView.layoutManager?.scrollToPosition(0)
+
         }
 
     }
@@ -113,8 +111,8 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
         ) {
 
             progressDialog.show()
-//            viewModel.fetchStories()
-
+            adapter.refresh()
+            observe()
         }
     }
 
