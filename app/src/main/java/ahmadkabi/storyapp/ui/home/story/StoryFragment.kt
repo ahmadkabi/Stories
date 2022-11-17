@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
+class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
 
     private lateinit var viewModel: StoryViewModel
     private lateinit var binding: FragmentStoryBinding
@@ -45,10 +45,9 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observe()
         buildRv()
+        observe()
 
-        getDataStory()
 //        getData()
 
         progressDialog.show()
@@ -59,21 +58,14 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
                 val intent = AddStoryActivity.newIntent(requireActivity())
                 launcherIntentGallery.launch(intent)
             }
-        }
-
-        binding.swipeRefresh.setOnRefreshListener {
-            binding.swipeRefresh.isRefreshing = true
-            progressDialog.show()
-
-//            viewModel.fetchStories()
 
         }
 
     }
 
-    private lateinit var adapter: StoryAdapter2
+    private lateinit var adapter: StoryListAdapter
     private fun buildRv() {
-        adapter = StoryAdapter2()
+        adapter = StoryListAdapter()
         adapter.listener = this
 
         val itemDecorVertical =
@@ -89,58 +81,17 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         binding.recyclerView.setHasFixedSize(false)
 
+
         binding.recyclerView.adapter = adapter.withLoadStateFooter(
             footer = LoadingStateAdapter {
                 adapter.retry()
             }
         )
-        binding.recyclerView.adapter = adapter
 
     }
 
     private fun observe() {
-        viewModel.stories.observe(viewLifecycleOwner) {
-            adapter.submitData(lifecycle, it)
-            binding.txEmpty.gone()
-            binding.imgEmpty.gone()
 
-            progressDialog.dismiss()
-            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
-        }
-
-//        viewModel.stories.observe(viewLifecycleOwner) { result ->
-//            when (result.status) {
-//                StatusResponse.SUCCESS -> {
-//                    if(result.body != null){
-//                        adapter.submitData(lifecycle, result.body)
-//                        binding.txEmpty.gone()
-//                        binding.imgEmpty.gone()
-//
-//                    }
-//                }
-//                StatusResponse.EMPTY -> {
-//                    binding.txEmpty.visible()
-//                    binding.imgEmpty.visible()
-//                }
-//                StatusResponse.ERROR -> {
-//                    showToast(getString(R.string.sorry_something_went_wrong))
-//                }
-//            }
-//
-//            progressDialog.dismiss()
-//            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
-//        }
-
-    }
-
-
-    private fun getDataStory() {
-        val adapter = StoryListAdapter()
-        binding.recyclerView.adapter = adapter.withLoadStateFooter(
-            footer = LoadingStateAdapter {
-                adapter.retry()
-            }
-        )
         viewModel.story.observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
 
@@ -148,28 +99,9 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
             binding.imgEmpty.gone()
 
             progressDialog.dismiss()
-            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
 
         }
-    }
 
-    private fun getData() {
-        val adapter = QuoteListAdapter()
-        binding.recyclerView.adapter = adapter.withLoadStateFooter(
-            footer = LoadingStateAdapter {
-                adapter.retry()
-            }
-        )
-        viewModel.quote.observe(viewLifecycleOwner) {
-            adapter.submitData(lifecycle, it)
-
-            binding.txEmpty.gone()
-            binding.imgEmpty.gone()
-
-            progressDialog.dismiss()
-            if (binding.swipeRefresh.isRefreshing) binding.swipeRefresh.isRefreshing = false
-
-        }
     }
 
     private val launcherIntentGallery = registerForActivityResult(
@@ -181,7 +113,7 @@ class StoryFragment : Fragment(), StoryAdapter2.ItemListener {
         ) {
 
             progressDialog.show()
-//            viewModel.fetchStories() todo
+//            viewModel.fetchStories()
 
         }
     }

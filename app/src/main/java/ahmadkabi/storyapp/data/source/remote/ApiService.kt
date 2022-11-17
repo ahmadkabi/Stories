@@ -22,19 +22,12 @@ interface ApiService {
         @Body body: LoginBody
     ): Call<LoginResponse>
 
-    @GET("/v1/stories?page=1&size=15")
+    @GET("/v1/stories")
     suspend fun getStories(
         @Header("Authorization") authorization: String,
-//        @Query("page") page: Int,
-//        @Query("size") size: Int
-    ): List<Story>
-
-
-//    @GET("list")
-//    suspend fun getQuote(
-//        @Query("page") page: Int,
-//        @Query("size") size: Int
-//    ): List<QuoteResponseItem>
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): StoryResponse
 
     @GET("/v1/stories?location=1")
     fun getMappedStories(
@@ -48,19 +41,6 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody
     ): Call<AddStoryResponse>
-
-    @GET("list")
-    suspend fun getQuote(
-        @Query("page") page: Int,
-        @Query("size") size: Int
-    ): List<QuoteResponseItem>
-
-    @GET("/v1/stories")
-    suspend fun getStory(
-        @Header("Authorization") authorization: String,
-        @Query("page") page: Int,
-        @Query("size") size: Int
-    ): StoryResponse
 
 }
 

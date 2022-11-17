@@ -1,14 +1,13 @@
 package ahmadkabi.storyapp.helper
 
-import ahmadkabi.storyapp.data.QuoteDatabase
-import ahmadkabi.storyapp.data.QuoteRepository
+import ahmadkabi.storyapp.data.StoryRepository
 import ahmadkabi.storyapp.data.source.remote.ApiConfig
 import android.content.Context
 
 object Injection {
-    fun provideRepository(context: Context): QuoteRepository {
-        val database = QuoteDatabase.getDatabase(context)
+    fun provideRepository(context: Context): StoryRepository {
+        val token = UserPreference(context).getToken()!!
         val apiService = ApiConfig().getApiService()
-        return QuoteRepository(database, apiService)
+        return StoryRepository(token, apiService)
     }
 }
