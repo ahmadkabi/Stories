@@ -28,8 +28,7 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelFactory(requireContext()).create(StoryViewModel::class.java).apply {
-        }
+        viewModel = ViewModelFactory(requireContext()).create(StoryViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -88,7 +87,7 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
 
     private fun observe() {
 
-        viewModel.story.observe(viewLifecycleOwner) {
+        viewModel.getStories().observe(viewLifecycleOwner) {
             adapter.submitData(lifecycle, it)
 
             binding.txEmpty.gone()
