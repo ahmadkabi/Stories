@@ -10,11 +10,11 @@ object DataDummy {
 
         for (i in 0..10) {
             val news = Story(
-                "le $i",
+                "$i",
+                "Username",
+                "Story Description",
+                "https://www.dicoding.com/",
                 "2022-02-22T22:22:22Z",
-                "https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/feature-1-kurikulum-global-3.png",
-                "https://www.dicoding.czom/",
-                "https://www.dicoding.czom/",
                 0f,
                 0f
             )
