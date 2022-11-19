@@ -4,7 +4,7 @@ import ahmadkabi.storyapp.data.source.remote.model.Story
 
 object DataDummy {
 
-    fun generateDummyStory(): List<Story> {
+    fun generateDummyStory(): ArrayList<Story> {
 
         val newsList = ArrayList<Story>()
 

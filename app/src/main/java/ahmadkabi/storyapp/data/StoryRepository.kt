@@ -1,5 +1,6 @@
 package ahmadkabi.storyapp.data
 
+import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.ApiService
 import ahmadkabi.storyapp.data.source.remote.model.Story
 import androidx.lifecycle.LiveData
@@ -20,4 +21,9 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
             }
         ).liveData
     }
+
+    suspend fun getStoriesWithLocation() =
+        ApiResponse.success(apiService.getMappedStories("Bearer $token").listStory)
+
+
 }

@@ -30,9 +30,9 @@ interface ApiService {
     ): StoryResponse
 
     @GET("/v1/stories?location=1")
-    fun getMappedStories(
+    suspend fun getMappedStories(
         @Header("Authorization") authorization: String
-    ): Call<GetStoriesResponse>
+    ): GetStoriesResponse
 
     @Multipart
     @POST("/v1/stories")
@@ -52,7 +52,6 @@ class ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-//            .baseUrl("https://quote-api.dicoding.dev/")
             .baseUrl("https://story-api.dicoding.dev/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)

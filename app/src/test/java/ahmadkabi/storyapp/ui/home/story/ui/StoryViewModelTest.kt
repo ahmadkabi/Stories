@@ -2,16 +2,12 @@ package ahmadkabi.storyapp.ui.home.story.ui
 
 import ahmadkabi.storyapp.data.StoryRepository
 import ahmadkabi.storyapp.data.source.remote.model.Story
-import ahmadkabi.storyapp.ui.home.story.DataDummy
-import ahmadkabi.storyapp.ui.home.story.StoryListAdapter
-import ahmadkabi.storyapp.ui.home.story.StoryViewModel
-import ahmadkabi.storyapp.ui.home.story.getOrAwaitValue
+import ahmadkabi.storyapp.ui.home.story.*
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.AsyncPagingDataDiffer
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.ListUpdateCallback
-import com.artworkspace.storyapp.utils.CoroutinesTestRule
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -39,7 +35,7 @@ class StoryViewModelTest {
     @Mock
     private lateinit var storyRepository: StoryRepository
     private lateinit var storyViewModel: StoryViewModel
-    private val dummyNews = DataDummy.generateDummyStory()
+    private val dummyStories = DataDummy.generateDummyStory()
 
     @Before
     fun setUp() {
@@ -50,11 +46,11 @@ class StoryViewModelTest {
 
     @Test
     fun `when Get Stories Should Not Null and Return Success`() = runTest {
-        val expectedNews = MutableLiveData<PagingData<Story>>()
-        expectedNews.value = PagingData.from(dummyNews)
-        `when`(storyRepository.getStories()).thenReturn(expectedNews)
+        val expected = MutableLiveData<PagingData<Story>>()
+        expected.value = PagingData.from(dummyStories)
+        `when`(storyRepository.getStories()).thenReturn(expected)
 
-        val actualNews = storyViewModel.getStories().getOrAwaitValue()
+        val actual = storyViewModel.getStories().getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
             diffCallback = StoryListAdapter.DIFF_CALLBACK,
@@ -62,11 +58,11 @@ class StoryViewModelTest {
             mainDispatcher = coroutinesTestRule.testDispatcher,
             workerDispatcher = coroutinesTestRule.testDispatcher
         )
-        differ.submitData(actualNews)
+        differ.submitData(actual)
 
         Mockito.verify(storyRepository).getStories()
-        Assert.assertNotNull(actualNews)
-        Assert.assertEquals(dummyNews.size, differ.snapshot().size)
+        Assert.assertNotNull(actual)
+        Assert.assertEquals(dummyStories.size, differ.snapshot().size)
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -84,5 +80,5 @@ class StoryViewModelTest {
         override fun onMoved(fromPosition: Int, toPosition: Int) {}
         override fun onChanged(position: Int, count: Int, payload: Any?) {}
     }
-    
+
 }

@@ -3,19 +3,18 @@ package ahmadkabi.storyapp.ui.map
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.databinding.ActivityMapsBinding
-import ahmadkabi.storyapp.helper.DialogUtils
+import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.helper.UserPreference
-import ahmadkabi.storyapp.helper.showToast
+import ahmadkabi.storyapp.ui.home.story.StoryViewModel
+import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
+
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
@@ -33,9 +32,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MapViewModel::class.java].apply {
-            token = UserPreference(this@MapsActivity).getToken()!!
-        }
+        viewModel = ViewModelFactory(this).create(MapViewModel::class.java)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -49,7 +46,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         progressDialog.show()
-        viewModel.fetchStories()
+        viewModel.getMappedStories()
 
     }
 
