@@ -21,7 +21,7 @@ class AddStoryViewModel(private val storyRepository: StoryRepository) : ViewMode
     fun addStory(file: MultipartBody.Part, description: RequestBody) {
         viewModelScope.launch {
             try {
-                _addStory.value = storyRepository.addNewStory(file, description)
+                _addStory.value = storyRepository.addStory(file, description)
             } catch (httpEx: HttpException) {
                 httpEx.response()?.errorBody()?.let {
                     _addStory.value = ApiResponse.error()

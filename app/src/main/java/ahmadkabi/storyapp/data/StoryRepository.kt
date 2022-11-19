@@ -35,7 +35,7 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
     suspend fun register(body: RegisterBody) =
         ApiResponse.success(apiService.register(body))
 
-    suspend fun addNewStory(
+    suspend fun addStory(
         file: MultipartBody.Part,
         description: RequestBody
     ) = ApiResponse.success(

@@ -56,4 +56,11 @@ object DataDummy {
             "success"
         )
     }
+
+    fun generateAddStoryResponse(): AddStoryResponse{
+        return AddStoryResponse(
+            false,
+            "success"
+        )
+    }
 }

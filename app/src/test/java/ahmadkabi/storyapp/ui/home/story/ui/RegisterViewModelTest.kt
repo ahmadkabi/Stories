@@ -43,7 +43,7 @@ class RegisterViewModelTest {
     }
 
     @Test
-    fun `when Register with correct credential should return error = false`() = runTest {
+    fun `when Register with correct credential should return error == false`() = runTest {
         val expected = ApiResponse(StatusResponse.SUCCESS, registerResponse)
 
         Mockito.`when`(storyRepository.register(registerBody)).thenReturn(expected)

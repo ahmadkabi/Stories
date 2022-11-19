@@ -34,11 +34,11 @@ class MapViewModelTest {
 
     @Mock
     private lateinit var storyRepository: StoryRepository
-    private lateinit var storiesWithMapViewModel: MapViewModel
+    private lateinit var mapViewModel: MapViewModel
 
     @Before
     fun setUp() {
-        storiesWithMapViewModel = MapViewModel(storyRepository)
+        mapViewModel = MapViewModel(storyRepository)
     }
 
     @Test
@@ -47,8 +47,8 @@ class MapViewModelTest {
 
         `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
-        storiesWithMapViewModel.getMappedStories()
-        val actual = storiesWithMapViewModel.stories.getOrAwaitValue()
+        mapViewModel.getMappedStories()
+        val actual = mapViewModel.stories.getOrAwaitValue()
 
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected.body?.size, actual.body?.size)
@@ -62,8 +62,8 @@ class MapViewModelTest {
 
         `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
-        storiesWithMapViewModel.getMappedStories()
-        val actual = storiesWithMapViewModel.stories.getOrAwaitValue()
+        mapViewModel.getMappedStories()
+        val actual = mapViewModel.stories.getOrAwaitValue()
 
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected, actual)

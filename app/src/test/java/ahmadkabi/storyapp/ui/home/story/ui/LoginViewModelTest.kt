@@ -56,7 +56,7 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun `when Login with wrong credential should Fail`() = runTest {
+    fun `when Login with wrong credential should return status Error`() = runTest {
         val expected = ApiResponse<LoginResponse>(StatusResponse.ERROR)
 
         Mockito.`when`(storyRepository.login(loginBody)).thenThrow()
