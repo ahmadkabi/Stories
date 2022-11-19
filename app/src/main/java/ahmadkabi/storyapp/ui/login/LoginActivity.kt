@@ -8,6 +8,8 @@ import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.helper.showToast
 import ahmadkabi.storyapp.ui.home.HomeActivity
+import ahmadkabi.storyapp.ui.home.story.StoryViewModel
+import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
 import ahmadkabi.storyapp.ui.register.RegisterActivity
 import android.app.Dialog
 import android.content.Context
@@ -37,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
 
         } else {
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-            viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+            viewModel = ViewModelFactory(this).create(LoginViewModel::class.java)
 
             observe()
 
@@ -57,9 +59,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login() {
         progressDialog.show()
-        viewModel.body.value = LoginBody(
-            binding.edLoginEmail.text.toString(),
-            binding.edLoginPassword.text.toString()
+
+        viewModel.login(
+            LoginBody(
+                binding.edLoginEmail.text.toString(),
+                binding.edLoginPassword.text.toString()
+            )
         )
     }
 

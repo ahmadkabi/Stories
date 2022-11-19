@@ -71,7 +71,7 @@ class StoryViewModelTest {
     @After
     fun tearDown() {
         Dispatchers.resetMain()
-        mainThreadSurrogate.close()
+        mainThreadSurrogate.close()4
     }
 
     private val noopListUpdateCallback = object : ListUpdateCallback {

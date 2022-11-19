@@ -1,50 +1,34 @@
 package ahmadkabi.storyapp.ui.register
 
-import ahmadkabi.storyapp.data.source.remote.ApiConfig
+import ahmadkabi.storyapp.data.StoryRepository
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
 import ahmadkabi.storyapp.data.source.remote.model.RegisterBody
 import ahmadkabi.storyapp.data.source.remote.model.RegisterResponse
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    var body = MutableLiveData<RegisterBody>()
+    private val _register = MutableLiveData<ApiResponse<RegisterResponse>>()
+    val register: LiveData<ApiResponse<RegisterResponse>>
+        get() = _register
 
-    val login =
-        Transformations.switchMap(body) {
-            val result = MutableLiveData<ApiResponse<RegisterResponse>>()
-
-            val service = ApiConfig().getApiService().register(it)
-
-            service.enqueue(object : Callback<RegisterResponse> {
-                override fun onResponse(
-                    call: Call<RegisterResponse>,
-                    response: Response<RegisterResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        if (responseBody != null && !responseBody.error) {
-                            result.value = ApiResponse.success(responseBody)
-                        } else {
-                            result.value = ApiResponse.success(null)
-                        }
-                    } else {
-                        result.value = ApiResponse.success(null)
-                    }
+    fun register(body: RegisterBody) {
+        viewModelScope.launch {
+            try {
+                _register.value = storyRepository.register(body)
+            } catch (httpEx: HttpException) {
+                httpEx.response()?.errorBody()?.let {
+                    _register.value = ApiResponse.error()
                 }
-
-                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                    result.value = ApiResponse.error()
-                }
-            })
-
-            result
-
+            } catch (ex: Exception) {
+                _register.value = ApiResponse.error()
+            }
         }
+    }
 
 }

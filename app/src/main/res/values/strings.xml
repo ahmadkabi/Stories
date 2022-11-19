@@ -36,6 +36,8 @@
     <string name="please_input_email">Please input email address correctly</string>
     <string name="new_story_has_been_made">New Story has been made</string>
     <string name="failed_to_add_new_story">Failed to add new Story. Please input data correctly</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="retry">Retry</string>
 
     <!--    CREDIT      -->
     <string-array name="image_by__freepik">
@@ -45,8 +47,6 @@
     <string-array name="image_by_starline_on_freepik">
         <item>https://www.freepik.com/free-vector/set-circular-scribbles_1050263.htm#query=handdraw&amp;position=18&amp;from_view=search</item>
     </string-array>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="retry">Retry</string>
 
 
 </resources>

@@ -13,14 +13,14 @@ import retrofit2.http.*
 interface ApiService {
 
     @POST("/v1/register")
-    fun register(
+    suspend fun register(
         @Body body: RegisterBody
-    ): Call<RegisterResponse>
+    ): RegisterResponse
 
     @POST("/v1/login")
-    fun login(
+    suspend fun login(
         @Body body: LoginBody
-    ): Call<LoginResponse>
+    ): LoginResponse
 
     @GET("/v1/stories")
     suspend fun getStories(

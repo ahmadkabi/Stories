@@ -6,6 +6,7 @@ import ahmadkabi.storyapp.data.source.remote.model.RegisterBody
 import ahmadkabi.storyapp.databinding.ActivityRegisterBinding
 import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.helper.showToast
+import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -13,7 +14,6 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
-        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
+        viewModel = ViewModelFactory(this).create(RegisterViewModel::class.java)
 
         observe()
 
@@ -44,18 +44,22 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register() {
         progressDialog.show()
-        viewModel.body.value = RegisterBody(
-            binding.edRegisterName.text.toString(),
-            binding.edRegisterEmail.text.toString(),
-            binding.edRegisterPassword.text.toString()
+
+        viewModel.register(
+            RegisterBody(
+                binding.edRegisterName.text.toString(),
+                binding.edRegisterEmail.text.toString(),
+                binding.edRegisterPassword.text.toString()
+            )
         )
+
     }
 
     private fun observe() {
-        viewModel.login.observe(this) { result ->
+        viewModel.register.observe(this) { result ->
             when (result.status) {
                 StatusResponse.SUCCESS -> {
-                    if (result.body != null) {
+                    if (result.body?.error == false) {
                         showToast(getString(R.string.your_account_has_been_made))
                         finish()
 
