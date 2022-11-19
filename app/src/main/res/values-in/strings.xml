@@ -38,5 +38,6 @@
     <string name="failed_to_add_new_story">Gagal menambahkan Cerita baru. Mohong masukan data dengan benar</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="retry">Coba Lagi</string>
+    <string name="image_preview">Pratinjau Gambar</string>
 
 </resources>

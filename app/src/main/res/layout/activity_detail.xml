@@ -37,6 +37,7 @@
                 android:layout_height="@dimen/dp_300"
                 android:scaleType="centerCrop"
                 android:transitionName="photo"
+                android:contentDescription="@string/image_preview"
                 app:layout_constraintTop_toBottomOf="@id/imgBack"
                 app:srcCompat="@drawable/ic_lamp" />
 
@@ -71,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_10"
-                    android:text="@string/username" />
+                    tools:text="@string/username" />
 
             </LinearLayout>
 

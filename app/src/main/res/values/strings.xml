@@ -38,6 +38,7 @@
     <string name="failed_to_add_new_story">Failed to add new Story. Please input data correctly</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="retry">Retry</string>
+    <string name="image_preview">Image Preview</string>
 
     <!--    CREDIT      -->
     <string-array name="image_by__freepik">

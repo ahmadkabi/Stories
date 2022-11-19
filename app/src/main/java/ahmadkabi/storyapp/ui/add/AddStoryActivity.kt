@@ -112,11 +112,14 @@ class AddStoryActivity : AppCompatActivity() {
 
             val result = BitmapFactory.decodeFile(getFile?.path)
 
-            binding.imgStory.setImageBitmap(result)
-            binding.imgCancel.visible()
-            binding.btnCamera.gone()
-            binding.btnGallery.gone()
-            binding.buttonAdd.visible()
+            with(binding) {
+                imgStory.setImageBitmap(result)
+                imgCancel.visible()
+                btnCamera.gone()
+                btnGallery.gone()
+                buttonAdd.visible()
+            }
+
         }
     }
 
