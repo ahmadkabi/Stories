@@ -8,14 +8,18 @@ import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.ui.home.story.StoryViewModel
 import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
 import android.app.Dialog
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.*
 
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -44,6 +48,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        setMapStyle()
 
         progressDialog.show()
         viewModel.getMappedStories()
@@ -84,6 +90,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         }
 
+    }
+
+    private fun setMapStyle() {
+        try {
+            val success =
+                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.")
+            }
+        } catch (exception: Resources.NotFoundException) {
+            Log.e(TAG, "Can't find style. Error: ", exception)
+        }
     }
 
     companion object {
