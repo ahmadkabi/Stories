@@ -1,0 +1,37 @@
+Skenario Pengujian:
+
+1. Ketika berhasil menambahkan story
+	- memastikan response tidak null
+	- memastikan tidak terjadi error (error bernilai false)
+
+2. Ketika gagal menambahkan story
+	- memastikan status bernilai error
+
+3. Ketika berhasil masuk (login)
+	- memastikan response tidak null
+	- memastikan nilai token sesuai dengan yang diharapkan
+
+4. Ketika gagal masuk (login)
+	- memastikan status bernilai error
+
+5. Ketika berhasil memuat story dengan lokasi
+	- memastikan data tidak null
+	- memastikan jumlah story sesuai dengan yang diharapkan
+	- memastikan story pada index 1 sesuai dengan yang diharapkan
+
+6. Ketika gagal memuat story dengan lokasi
+	- memastikan data tidak null
+	- memastikan status bernilai error
+
+7. Ketika berhasil mendaftar (register)
+	- memastikan response tidak null
+	- memastikan tidak terjadi error (error bernilai false)
+
+8. Ketika gagal mendaftar (register)
+	- memastikan status bernilai error
+
+9. Ketika berhasil memuat story
+	- memastikan method storyRepository.getStories() terpanggil
+	- memastikan data tidak null
+	- memastikan jumlah story sesuai dengan yang diharapkan
+

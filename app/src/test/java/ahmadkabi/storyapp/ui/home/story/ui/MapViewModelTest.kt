@@ -66,7 +66,7 @@ class MapViewModelTest {
         val actual = mapViewModel.stories.getOrAwaitValue()
 
         Assert.assertNotNull(actual)
-        Assert.assertEquals(expected, actual)
+        Assert.assertEquals(expected.status, actual.status)
     }
 
 }
