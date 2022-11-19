@@ -1,6 +1,6 @@
 package ahmadkabi.storyapp.ui.home.story
 
-import ahmadkabi.storyapp.data.source.remote.model.Story
+import ahmadkabi.storyapp.data.source.remote.model.*
 
 object DataDummy {
 
@@ -23,5 +23,37 @@ object DataDummy {
 
         return newsList
 
+    }
+
+    fun generateLoginBody(): LoginBody{
+        return LoginBody(
+            "email",
+            "password"
+        )
+    }
+    fun generateLoginResponse(): LoginResponse{
+        return LoginResponse(
+            false,
+            "success",
+            LoginResult(
+                "userId",
+                "username",
+                "token"
+            )
+        )
+    }
+
+    fun generateRegisterBody(): RegisterBody{
+        return RegisterBody(
+            "name",
+            "email",
+            "password"
+        )
+    }
+    fun generateRegisterResponse(): RegisterResponse{
+        return RegisterResponse(
+            false,
+            "success"
+        )
     }
 }
