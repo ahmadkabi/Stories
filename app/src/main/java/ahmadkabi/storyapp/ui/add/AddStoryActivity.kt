@@ -2,9 +2,10 @@ package ahmadkabi.storyapp.ui.add
 
 import ahmadkabi.storyapp.R
 import ahmadkabi.storyapp.data.source.remote.StatusResponse
-import ahmadkabi.storyapp.data.source.remote.model.AddStoryBody
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
+import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
+import ahmadkabi.storyapp.ui.login.LoginViewModel
 import android.Manifest
 import android.app.Dialog
 import android.content.Context
@@ -45,9 +46,7 @@ class AddStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
-        viewModel = ViewModelProvider(this)[AddStoryViewModel::class.java].apply {
-            token = UserPreference(this@AddStoryActivity).getToken()!!
-        }
+        viewModel = ViewModelFactory(this).create(AddStoryViewModel::class.java)
 
         observe()
 
@@ -169,7 +168,8 @@ class AddStoryActivity : AppCompatActivity() {
         val description = binding.edAddDescription.text.toString()
             .toRequestBody("text/plain".toMediaType())
 
-        viewModel.body.value = AddStoryBody(imageMultipart, description)
+        viewModel.addStory(imageMultipart, description)
+
     }
 
     private fun observe() {

@@ -1,53 +1,35 @@
 package ahmadkabi.storyapp.ui.add
 
-import ahmadkabi.storyapp.data.source.remote.ApiConfig
+import ahmadkabi.storyapp.data.StoryRepository
 import ahmadkabi.storyapp.data.source.remote.ApiResponse
-import ahmadkabi.storyapp.data.source.remote.model.AddStoryBody
 import ahmadkabi.storyapp.data.source.remote.model.AddStoryResponse
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.HttpException
 
-class AddStoryViewModel : ViewModel() {
+class AddStoryViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    lateinit var token: String
+    private val _addStory = MutableLiveData<ApiResponse<AddStoryResponse>>()
+    val addStory: LiveData<ApiResponse<AddStoryResponse>>
+        get() = _addStory
 
-    var body = MutableLiveData<AddStoryBody>()
-
-    val addStory =
-        Transformations.switchMap(body) {
-            val result = MutableLiveData<ApiResponse<AddStoryResponse>>()
-            val service = ApiConfig().getApiService().addStory(
-                "Bearer $token",
-                it.imageMultipart,
-                it.description
-            )
-
-            service.enqueue(object : Callback<AddStoryResponse> {
-                override fun onResponse(
-                    call: Call<AddStoryResponse>,
-                    response: Response<AddStoryResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val responseBody = response.body()
-                        if (responseBody != null && !responseBody.error) {
-                            result.value = ApiResponse.success(responseBody)
-                        } else {
-                            result.value = ApiResponse.success(null)
-                        }
-                    } else {
-                        result.value = ApiResponse.success(null)
-                    }
+    fun addStory(file: MultipartBody.Part, description: RequestBody) {
+        viewModelScope.launch {
+            try {
+                _addStory.value = storyRepository.addNewStory(file, description)
+            } catch (httpEx: HttpException) {
+                httpEx.response()?.errorBody()?.let {
+                    _addStory.value = ApiResponse.error()
                 }
-
-                override fun onFailure(call: Call<AddStoryResponse>, t: Throwable) {
-                    result.value = ApiResponse.error()
-                }
-            })
-
-            result
+            } catch (ex: Exception) {
+                _addStory.value = ApiResponse.error()
+            }
         }
+    }
+
 }

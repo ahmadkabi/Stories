@@ -19,7 +19,7 @@ class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
     fun getMappedStories() {
         viewModelScope.launch {
             try {
-                _stories.value = storyRepository.getStoriesWithLocation()
+                _stories.value = storyRepository.getMappedStories()
             } catch (httpEx: HttpException) {
                 httpEx.response()?.errorBody()?.let {
                     _stories.value = ApiResponse.error()

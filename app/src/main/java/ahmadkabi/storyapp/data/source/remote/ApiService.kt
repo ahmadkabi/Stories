@@ -5,7 +5,6 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
@@ -36,11 +35,11 @@ interface ApiService {
 
     @Multipart
     @POST("/v1/stories")
-    fun addStory(
+    suspend fun addStory(
         @Header("Authorization") authorization: String,
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody
-    ): Call<AddStoryResponse>
+    ): AddStoryResponse
 
 }
 

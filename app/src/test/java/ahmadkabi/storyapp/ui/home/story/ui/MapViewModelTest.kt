@@ -11,7 +11,10 @@ import ahmadkabi.storyapp.ui.map.MapViewModel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import org.junit.*
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
@@ -42,7 +45,7 @@ class MapViewModelTest {
     fun `when Get Stories Should Not Null and Return Success`() = runTest {
         val expected = ApiResponse(StatusResponse.SUCCESS, dummyStories)
 
-        `when`(storyRepository.getStoriesWithLocation()).thenReturn(expected)
+        `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
         storiesWithMapViewModel.getMappedStories()
         val actual = storiesWithMapViewModel.stories.getOrAwaitValue()
@@ -57,7 +60,7 @@ class MapViewModelTest {
     fun `when Get Stories Should Return Error`() = runTest {
         val expected = ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
 
-        `when`(storyRepository.getStoriesWithLocation()).thenReturn(expected)
+        `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
         storiesWithMapViewModel.getMappedStories()
         val actual = storiesWithMapViewModel.stories.getOrAwaitValue()

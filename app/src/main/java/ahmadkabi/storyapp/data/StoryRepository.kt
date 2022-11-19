@@ -10,6 +10,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class StoryRepository(private val token: String, private val apiService: ApiService) {
 
@@ -24,7 +26,7 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
         ).liveData
     }
 
-    suspend fun getStoriesWithLocation() =
+    suspend fun getMappedStories() =
         ApiResponse.success(apiService.getMappedStories("Bearer $token").listStory)
 
     suspend fun login(body: LoginBody) =
@@ -33,5 +35,15 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
     suspend fun register(body: RegisterBody) =
         ApiResponse.success(apiService.register(body))
 
+    suspend fun addNewStory(
+        file: MultipartBody.Part,
+        description: RequestBody
+    ) = ApiResponse.success(
+        apiService.addStory(
+            "Bearer $token",
+            file,
+            description
+        )
+    )
 
 }

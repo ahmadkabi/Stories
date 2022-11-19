@@ -18,9 +18,9 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
         }else if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return RegisterViewModel(Injection.provideRepository(context)) as T
-//        }else if (modelClass.isAssignableFrom(AddStoryViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST")
-//            return AddStoryViewModel(Injection.provideRepository(context)) as T
+        }else if (modelClass.isAssignableFrom(AddStoryViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return AddStoryViewModel(Injection.provideRepository(context)) as T
         }else if (modelClass.isAssignableFrom(StoryViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return StoryViewModel(Injection.provideRepository(context)) as T
