@@ -5,7 +5,8 @@ import ahmadkabi.storyapp.data.source.remote.model.Story
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 
-class StoryPagingSource(private val token: String, private val apiService: ApiService) : PagingSource<Int, Story>() {
+class StoryPagingSource(private val token: String, private val apiService: ApiService) :
+    PagingSource<Int, Story>() {
 
     private companion object {
         const val INITIAL_PAGE_INDEX = 1

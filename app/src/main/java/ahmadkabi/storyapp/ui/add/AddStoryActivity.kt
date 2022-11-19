@@ -5,7 +5,6 @@ import ahmadkabi.storyapp.data.source.remote.StatusResponse
 import ahmadkabi.storyapp.databinding.ActivityAddStoryBinding
 import ahmadkabi.storyapp.helper.*
 import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
-import ahmadkabi.storyapp.ui.login.LoginViewModel
 import android.Manifest
 import android.app.Dialog
 import android.content.Context
@@ -21,7 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody

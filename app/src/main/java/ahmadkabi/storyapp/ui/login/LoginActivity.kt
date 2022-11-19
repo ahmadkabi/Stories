@@ -8,7 +8,6 @@ import ahmadkabi.storyapp.helper.DialogUtils
 import ahmadkabi.storyapp.helper.UserPreference
 import ahmadkabi.storyapp.helper.showToast
 import ahmadkabi.storyapp.ui.home.HomeActivity
-import ahmadkabi.storyapp.ui.home.story.StoryViewModel
 import ahmadkabi.storyapp.ui.home.story.ViewModelFactory
 import ahmadkabi.storyapp.ui.register.RegisterActivity
 import android.app.Dialog
@@ -18,7 +17,6 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 
 class LoginActivity : AppCompatActivity() {
 

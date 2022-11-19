@@ -32,8 +32,7 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         binding = FragmentStoryBinding.inflate(inflater, container, false)
@@ -63,25 +62,22 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
         adapter = StoryListAdapter()
         adapter.listener = this
 
-        val itemDecorVertical =
-            ItemDecorVertical(
-                resources.getDimension(R.dimen.dp_90).toInt(),
-                resources.getDimension(R.dimen.dp_16).toInt(),
-                resources.getDimension(R.dimen.dp_20).toInt(),
-                resources.getDimension(R.dimen.dp_16).toInt(),
-                resources.getDimension(R.dimen.dp_20).toInt()
-            )
+        val itemDecorVertical = ItemDecorVertical(
+            resources.getDimension(R.dimen.dp_90).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt()
+        )
         binding.recyclerView.addItemDecoration(itemDecorVertical)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         binding.recyclerView.setHasFixedSize(false)
 
 
-        binding.recyclerView.adapter = adapter.withLoadStateFooter(
-            footer = LoadingStateAdapter {
-                adapter.retry()
-            }
-        )
+        binding.recyclerView.adapter = adapter.withLoadStateFooter(footer = LoadingStateAdapter {
+            adapter.retry()
+        })
 
     }
 
@@ -104,9 +100,10 @@ class StoryFragment : Fragment(), StoryListAdapter.ItemListener {
     private val launcherIntentGallery = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if (
-            result.resultCode == AppCompatActivity.RESULT_OK &&
-            result.data?.getBooleanExtra(extraIsSuccess, false) == true
+        if (result.resultCode == AppCompatActivity.RESULT_OK && result.data?.getBooleanExtra(
+                extraIsSuccess,
+                false
+            ) == true
         ) {
 
             progressDialog.show()

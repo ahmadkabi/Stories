@@ -9,8 +9,8 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 
 class StoryViewModel(private val storyRepository: StoryRepository) : ViewModel() {
-    lateinit var token: String
 
-    fun getStories(): LiveData<PagingData<Story>> = storyRepository.getStories().cachedIn(viewModelScope)
+    fun getStories(): LiveData<PagingData<Story>> =
+        storyRepository.getStories().cachedIn(viewModelScope)
 
 }
