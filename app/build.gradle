@@ -9,7 +9,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "ahmadkabi.storyapp"
+        applicationId "ahmadkabi.stories"
         minSdk 21
         targetSdk 33
         versionCode 1

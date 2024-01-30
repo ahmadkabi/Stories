@@ -62,7 +62,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@id/ed_register_email" />
 
-        <ahmadkabi.storyapp.widget.EmailEditText
+        <ahmadkabi.stories.widget.EmailEditText
             android:id="@+id/ed_register_email"
             style="@style/EditText.Background"
             android:layout_width="match_parent"
@@ -76,7 +76,7 @@
             app:layout_constraintBottom_toTopOf="@id/ed_register_password" />
 
 
-        <ahmadkabi.storyapp.widget.PasswordEditText
+        <ahmadkabi.stories.widget.PasswordEditText
             android:id="@+id/ed_register_password"
             style="@style/EditText.Background"
             android:layout_width="match_parent"

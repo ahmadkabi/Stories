@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ahmadkabi.storyapp">
+    package="ahmadkabi.stories">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StoryApp"
+        android:theme="@style/Theme.Stories"
         tools:targetApi="31">
 
         <meta-data
@@ -53,7 +53,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="ahmadkabi.storyapp"
+            android:authorities="ahmadkabi.stories"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
