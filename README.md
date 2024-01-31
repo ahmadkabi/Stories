@@ -11,7 +11,5 @@ The app contains :
   - Account
 - Add new story
 
-
-
-![home](login.png)
+![home](preview.jpg)
 
