@@ -1,4 +1,10 @@
-Submission for Dicoding Jetpack Course
+
+Stories App
+==================
+
+![preview](screenshot/preview.jpg)
+
+This simple project demonstrates how to build maintanable, scalable, and testable codebase.
 
 **Overview**
 
@@ -10,6 +16,4 @@ The app contains :
     - Story detail
   - Account
 - Add new story
-
-![home](preview.jpg)
 
