@@ -20,6 +20,11 @@
         <item name="android:textColor">@color/tx_main</item>
     </style>
 
+    <style name="Text.Header2">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
     <style name="Text.Header3">
         <item name="android:textSize">@dimen/sp_16</item>
         <item name="android:fontFamily">@font/lato_bold</item>
