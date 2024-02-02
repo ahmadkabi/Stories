@@ -1,19 +1,23 @@
 
-Stories App
-==================
+# Stories App
 
 ![preview](screenshot/preview.jpg)
 
-This simple project demonstrates how to build maintanable, scalable, and testable codebase.
+## Overview
 
-**Overview**
+**Stories App** demonstrates how to build simple social media app with endless scroll feature 
 
-The app contains : 
-- Login
-- Register
-- Home
-  - Stories
-    - Story detail
-  - Account
-- Add new story
+
+
+## Tech Stacks
+
+The app is using : 
+- Kotlin
+- Architecture Component like Live Data & View Model
+- Material Design 3
+- Pagination Library
+- Retrofit
+- Coroutine
+- JUnit & Mockito
+- Google Map Sevices
 
