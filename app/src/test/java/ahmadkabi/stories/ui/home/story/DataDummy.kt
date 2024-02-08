@@ -1,15 +1,16 @@
 package ahmadkabi.stories.ui.home.story
 
 import ahmadkabi.stories.data.source.remote.model.*
+import ahmadkabi.stories.domain.model.Story
 
 object DataDummy {
 
-    fun generateDummyStory(): ArrayList<ahmadkabi.stories.domain.model.Story> {
+    fun generateDummyStory(): ArrayList<Story> {
 
-        val newsList = ArrayList<ahmadkabi.stories.domain.model.Story>()
+        val newsList = ArrayList<Story>()
 
         for (i in 0..10) {
-            val news = ahmadkabi.stories.domain.model.Story(
+            val news = Story(
                 "$i",
                 "Username",
                 "Story Description",

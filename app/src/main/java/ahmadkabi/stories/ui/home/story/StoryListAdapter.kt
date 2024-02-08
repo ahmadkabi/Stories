@@ -1,8 +1,8 @@
 package ahmadkabi.stories.ui.home.story
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.databinding.ItemStoryBinding
+import ahmadkabi.stories.domain.model.Story
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,7 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class StoryListAdapter :
-    PagingDataAdapter<ahmadkabi.stories.domain.model.Story, StoryListAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<Story, StoryListAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,7 +32,7 @@ class StoryListAdapter :
 
     inner class MyViewHolder(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: ahmadkabi.stories.domain.model.Story) {
+        fun bind(data: Story) {
 
 
             Glide
@@ -63,16 +63,16 @@ class StoryListAdapter :
     lateinit var listener: ItemListener
 
     interface ItemListener {
-        fun onItemClickListener(item: ahmadkabi.stories.domain.model.Story, optionsCompat: ActivityOptionsCompat)
+        fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat)
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ahmadkabi.stories.domain.model.Story>() {
-            override fun areItemsTheSame(oldItem: ahmadkabi.stories.domain.model.Story, newItem: ahmadkabi.stories.domain.model.Story): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Story>() {
+            override fun areItemsTheSame(oldItem: Story, newItem: Story): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: ahmadkabi.stories.domain.model.Story, newItem: ahmadkabi.stories.domain.model.Story): Boolean {
+            override fun areContentsTheSame(oldItem: Story, newItem: Story): Boolean {
                 return oldItem.id == newItem.id
             }
         }

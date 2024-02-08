@@ -46,7 +46,7 @@ class StoryViewModelTest {
 
     @Test
     fun `when Get Stories Should Not Null and Return Success`() = runTest {
-        val expected = MutableLiveData<PagingData<ahmadkabi.stories.domain.model.Story>>()
+        val expected = MutableLiveData<PagingData<Story>>()
         expected.value = PagingData.from(dummyStories)
         `when`(storyRepository.getStories()).thenReturn(expected)
 

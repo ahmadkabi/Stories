@@ -15,7 +15,7 @@ import okhttp3.RequestBody
 
 class StoryRepository(private val token: String, private val apiService: ApiService) {
 
-    fun getStories(): LiveData<PagingData<ahmadkabi.stories.domain.model.Story>> {
+    fun getStories(): LiveData<PagingData<Story>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 5

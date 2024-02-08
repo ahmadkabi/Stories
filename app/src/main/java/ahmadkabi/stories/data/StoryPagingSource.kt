@@ -6,13 +6,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 
 class StoryPagingSource(private val token: String, private val apiService: ApiService) :
-    PagingSource<Int, ahmadkabi.stories.domain.model.Story>() {
+    PagingSource<Int, Story>() {
 
     private companion object {
         const val INITIAL_PAGE_INDEX = 1
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ahmadkabi.stories.domain.model.Story> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Story> {
         return try {
             val page = params.key ?: INITIAL_PAGE_INDEX
             val responseData = apiService.getStories(
@@ -31,7 +31,7 @@ class StoryPagingSource(private val token: String, private val apiService: ApiSe
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, ahmadkabi.stories.domain.model.Story>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, Story>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)

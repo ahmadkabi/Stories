@@ -10,7 +10,7 @@ import androidx.paging.cachedIn
 
 class StoryViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    fun getStories(): LiveData<PagingData<ahmadkabi.stories.domain.model.Story>> =
+    fun getStories(): LiveData<PagingData<Story>> =
         storyRepository.getStories().cachedIn(viewModelScope)
 
 }

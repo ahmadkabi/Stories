@@ -12,8 +12,8 @@ import retrofit2.HttpException
 
 class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    private val _stories = MutableLiveData<ApiResponse<ArrayList<ahmadkabi.stories.domain.model.Story>>>()
-    val stories: LiveData<ApiResponse<ArrayList<ahmadkabi.stories.domain.model.Story>>>
+    private val _stories = MutableLiveData<ApiResponse<ArrayList<Story>>>()
+    val stories: LiveData<ApiResponse<ArrayList<Story>>>
         get() = _stories
 
     fun getMappedStories() {

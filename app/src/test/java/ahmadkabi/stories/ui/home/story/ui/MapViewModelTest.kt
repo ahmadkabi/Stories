@@ -58,7 +58,7 @@ class MapViewModelTest {
 
     @Test
     fun `when Get Stories Should Return Error`() = runTest {
-        val expected = ApiResponse<ArrayList<ahmadkabi.stories.domain.model.Story>>(StatusResponse.ERROR)
+        val expected = ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
 
         `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
