@@ -65,7 +65,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     result.body?.forEach {
                         if (it.lat != null && it.lon != null) {
-                            val latLng = LatLng(it.lat.toDouble(), it.lon.toDouble())
+                            val latLng = LatLng(it.lat!!.toDouble(), it.lon!!.toDouble())
                             mMap.addMarker(
                                 MarkerOptions()
                                     .position(latLng)

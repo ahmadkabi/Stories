@@ -4,12 +4,12 @@ import ahmadkabi.stories.data.source.remote.model.*
 
 object DataDummy {
 
-    fun generateDummyStory(): ArrayList<Story> {
+    fun generateDummyStory(): ArrayList<ahmadkabi.stories.domain.model.Story> {
 
-        val newsList = ArrayList<Story>()
+        val newsList = ArrayList<ahmadkabi.stories.domain.model.Story>()
 
         for (i in 0..10) {
-            val news = Story(
+            val news = ahmadkabi.stories.domain.model.Story(
                 "$i",
                 "Username",
                 "Story Description",

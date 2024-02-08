@@ -3,7 +3,7 @@ package ahmadkabi.stories.ui.home.story.ui
 import ahmadkabi.stories.data.StoryRepository
 import ahmadkabi.stories.data.source.remote.ApiResponse
 import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.Story
+import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.ui.add.AddStoryViewModel
 import ahmadkabi.stories.ui.home.story.CoroutinesTestRule
 import ahmadkabi.stories.ui.home.story.DataDummy

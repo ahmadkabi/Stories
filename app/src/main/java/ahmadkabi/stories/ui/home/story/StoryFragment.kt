@@ -1,9 +1,15 @@
 package ahmadkabi.stories.ui.home.story
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.model.Story
 import ahmadkabi.stories.databinding.FragmentStoryBinding
-import ahmadkabi.stories.helper.*
+import ahmadkabi.stories.domain.model.Story
+import ahmadkabi.stories.helper.DialogUtils
+import ahmadkabi.stories.helper.ItemDecorVertical
+import ahmadkabi.stories.helper.extraDescription
+import ahmadkabi.stories.helper.extraImageUrl
+import ahmadkabi.stories.helper.extraIsSuccess
+import ahmadkabi.stories.helper.extraUserName
+import ahmadkabi.stories.helper.gone
 import ahmadkabi.stories.ui.add.AddStoryActivity
 import ahmadkabi.stories.ui.detail.DetailActivity
 import android.app.Dialog

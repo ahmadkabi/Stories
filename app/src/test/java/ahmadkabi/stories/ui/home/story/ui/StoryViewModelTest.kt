@@ -1,7 +1,7 @@
 package ahmadkabi.stories.ui.home.story.ui
 
 import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.model.Story
+import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.ui.home.story.*
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
@@ -46,7 +46,7 @@ class StoryViewModelTest {
 
     @Test
     fun `when Get Stories Should Not Null and Return Success`() = runTest {
-        val expected = MutableLiveData<PagingData<Story>>()
+        val expected = MutableLiveData<PagingData<ahmadkabi.stories.domain.model.Story>>()
         expected.value = PagingData.from(dummyStories)
         `when`(storyRepository.getStories()).thenReturn(expected)
 

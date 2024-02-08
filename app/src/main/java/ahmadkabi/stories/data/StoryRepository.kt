@@ -4,7 +4,7 @@ import ahmadkabi.stories.data.source.remote.ApiResponse
 import ahmadkabi.stories.data.source.remote.ApiService
 import ahmadkabi.stories.data.source.remote.model.LoginBody
 import ahmadkabi.stories.data.source.remote.model.RegisterBody
-import ahmadkabi.stories.data.source.remote.model.Story
+import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -15,7 +15,7 @@ import okhttp3.RequestBody
 
 class StoryRepository(private val token: String, private val apiService: ApiService) {
 
-    fun getStories(): LiveData<PagingData<Story>> {
+    fun getStories(): LiveData<PagingData<ahmadkabi.stories.domain.model.Story>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 5

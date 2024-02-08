@@ -2,7 +2,7 @@ package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.data.StoryRepository
 import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.model.Story
+import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,8 +12,8 @@ import retrofit2.HttpException
 
 class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    private val _stories = MutableLiveData<ApiResponse<ArrayList<Story>>>()
-    val stories: LiveData<ApiResponse<ArrayList<Story>>>
+    private val _stories = MutableLiveData<ApiResponse<ArrayList<ahmadkabi.stories.domain.model.Story>>>()
+    val stories: LiveData<ApiResponse<ArrayList<ahmadkabi.stories.domain.model.Story>>>
         get() = _stories
 
     fun getMappedStories() {

@@ -1,4 +1,4 @@
-package ahmadkabi.stories.data.source.remote.model
+package ahmadkabi.stories.domain.model
 
 data class Story(
     val id: String,
