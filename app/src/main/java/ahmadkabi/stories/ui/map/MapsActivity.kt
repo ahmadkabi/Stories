@@ -1,7 +1,6 @@
 package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.StatusResponse
 import ahmadkabi.stories.databinding.ActivityMapsBinding
 import ahmadkabi.stories.helper.DialogUtils
 import ahmadkabi.stories.helper.showToast
@@ -21,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import source.remote.StatusResponse
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -65,7 +65,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     result.body?.forEach {
                         if (it.lat != null && it.lon != null) {
-                            val latLng = LatLng(it.lat.toDouble(), it.lon.toDouble())
+                            val latLng = LatLng(it.lat!!.toDouble(), it.lon!!.toDouble())
                             mMap.addMarker(
                                 MarkerOptions()
                                     .position(latLng)

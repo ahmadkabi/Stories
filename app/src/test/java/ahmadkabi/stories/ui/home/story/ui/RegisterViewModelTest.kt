@@ -1,9 +1,9 @@
 package ahmadkabi.stories.ui.home.story.ui
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.LoginResponse
+import StoryRepository
+import ApiResponse
+import StatusResponse
+import LoginResponse
 import ahmadkabi.stories.ui.home.story.CoroutinesTestRule
 import ahmadkabi.stories.ui.home.story.DataDummy
 import ahmadkabi.stories.ui.home.story.getOrAwaitValue
@@ -44,7 +44,10 @@ class RegisterViewModelTest {
 
     @Test
     fun `when Register with correct credential should return error == false`() = runTest {
-        val expected = ApiResponse(StatusResponse.SUCCESS, registerResponse)
+        val expected = ApiResponse(
+            StatusResponse.SUCCESS,
+            registerResponse
+        )
 
         Mockito.`when`(storyRepository.register(registerBody)).thenReturn(expected)
 
@@ -57,7 +60,10 @@ class RegisterViewModelTest {
 
     @Test
     fun `when Register with wrong credential should Fail`() = runTest {
-        val expected = ApiResponse<LoginResponse>(StatusResponse.ERROR)
+        val expected =
+            ApiResponse<LoginResponse>(
+                StatusResponse.ERROR
+            )
 
         Mockito.`when`(storyRepository.register(registerBody)).thenThrow()
 

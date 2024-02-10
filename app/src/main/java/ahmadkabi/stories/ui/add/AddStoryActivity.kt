@@ -1,9 +1,15 @@
 package ahmadkabi.stories.ui.add
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.StatusResponse
 import ahmadkabi.stories.databinding.ActivityAddStoryBinding
-import ahmadkabi.stories.helper.*
+import ahmadkabi.stories.helper.DialogUtils
+import ahmadkabi.stories.helper.createCustomTempFile
+import ahmadkabi.stories.helper.extraIsSuccess
+import ahmadkabi.stories.helper.gone
+import ahmadkabi.stories.helper.reduceFileImage
+import ahmadkabi.stories.helper.showToast
+import ahmadkabi.stories.helper.uriToFile
+import ahmadkabi.stories.helper.visible
 import ahmadkabi.stories.ui.home.story.ViewModelFactory
 import android.Manifest
 import android.app.Dialog
@@ -25,6 +31,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import source.remote.StatusResponse
 import java.io.File
 
 class AddStoryActivity : AppCompatActivity() {

@@ -1,7 +1,7 @@
 package ahmadkabi.stories.helper
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiConfig
+import ahmadkabi.stories.core.data.StoryRepository
+import ahmadkabi.stories.core.data.source.remote.ApiConfig
 import android.content.Context
 
 object Injection {

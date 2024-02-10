@@ -1,8 +1,8 @@
 package ahmadkabi.stories.ui.home.story
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.model.Story
 import ahmadkabi.stories.databinding.ItemStoryBinding
+import ahmadkabi.stories.domain.model.Story
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup

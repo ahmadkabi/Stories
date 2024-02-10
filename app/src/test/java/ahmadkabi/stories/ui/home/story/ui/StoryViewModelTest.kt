@@ -1,7 +1,7 @@
 package ahmadkabi.stories.ui.home.story.ui
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.model.Story
+import StoryRepository
+import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.ui.home.story.*
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData

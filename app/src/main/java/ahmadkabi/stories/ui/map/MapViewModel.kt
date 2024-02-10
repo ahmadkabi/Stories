@@ -1,14 +1,14 @@
 package ahmadkabi.stories.ui.map
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.model.Story
+import ahmadkabi.stories.core.data.StoryRepository
+import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import ahmadkabi.stories.core.data.source.remote.ApiResponse
 
 class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 

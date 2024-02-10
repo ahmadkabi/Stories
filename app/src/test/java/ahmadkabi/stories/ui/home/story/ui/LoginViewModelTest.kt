@@ -1,9 +1,9 @@
 package ahmadkabi.stories.ui.home.story.ui
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.LoginResponse
+import StoryRepository
+import ApiResponse
+import StatusResponse
+import LoginResponse
 import ahmadkabi.stories.ui.home.story.CoroutinesTestRule
 import ahmadkabi.stories.ui.home.story.DataDummy
 import ahmadkabi.stories.ui.home.story.getOrAwaitValue
@@ -44,7 +44,10 @@ class LoginViewModelTest {
 
     @Test
     fun `when Login with correct credential should return Not Null and Success`() = runTest {
-        val expected = ApiResponse(StatusResponse.SUCCESS, loginResponse)
+        val expected = ApiResponse(
+            StatusResponse.SUCCESS,
+            loginResponse
+        )
 
         Mockito.`when`(storyRepository.login(loginBody)).thenReturn(expected)
 
@@ -57,7 +60,10 @@ class LoginViewModelTest {
 
     @Test
     fun `when Login with wrong credential should return status Error`() = runTest {
-        val expected = ApiResponse<LoginResponse>(StatusResponse.ERROR)
+        val expected =
+            ApiResponse<LoginResponse>(
+                StatusResponse.ERROR
+            )
 
         Mockito.`when`(storyRepository.login(loginBody)).thenThrow()
 

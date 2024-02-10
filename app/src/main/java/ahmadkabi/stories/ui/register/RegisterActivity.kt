@@ -1,8 +1,6 @@
 package ahmadkabi.stories.ui.register
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.RegisterBody
 import ahmadkabi.stories.databinding.ActivityRegisterBinding
 import ahmadkabi.stories.helper.DialogUtils
 import ahmadkabi.stories.helper.showToast
@@ -14,6 +12,7 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import source.remote.StatusResponse
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -46,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
         progressDialog.show()
 
         viewModel.register(
-            RegisterBody(
+            model.RegisterBody(
                 binding.edRegisterName.text.toString(),
                 binding.edRegisterEmail.text.toString(),
                 binding.edRegisterPassword.text.toString()

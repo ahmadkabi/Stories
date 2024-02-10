@@ -1,15 +1,14 @@
 package ahmadkabi.stories.ui.register
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.model.RegisterBody
-import ahmadkabi.stories.data.source.remote.model.RegisterResponse
+import ahmadkabi.stories.core.data.StoryRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import model.RegisterResponse
 import retrofit2.HttpException
+import ahmadkabi.stories.core.data.source.remote.ApiResponse
 
 class RegisterViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
@@ -17,7 +16,7 @@ class RegisterViewModel(private val storyRepository: StoryRepository) : ViewMode
     val register: LiveData<ApiResponse<RegisterResponse>>
         get() = _register
 
-    fun register(body: RegisterBody) {
+    fun register(body: model.RegisterBody) {
         viewModelScope.launch {
             try {
                 _register.value = storyRepository.register(body)

@@ -1,9 +1,9 @@
 package ahmadkabi.stories.ui.home.story.ui
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.Story
+import StoryRepository
+import ApiResponse
+import StatusResponse
+import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.ui.home.story.CoroutinesTestRule
 import ahmadkabi.stories.ui.home.story.DataDummy
 import ahmadkabi.stories.ui.home.story.getOrAwaitValue
@@ -43,7 +43,10 @@ class MapViewModelTest {
 
     @Test
     fun `when Get Stories Should Not Null and Return Success`() = runTest {
-        val expected = ApiResponse(StatusResponse.SUCCESS, dummyStories)
+        val expected = ApiResponse(
+            StatusResponse.SUCCESS,
+            dummyStories
+        )
 
         `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
@@ -58,7 +61,8 @@ class MapViewModelTest {
 
     @Test
     fun `when Get Stories Should Return Error`() = runTest {
-        val expected = ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
+        val expected =
+            ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
 
         `when`(storyRepository.getMappedStories()).thenReturn(expected)
 
