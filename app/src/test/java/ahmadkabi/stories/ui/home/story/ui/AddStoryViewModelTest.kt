@@ -1,8 +1,8 @@
 package ahmadkabi.stories.ui.home.story.ui
 
-import ahmadkabi.stories.data.StoryRepository
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.StatusResponse
+import StoryRepository
+import ApiResponse
+import StatusResponse
 import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.ui.add.AddStoryViewModel
 import ahmadkabi.stories.ui.home.story.CoroutinesTestRule
@@ -58,7 +58,10 @@ class AddStoryViewModelTest {
 
     @Test
     fun `when Add Story Should Return Error == false`() = runTest {
-        val expected = ApiResponse(StatusResponse.SUCCESS, addStoryResponse)
+        val expected = ApiResponse(
+            StatusResponse.SUCCESS,
+            addStoryResponse
+        )
 
         Mockito.`when`(storyRepository.addStory(imageMultipart, description)).thenReturn(expected)
 
@@ -72,7 +75,8 @@ class AddStoryViewModelTest {
 
     @Test
     fun `when Add Story should return status error`() = runTest {
-        val expected = ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
+        val expected =
+            ApiResponse<ArrayList<Story>>(StatusResponse.ERROR)
 
         Mockito.`when`(storyRepository.addStory(imageMultipart, description)).thenThrow()
 

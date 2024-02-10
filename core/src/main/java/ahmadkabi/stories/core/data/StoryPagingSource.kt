@@ -1,9 +1,9 @@
-package ahmadkabi.stories.data
+package ahmadkabi.stories.core.data
 
-import ahmadkabi.stories.data.source.remote.ApiService
 import ahmadkabi.stories.domain.model.Story
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import ahmadkabi.stories.core.data.source.remote.ApiService
 
 class StoryPagingSource(private val token: String, private val apiService: ApiService) :
     PagingSource<Int, Story>() {

@@ -1,7 +1,6 @@
 package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.StatusResponse
 import ahmadkabi.stories.databinding.ActivityMapsBinding
 import ahmadkabi.stories.helper.DialogUtils
 import ahmadkabi.stories.helper.showToast
@@ -21,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import source.remote.StatusResponse
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 

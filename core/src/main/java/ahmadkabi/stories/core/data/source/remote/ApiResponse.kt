@@ -1,6 +1,7 @@
-package ahmadkabi.stories.data.source.remote
+package ahmadkabi.stories.core.data.source.remote
 
-import ahmadkabi.stories.data.source.remote.StatusResponse.*
+import source.remote.StatusResponse
+import source.remote.StatusResponse.*
 
 class ApiResponse<T>(val status: StatusResponse, val body: T? = null) {
     companion object {

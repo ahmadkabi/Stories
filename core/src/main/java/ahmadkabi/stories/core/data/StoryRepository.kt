@@ -1,17 +1,17 @@
-package ahmadkabi.stories.data
+package ahmadkabi.stories.core.data
 
-import ahmadkabi.stories.data.source.remote.ApiResponse
-import ahmadkabi.stories.data.source.remote.ApiService
-import ahmadkabi.stories.data.source.remote.model.LoginBody
-import ahmadkabi.stories.data.source.remote.model.RegisterBody
 import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
+import model.LoginBody
+import model.RegisterBody
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import ahmadkabi.stories.core.data.source.remote.ApiResponse
+import ahmadkabi.stories.core.data.source.remote.ApiService
 
 class StoryRepository(private val token: String, private val apiService: ApiService) {
 

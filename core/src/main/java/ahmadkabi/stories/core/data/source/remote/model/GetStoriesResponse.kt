@@ -1,4 +1,4 @@
-package ahmadkabi.stories.data.source.remote.model
+package model
 
 import ahmadkabi.stories.domain.model.Story
 

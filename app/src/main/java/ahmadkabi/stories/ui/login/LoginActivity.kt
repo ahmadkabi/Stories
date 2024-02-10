@@ -1,8 +1,6 @@
 package ahmadkabi.stories.ui.login
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.data.source.remote.StatusResponse
-import ahmadkabi.stories.data.source.remote.model.LoginBody
 import ahmadkabi.stories.databinding.ActivityLoginBinding
 import ahmadkabi.stories.helper.DialogUtils
 import ahmadkabi.stories.helper.UserPreference
@@ -17,6 +15,7 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import source.remote.StatusResponse
 
 class LoginActivity : AppCompatActivity() {
 
@@ -59,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
 
         viewModel.login(
-            LoginBody(
+            model.LoginBody(
                 binding.edLoginEmail.text.toString(),
                 binding.edLoginPassword.text.toString()
             )
@@ -71,13 +70,13 @@ class LoginActivity : AppCompatActivity() {
             when (result.status) {
                 StatusResponse.SUCCESS -> {
                     if (result.body != null) {
-                        val userName = result.body.loginResult.name
+                        val userName = result.body!!.loginResult.name
 
                         showToast("${getString(R.string.welcome)} $userName")
 
                         userPreference.setUser(
                             userName,
-                            result.body.loginResult.token
+                            result.body!!.loginResult.token
                         )
                         startActivity(HomeActivity.newIntent(this@LoginActivity))
                         finish()

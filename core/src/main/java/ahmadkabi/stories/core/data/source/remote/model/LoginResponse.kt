@@ -1,4 +1,4 @@
-package ahmadkabi.stories.data.source.remote.model
+package model
 
 data class LoginResponse(
     val error: Boolean,

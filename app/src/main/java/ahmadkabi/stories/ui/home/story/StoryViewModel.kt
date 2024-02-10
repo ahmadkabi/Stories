@@ -1,6 +1,6 @@
 package ahmadkabi.stories.ui.home.story
 
-import ahmadkabi.stories.data.StoryRepository
+import ahmadkabi.stories.core.data.StoryRepository
 import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

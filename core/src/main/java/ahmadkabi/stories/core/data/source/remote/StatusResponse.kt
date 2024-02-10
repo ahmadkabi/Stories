@@ -1,4 +1,4 @@
-package ahmadkabi.stories.data.source.remote
+package source.remote
 
 enum class StatusResponse {
     SUCCESS,
