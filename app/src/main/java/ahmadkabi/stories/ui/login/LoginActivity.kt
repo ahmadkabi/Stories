@@ -20,7 +20,7 @@ import source.remote.StatusResponse
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by lazy { ViewModelFactory(this).create(LoginViewModel::class.java) }
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
 
         } else {
             binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-            viewModel = ViewModelFactory(this).create(LoginViewModel::class.java)
 
             observe()
 
