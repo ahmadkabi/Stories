@@ -17,7 +17,7 @@ import source.remote.StatusResponse
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel: RegisterViewModel by lazy { ViewModelFactory(this).create(RegisterViewModel::class.java) }
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
@@ -25,7 +25,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
-        viewModel = ViewModelFactory(this).create(RegisterViewModel::class.java)
 
         observe()
 

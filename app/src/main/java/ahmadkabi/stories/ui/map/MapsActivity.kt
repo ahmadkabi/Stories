@@ -26,7 +26,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
-    private lateinit var viewModel: MapViewModel
+    private val viewModel: MapViewModel by lazy { ViewModelFactory(this).create(MapViewModel::class.java) }
 
     private val progressDialog: Dialog by lazy { DialogUtils.setProgressDialog(this) }
 
@@ -35,8 +35,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelFactory(this).create(MapViewModel::class.java)
 
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
