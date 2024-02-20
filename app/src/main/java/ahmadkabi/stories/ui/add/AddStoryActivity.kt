@@ -37,7 +37,7 @@ import java.io.File
 class AddStoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddStoryBinding
-    private lateinit var viewModel: AddStoryViewModel
+    private val viewModel: AddStoryViewModel by lazy { ViewModelFactory(this).create(AddStoryViewModel::class.java) }
 
     private lateinit var currentPhotoPath: String
     private var getFile: File? = null
@@ -51,7 +51,6 @@ class AddStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_story)
-        viewModel = ViewModelFactory(this).create(AddStoryViewModel::class.java)
 
         observe()
 
