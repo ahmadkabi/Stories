@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import model.AddStoryResponse
+import ahmadkabi.stories.core.data.source.remote.model.AddStoryResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.HttpException

@@ -31,7 +31,7 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import source.remote.StatusResponse
+import ahmadkabi.stories.core.data.source.remote.StatusResponse
 import java.io.File
 
 class AddStoryActivity : AppCompatActivity() {

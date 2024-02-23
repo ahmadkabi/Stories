@@ -15,7 +15,8 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import source.remote.StatusResponse
+import ahmadkabi.stories.core.data.source.remote.model.LoginBody
+import ahmadkabi.stories.core.data.source.remote.StatusResponse
 
 class LoginActivity : AppCompatActivity() {
 
@@ -57,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.show()
 
         viewModel.login(
-            model.LoginBody(
+            LoginBody(
                 binding.edLoginEmail.text.toString(),
                 binding.edLoginPassword.text.toString()
             )

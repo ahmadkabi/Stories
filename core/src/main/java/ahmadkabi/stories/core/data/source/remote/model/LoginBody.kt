@@ -1,4 +1,4 @@
-package model
+package ahmadkabi.stories.core.data.source.remote.model
 
 data class LoginBody(
     val email: String,
