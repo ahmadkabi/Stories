@@ -1,12 +1,12 @@
 package ahmadkabi.stories.core.data.source.remote
 
-import model.AddStoryResponse
-import model.GetStoriesResponse
-import model.LoginBody
-import model.LoginResponse
-import model.RegisterBody
-import model.RegisterResponse
-import model.StoryResponse
+import ahmadkabi.stories.core.data.source.remote.model.AddStoryResponse
+import ahmadkabi.stories.core.data.source.remote.model.GetStoriesResponse
+import ahmadkabi.stories.core.data.source.remote.model.LoginBody
+import ahmadkabi.stories.core.data.source.remote.model.LoginResponse
+import ahmadkabi.stories.core.data.source.remote.model.RegisterBody
+import ahmadkabi.stories.core.data.source.remote.model.RegisterResponse
+import ahmadkabi.stories.core.data.source.remote.model.StoryResponse
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody

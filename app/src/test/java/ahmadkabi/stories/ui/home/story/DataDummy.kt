@@ -1,6 +1,11 @@
 package ahmadkabi.stories.ui.home.story
 
-import ahmadkabi.stories.data.model.*
+import ahmadkabi.stories.core.data.source.remote.model.AddStoryResponse
+import ahmadkabi.stories.core.data.source.remote.model.LoginBody
+import ahmadkabi.stories.core.data.source.remote.model.LoginResponse
+import ahmadkabi.stories.core.data.source.remote.model.LoginResult
+import ahmadkabi.stories.core.data.source.remote.model.RegisterBody
+import ahmadkabi.stories.core.data.source.remote.model.RegisterResponse
 import ahmadkabi.stories.domain.model.Story
 
 object DataDummy {
@@ -26,8 +31,8 @@ object DataDummy {
 
     }
 
-    fun generateLoginBody(): model.LoginBody {
-        return model.LoginBody(
+    fun generateLoginBody(): LoginBody {
+        return LoginBody(
             "email",
             "password"
         )
@@ -36,7 +41,7 @@ object DataDummy {
         return LoginResponse(
             false,
             "success",
-            model.LoginResult(
+            LoginResult(
                 "userId",
                 "username",
                 "token"
@@ -44,8 +49,8 @@ object DataDummy {
         )
     }
 
-    fun generateRegisterBody(): model.RegisterBody {
-        return model.RegisterBody(
+    fun generateRegisterBody(): RegisterBody {
+        return RegisterBody(
             "name",
             "email",
             "password"
@@ -58,8 +63,8 @@ object DataDummy {
         )
     }
 
-    fun generateAddStoryResponse(): model.AddStoryResponse {
-        return model.AddStoryResponse(
+    fun generateAddStoryResponse(): AddStoryResponse {
+        return AddStoryResponse(
             false,
             "success"
         )

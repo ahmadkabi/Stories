@@ -6,8 +6,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import model.LoginBody
-import model.RegisterBody
+import ahmadkabi.stories.core.data.source.remote.model.LoginBody
+import ahmadkabi.stories.core.data.source.remote.model.RegisterBody
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import ahmadkabi.stories.core.data.source.remote.ApiResponse

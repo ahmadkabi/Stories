@@ -20,7 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
-import source.remote.StatusResponse
+import ahmadkabi.stories.core.data.source.remote.StatusResponse
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 

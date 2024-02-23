@@ -6,9 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import model.RegisterResponse
+import ahmadkabi.stories.core.data.source.remote.model.RegisterResponse
 import retrofit2.HttpException
 import ahmadkabi.stories.core.data.source.remote.ApiResponse
+import ahmadkabi.stories.core.data.source.remote.model.RegisterBody
 
 class RegisterViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
@@ -16,7 +17,7 @@ class RegisterViewModel(private val storyRepository: StoryRepository) : ViewMode
     val register: LiveData<ApiResponse<RegisterResponse>>
         get() = _register
 
-    fun register(body: model.RegisterBody) {
+    fun register(body: RegisterBody) {
         viewModelScope.launch {
             try {
                 _register.value = storyRepository.register(body)
