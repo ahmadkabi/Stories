@@ -34,3 +34,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
 }
+
+/**
+ * TODO
+ *  - implement spotless
+ * */
