@@ -70,13 +70,13 @@ class LoginActivity : AppCompatActivity() {
             when (result.status) {
                 StatusResponse.SUCCESS -> {
                     if (result.body != null) {
-                        val userName = result.body!!.loginResult.name
+                        val userName = result.body!!.name
 
                         showToast("${getString(R.string.welcome)} $userName")
 
                         userPreference.setUser(
                             userName,
-                            result.body!!.loginResult.token
+                            result.body!!.token
                         )
                         startActivity(HomeActivity.newIntent(this@LoginActivity))
                         finish()
