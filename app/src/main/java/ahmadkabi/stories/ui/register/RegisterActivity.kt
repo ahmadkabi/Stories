@@ -58,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.register.observe(this) { result ->
             when (result.status) {
                 StatusResponse.SUCCESS -> {
-                    if (result.body?.error == false) {
+                    if (result.body?.isError == false) {
                         showToast(getString(R.string.your_account_has_been_made))
                         finish()
 

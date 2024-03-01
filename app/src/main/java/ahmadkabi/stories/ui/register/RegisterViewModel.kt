@@ -10,11 +10,12 @@ import ahmadkabi.stories.core.data.source.remote.model.RegisterResponse
 import retrofit2.HttpException
 import ahmadkabi.stories.core.data.source.remote.ApiResponse
 import ahmadkabi.stories.core.data.source.remote.model.RegisterBody
+import ahmadkabi.stories.domain.model.Register
 
 class RegisterViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    private val _register = MutableLiveData<ApiResponse<RegisterResponse>>()
-    val register: LiveData<ApiResponse<RegisterResponse>>
+    private val _register = MutableLiveData<ApiResponse<Register>>()
+    val register: LiveData<ApiResponse<Register>>
         get() = _register
 
     fun register(body: RegisterBody) {

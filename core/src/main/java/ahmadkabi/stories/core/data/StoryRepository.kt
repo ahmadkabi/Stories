@@ -12,6 +12,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import ahmadkabi.stories.core.data.source.remote.ApiResponse
 import ahmadkabi.stories.core.data.source.remote.ApiService
+import ahmadkabi.stories.core.data.source.remote.toRegister
 import ahmadkabi.stories.core.data.source.remote.toUserModel
 
 class StoryRepository(private val token: String, private val apiService: ApiService) {
@@ -36,7 +37,7 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
         )
 
     suspend fun register(body: RegisterBody) =
-        ApiResponse.success(apiService.register(body))
+        ApiResponse.success(apiService.register(body).toRegister())
 
     suspend fun addStory(
         file: MultipartBody.Part,
