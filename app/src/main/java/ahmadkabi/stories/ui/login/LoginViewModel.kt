@@ -3,7 +3,7 @@ package ahmadkabi.stories.ui.login
 import ahmadkabi.stories.core.data.StoryRepository
 import ahmadkabi.stories.core.data.source.remote.ApiResponse
 import ahmadkabi.stories.core.data.source.remote.model.LoginBody
-import ahmadkabi.stories.domain.model.UserModel
+import ahmadkabi.stories.domain.model.User
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,8 +13,8 @@ import retrofit2.HttpException
 
 class LoginViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    private val _login = MutableLiveData<ApiResponse<UserModel>>()
-    val login: LiveData<ApiResponse<UserModel>>
+    private val _login = MutableLiveData<ApiResponse<User>>()
+    val login: LiveData<ApiResponse<User>>
         get() = _login
 
     fun login(body: LoginBody) {
