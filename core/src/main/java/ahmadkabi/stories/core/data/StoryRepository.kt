@@ -12,6 +12,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import ahmadkabi.stories.core.data.source.remote.ApiResponse
 import ahmadkabi.stories.core.data.source.remote.ApiService
+import ahmadkabi.stories.core.data.source.remote.toAddStory
 import ahmadkabi.stories.core.data.source.remote.toRegister
 import ahmadkabi.stories.core.data.source.remote.toUserModel
 
@@ -47,7 +48,7 @@ class StoryRepository(private val token: String, private val apiService: ApiServ
             "Bearer $token",
             file,
             description
-        )
+        ).toAddStory()
     )
 
 }

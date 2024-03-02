@@ -1,21 +1,21 @@
 package ahmadkabi.stories.ui.add
 
 import ahmadkabi.stories.core.data.StoryRepository
+import ahmadkabi.stories.core.data.source.remote.ApiResponse
+import ahmadkabi.stories.domain.model.AddStory
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ahmadkabi.stories.core.data.source.remote.model.AddStoryResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.HttpException
-import ahmadkabi.stories.core.data.source.remote.ApiResponse
 
 class AddStoryViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
-    private val _addStory = MutableLiveData<ApiResponse<AddStoryResponse>>()
-    val addStory: LiveData<ApiResponse<AddStoryResponse>>
+    private val _addStory = MutableLiveData<ApiResponse<AddStory>>()
+    val addStory: LiveData<ApiResponse<AddStory>>
         get() = _addStory
 
     fun addStory(file: MultipartBody.Part, description: RequestBody) {

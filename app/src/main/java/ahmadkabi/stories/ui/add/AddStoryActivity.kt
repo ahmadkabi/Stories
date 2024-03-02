@@ -183,7 +183,7 @@ class AddStoryActivity : AppCompatActivity() {
         viewModel.addStory.observe(this) { result ->
             when (result.status) {
                 StatusResponse.SUCCESS -> {
-                    if (result.body != null) {
+                    if (result.body?.isSuccess == true) {
                         showToast(getString(R.string.new_story_has_been_made))
 
                         val resultIntent = Intent()
