@@ -12,7 +12,7 @@
             android:layout_height="@dimen/dp_300"
             android:padding="@dimen/dp_1"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_corner30_primaryoverlay50"
+            android:background="@drawable/bg_corner30_primary_overlay50"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 

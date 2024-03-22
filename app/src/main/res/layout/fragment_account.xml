@@ -12,7 +12,7 @@
         style="@style/Text.Header50"
         android:layout_width="@dimen/dp_120"
         android:layout_height="@dimen/dp_120"
-        android:background="@drawable/bg_circle_primaryoverlay50"
+        android:background="@drawable/bg_circle_primary_overlay50"
         android:gravity="center"
         android:text="@string/u"
         app:layout_constraintBottom_toTopOf="@id/txName"
