@@ -62,7 +62,7 @@
                     style="@style/Text.Header3"
                     android:layout_width="@dimen/dp_26"
                     android:layout_height="@dimen/dp_26"
-                    android:background="@drawable/bg_circle_primaryoverlay50"
+                    android:background="@drawable/bg_circle_primary_overlay50"
                     android:gravity="center"
                     android:text="@string/u" />
 
