@@ -10,8 +10,8 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txAvatar"
         style="@style/Text.Header50"
-        android:layout_width="@dimen/dp_120"
-        android:layout_height="@dimen/dp_120"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:background="@drawable/bg_circle_primary_overlay50"
         android:gravity="center"
         android:text="@string/u"

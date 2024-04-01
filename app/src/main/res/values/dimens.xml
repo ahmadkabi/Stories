@@ -1,7 +1,6 @@
 <resources>
 
     <!--    TEMPLATE SIZE-->
-    <dimen name="dp_120">120dp</dimen>
     <dimen name="dp_100">100dp</dimen>
     <dimen name="dp_90">90dp</dimen>
     <dimen name="dp_80">80dp</dimen>
