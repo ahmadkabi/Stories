@@ -94,7 +94,7 @@
         <item name="android:paddingStart">@dimen/dp_16</item>
         <item name="android:paddingEnd">@dimen/dp_16</item>
         <item name="android:paddingTop">@dimen/dp_16</item>
-        <item name="android:paddingBottom">@dimen/dp_80</item>
+        <item name="android:paddingBottom">80dp</item>
     </style>
 
 

@@ -16,7 +16,7 @@
         android:gravity="center"
         android:text="@string/u"
         app:layout_constraintBottom_toTopOf="@id/txName"
-        android:layout_marginTop="@dimen/dp_80"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
