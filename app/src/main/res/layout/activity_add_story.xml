@@ -47,8 +47,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/imgNoData"
-                    android:layout_width="@dimen/dp_50"
-                    android:layout_height="@dimen/dp_50"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="@id/imgStory"
                     app:layout_constraintEnd_toEndOf="@id/imgStory"
                     app:layout_constraintStart_toStartOf="@id/imgStory"
@@ -135,8 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/sp_40"
             android:layout_marginBottom="@dimen/dp_16"
-            android:paddingStart="@dimen/dp_50"
-            android:paddingEnd="@dimen/dp_50"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:text="@string/add_story"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
