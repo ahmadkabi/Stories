@@ -113,7 +113,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:maxLines">1</item>
         <item name="android:insetTop">@dimen/dp_0</item>
-        <item name="elevation">@dimen/dp_40</item>
+        <item name="elevation">40dp</item>
         <item name="cornerRadius">@dimen/dp_18</item>
         <item name="android:insetBottom">@dimen/dp_0</item>
     </style>
