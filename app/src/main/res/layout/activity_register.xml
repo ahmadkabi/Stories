@@ -44,7 +44,7 @@
             style="@style/Text.Content3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_30"
+            android:layout_marginBottom="30dp"
             android:text="@string/simple_register_youre_ready"
             app:layout_constraintBottom_toTopOf="@id/ed_register_name"
             app:layout_constraintStart_toStartOf="@id/txHave" />
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_30"
+            android:layout_marginBottom="30dp"
             android:drawableStart="@drawable/ic_round_lock_24"
             android:drawablePadding="@dimen/dp_10"
             android:hint="@string/password"
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginBottom="@dimen/dp_30"
+            android:layout_marginBottom="30dp"
             android:text="@string/have_an_account_login"
             app:layout_constraintBottom_toTopOf="@id/btnRegister"
             app:layout_constraintStart_toStartOf="@id/btnRegister" />

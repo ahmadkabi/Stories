@@ -3,8 +3,8 @@
     <!--    TEMPLATE SIZE-->
     <dimen name="dp_90">90dp</dimen>
 
-    <dimen name="dp_36">36dp</dimen>
     <dimen name="dp_30">30dp</dimen>
+
     <dimen name="dp_26">26dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_18">18dp</dimen>
