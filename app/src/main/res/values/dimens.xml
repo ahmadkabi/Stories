@@ -2,10 +2,9 @@
 
     <!--    TEMPLATE SIZE-->
     <dimen name="dp_90">90dp</dimen>
-
     <dimen name="dp_30">30dp</dimen>
-
     <dimen name="dp_20">20dp</dimen>
+
     <dimen name="dp_18">18dp</dimen>
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_14">14dp</dimen>
