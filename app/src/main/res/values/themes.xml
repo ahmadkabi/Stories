@@ -89,11 +89,11 @@
 
     <style name="EditText.Multiline.Description">
         <item name="android:background">@drawable/none</item>
-        <item name="android:paddingLeft">@dimen/dp_16</item>
-        <item name="android:paddingRight">@dimen/dp_16</item>
-        <item name="android:paddingStart">@dimen/dp_16</item>
-        <item name="android:paddingEnd">@dimen/dp_16</item>
-        <item name="android:paddingTop">@dimen/dp_16</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">16dp</item>
         <item name="android:paddingBottom">80dp</item>
     </style>
 

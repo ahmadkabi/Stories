@@ -27,7 +27,7 @@
             android:orientation="horizontal"
             android:paddingVertical="@dimen/dp_6"
             android:paddingStart="@dimen/dp_6"
-            android:paddingEnd="@dimen/dp_16"
+            android:paddingEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
