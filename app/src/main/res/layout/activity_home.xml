@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:cardCornerRadius="30dp"
-            app:cardElevation="@dimen/dp_10"
+            app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingHorizontal="16dp"
-                    android:paddingVertical="@dimen/dp_10"
+                    android:paddingVertical="10dp"
                     app:srcCompat="@drawable/ic_round_map_24"
                     app:tint="@color/colorPrimary" />
 
