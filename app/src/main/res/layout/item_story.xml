@@ -25,8 +25,8 @@
             android:background="@drawable/bg_username"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingVertical="@dimen/dp_6"
-            android:paddingStart="@dimen/dp_6"
+            android:paddingVertical="6dp"
+            android:paddingStart="6dp"
             android:paddingEnd="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
