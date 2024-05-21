@@ -22,8 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="@dimen/dp_8"
-                android:paddingEnd="@dimen/dp_8">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/imgMap"

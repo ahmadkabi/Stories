@@ -6,7 +6,6 @@
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_16">16dp</dimen>
 
-    <dimen name="dp_8">8dp</dimen>
     <dimen name="dp_6">6dp</dimen>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_1">1dp</dimen>
@@ -20,10 +19,10 @@
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_10">10sp</dimen>
 
-    <dimen name="edittext_padding_vertical">@dimen/dp_8</dimen>
-    <dimen name="edittext_padding_horizontal">@dimen/dp_8</dimen>
+    <dimen name="edittext_padding_vertical">8dp</dimen>
+    <dimen name="edittext_padding_horizontal">8dp</dimen>
     <dimen name="button_padding_vertical">10dp</dimen>
     <dimen name="button_padding_horizontal">14dp</dimen>
-    <dimen name="button_padding_vertical_icon">@dimen/dp_8</dimen>
+    <dimen name="button_padding_vertical_icon">8dp</dimen>
 
 </resources>
