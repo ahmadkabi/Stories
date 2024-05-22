@@ -31,7 +31,7 @@
             app:icon="@drawable/ic_round_add_circle_24"
             app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
             app:strokeColor="@color/white"
-            app:strokeWidth="@dimen/dp_2" />
+            app:strokeWidth="2dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
