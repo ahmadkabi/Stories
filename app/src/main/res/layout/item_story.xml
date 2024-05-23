@@ -10,7 +10,7 @@
             android:id="@+id/iv_item_photo"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:padding="@dimen/dp_1"
+            android:padding="1dp"
             android:scaleType="centerCrop"
             android:background="@drawable/bg_corner30_primary_overlay50"
             app:layout_constraintTop_toTopOf="parent"
