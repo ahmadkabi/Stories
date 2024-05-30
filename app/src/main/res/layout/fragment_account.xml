@@ -39,7 +39,7 @@
         style="@style/MaterialButton.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sp_40"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="30dp"
         android:paddingStart="50dp"
         android:paddingEnd="50dp"

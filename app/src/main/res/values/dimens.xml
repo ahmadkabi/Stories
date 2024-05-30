@@ -8,7 +8,6 @@
 
     <dimen name="dp_0">0dp</dimen>
 
-    <dimen name="sp_40">40sp</dimen>
     <dimen name="sp_24">24sp</dimen>
     <dimen name="sp_20">20sp</dimen>
     <dimen name="sp_16">16sp</dimen>
