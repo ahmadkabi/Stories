@@ -31,12 +31,12 @@
     </style>
 
     <style name="Text.Header7">
-        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
 
     <style name="Text.Header40">
-        <item name="android:textSize">40dp</item>
+        <item name="android:textSize">40sp</item>
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
 
