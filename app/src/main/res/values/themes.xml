@@ -21,7 +21,7 @@
     </style>
 
     <style name="Text.Header2">
-        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/lato_bold</item>
     </style>
 
@@ -46,7 +46,7 @@
     </style>
 
     <style name="Text.Content2">
-        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Text.Content3">
