@@ -8,9 +8,6 @@
 
     <dimen name="dp_0">0dp</dimen>
 
-    <dimen name="sp_14">14sp</dimen>
-    <dimen name="sp_10">10sp</dimen>
-
     <dimen name="edittext_padding_vertical">8dp</dimen>
     <dimen name="edittext_padding_horizontal">8dp</dimen>
     <dimen name="button_padding_vertical">10dp</dimen>
