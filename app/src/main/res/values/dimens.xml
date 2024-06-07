@@ -6,7 +6,6 @@
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_16">16dp</dimen>
 
-    <dimen name="dp_0">0dp</dimen>
 
     <dimen name="edittext_padding_vertical">8dp</dimen>
     <dimen name="edittext_padding_horizontal">8dp</dimen>
