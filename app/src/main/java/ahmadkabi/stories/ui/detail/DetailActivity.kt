@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
 
-        binding.imgBack.setOnClickListener { onBackPressed() }
+        binding.imgBack.setOnClickListener { finish() }
 
         Glide
             .with(this)
