@@ -54,7 +54,7 @@ class AddStoryActivity : AppCompatActivity() {
 
         observe()
 
-        binding.imgBack.setOnClickListener { onBackPressed() }
+        binding.imgBack.setOnClickListener { finish() }
         binding.btnCamera.setOnClickListener { askPermissionOrCapture() }
         binding.btnGallery.setOnClickListener { startGallery() }
         binding.buttonAdd.setOnClickListener { addStory() }
