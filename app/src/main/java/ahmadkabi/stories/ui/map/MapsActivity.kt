@@ -54,7 +54,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-
     private fun observe() {
 
         viewModel.stories.observe(this) { result ->
