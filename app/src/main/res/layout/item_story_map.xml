@@ -8,11 +8,12 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_item_photo"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_corner30_primary_overlay50"
             android:padding="1dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_corner30_primary_overlay50"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 
