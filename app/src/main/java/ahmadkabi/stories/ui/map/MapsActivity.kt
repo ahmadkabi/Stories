@@ -1,9 +1,13 @@
 package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.R
+import ahmadkabi.stories.core.data.source.remote.StatusResponse
 import ahmadkabi.stories.databinding.ActivityMapsBinding
+import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.helper.DialogUtils
+import ahmadkabi.stories.helper.ItemDecorVertical
 import ahmadkabi.stories.helper.showToast
+import ahmadkabi.stories.ui.home.story.LoadingStateAdapter
 import ahmadkabi.stories.ui.home.story.ViewModelFactory
 import android.app.Dialog
 import android.content.ContentValues.TAG
@@ -13,6 +17,9 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -20,9 +27,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
-import ahmadkabi.stories.core.data.source.remote.StatusResponse
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.ItemListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -75,9 +81,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     mMap.moveCamera(CameraUpdateFactory.zoomTo(4f))
 
                 }
+
                 StatusResponse.EMPTY -> {
                     showToast(getString(R.string.data_is_empty))
                 }
+
                 StatusResponse.ERROR -> {
                     showToast(getString(R.string.sorry_something_went_wrong))
                 }
@@ -101,9 +109,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    private lateinit var adapter: MapStoryAdapter
+    private fun buildRv() {
+        adapter = MapStoryAdapter()
+        adapter.listener = this
+
+        val itemDecorVertical = ItemDecorVertical(
+            resources.getDimension(R.dimen.dp_90).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt()
+        )
+        binding.recyclerView.addItemDecoration(itemDecorVertical)
+        binding.recyclerView.layoutManager =
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.recyclerView.setHasFixedSize(false)
+
+
+        binding.recyclerView.adapter = adapter.withLoadStateFooter(footer = LoadingStateAdapter {
+            adapter.retry()
+        })
+
+    }
+
+
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, MapsActivity::class.java)
         }
+    }
+
+    override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
+        TODO("Not yet implemented")
     }
 }
