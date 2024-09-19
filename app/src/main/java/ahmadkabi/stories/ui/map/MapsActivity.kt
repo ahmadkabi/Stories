@@ -18,6 +18,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -66,6 +67,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         viewModel.stories.observe(this) { result ->
             when (result.status) {
                 StatusResponse.SUCCESS -> {
+
+                    val stories: PagingData<Story> = PagingData.from(
+                        result.body?.map {
+                            Story(
+                                id = it.id,
+                                name = it.name,
+                                description = it.description,
+                                photoUrl = it.photoUrl,
+                                createdAt = it.createdAt,
+                                lat = it.lat,
+                                lon = it.lon,
+                            )
+                        } as List<Story>
+                    )
+                    adapter.submitData(lifecycle, stories)
 
                     result.body?.forEach {
                         if (it.lat != null && it.lon != null) {
