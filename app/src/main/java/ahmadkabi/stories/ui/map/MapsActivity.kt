@@ -140,7 +140,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         )
         binding.recyclerView.addItemDecoration(itemDecorVertical)
         binding.recyclerView.layoutManager =
-            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.recyclerView.setHasFixedSize(false)
 
 
