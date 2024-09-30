@@ -107,11 +107,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                     showToast(getString(R.string.sorry_something_went_wrong))
                 }
             }
-
             progressDialog.dismiss()
-
         }
-
     }
 
     private fun setMapStyle() {
@@ -131,14 +128,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         adapter = MapStoryAdapter()
         adapter.listener = this
 
-        val itemDecorVertical = ItemDecorVertical(
-            resources.getDimension(R.dimen.dp_90).toInt(),
-            resources.getDimension(R.dimen.dp_16).toInt(),
-            resources.getDimension(R.dimen.dp_20).toInt(),
-            resources.getDimension(R.dimen.dp_16).toInt(),
-            resources.getDimension(R.dimen.dp_20).toInt()
-        )
-        binding.recyclerView.addItemDecoration(itemDecorVertical)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.recyclerView.setHasFixedSize(false)
