@@ -1,7 +1,7 @@
 package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.R
-import ahmadkabi.stories.databinding.ItemStoryBinding
+import ahmadkabi.stories.databinding.ItemStoryMapBinding
 import ahmadkabi.stories.domain.model.Story
 import android.app.Activity
 import android.view.LayoutInflater
@@ -19,7 +19,7 @@ class MapStoryAdapter :
     PagingDataAdapter<Story, MapStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemStoryMapBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -30,7 +30,7 @@ class MapStoryAdapter :
         }
     }
 
-    inner class MyViewHolder(private val binding: ItemStoryBinding) :
+    inner class MyViewHolder(private val binding: ItemStoryMapBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
 
