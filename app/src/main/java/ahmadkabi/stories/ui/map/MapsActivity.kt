@@ -5,6 +5,7 @@ import ahmadkabi.stories.core.data.source.remote.StatusResponse
 import ahmadkabi.stories.databinding.ActivityMapsBinding
 import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.helper.DialogUtils
+import ahmadkabi.stories.helper.ItemDecorHorizontal
 import ahmadkabi.stories.helper.ItemDecorVertical
 import ahmadkabi.stories.helper.showToast
 import ahmadkabi.stories.ui.home.story.LoadingStateAdapter
@@ -128,6 +129,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         adapter = MapStoryAdapter()
         adapter.listener = this
 
+        val itemDecorVertical = ItemDecorHorizontal(
+            resources.getDimension(R.dimen.dp_90).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt(),
+            resources.getDimension(R.dimen.dp_16).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt()
+        )
+
+        binding.recyclerView.addItemDecoration(itemDecorVertical)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.recyclerView.setHasFixedSize(false)

@@ -34,7 +34,6 @@ class MapStoryAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
 
-
             Glide
                 .with(itemView.context)
                 .load(data.photoUrl)
