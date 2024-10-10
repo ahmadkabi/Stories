@@ -5,11 +5,11 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemDecorHorizontal(
-    private val topMarginFirstItem: Int,
-    private val endMargin: Int,
-    private val bottomMarginLastItem: Int,
-    private val startMargin: Int,
-    private val topMarginInterItem: Int
+    private val leftMarginFirstItem: Int,
+    private val topMargin: Int,
+    private val rightMarginLastItem: Int,
+    private val bottomMargin: Int,
+    private val leftMarginInterItem: Int
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
@@ -19,14 +19,14 @@ class ItemDecorHorizontal(
         state: RecyclerView.State
     ) {
         if (parent.getChildAdapterPosition(view) == 0) {
-            outRect.top = topMarginFirstItem
+            outRect.left = leftMarginFirstItem
         } else {
-            outRect.top = topMarginInterItem
+            outRect.left = leftMarginInterItem
         }
-        outRect.left = startMargin
-        outRect.right = endMargin
+        outRect.left = bottomMargin
+        outRect.right = topMargin
         if (parent.getChildAdapterPosition(view) == parent.adapter?.itemCount?.minus(1)) {
-            outRect.bottom = bottomMarginLastItem
+            outRect.right = rightMarginLastItem
         }
     }
 }

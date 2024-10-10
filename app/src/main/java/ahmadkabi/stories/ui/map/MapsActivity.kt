@@ -129,7 +129,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         adapter = MapStoryAdapter()
         adapter.listener = this
 
-        val itemDecorVertical = ItemDecorHorizontal(
+        val itemDecorHorizontal = ItemDecorHorizontal(
             resources.getDimension(R.dimen.dp_90).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
             resources.getDimension(R.dimen.dp_20).toInt(),
@@ -137,7 +137,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
             resources.getDimension(R.dimen.dp_20).toInt()
         )
 
-        binding.recyclerView.addItemDecoration(itemDecorVertical)
+        binding.recyclerView.addItemDecoration(itemDecorHorizontal)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.recyclerView.setHasFixedSize(false)
