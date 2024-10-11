@@ -130,7 +130,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         adapter.listener = this
 
         val itemDecorHorizontal = ItemDecorHorizontal(
-            resources.getDimension(R.dimen.dp_90).toInt(),
+            resources.getDimension(R.dimen.dp_0).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
             resources.getDimension(R.dimen.dp_20).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
