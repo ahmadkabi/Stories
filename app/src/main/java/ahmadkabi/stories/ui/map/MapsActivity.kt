@@ -130,7 +130,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         adapter.listener = this
 
         val itemDecorHorizontal = ItemDecorHorizontal(
-            resources.getDimension(R.dimen.dp_0).toInt(),
+            resources.getDimension(R.dimen.dp_20).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
             resources.getDimension(R.dimen.dp_20).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
@@ -157,6 +157,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
-        TODO("Not yet implemented")
+        val latLng = LatLng(item.lat!!.toDouble(), item.lon!!.toDouble())
+        mMap.addMarker(
+            MarkerOptions()
+                .position(latLng)
+                .title(item.name)
+        )
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
     }
 }
