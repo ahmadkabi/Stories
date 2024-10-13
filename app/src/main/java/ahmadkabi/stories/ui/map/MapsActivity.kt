@@ -158,11 +158,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
         val latLng = LatLng(item.lat!!.toDouble(), item.lon!!.toDouble())
-        mMap.addMarker(
-            MarkerOptions()
-                .position(latLng)
-                .title(item.name)
-        )
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
     }
 }
