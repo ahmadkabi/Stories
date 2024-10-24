@@ -6,7 +6,6 @@ import ahmadkabi.stories.databinding.ActivityMapsBinding
 import ahmadkabi.stories.domain.model.Story
 import ahmadkabi.stories.helper.DialogUtils
 import ahmadkabi.stories.helper.ItemDecorHorizontal
-import ahmadkabi.stories.helper.ItemDecorVertical
 import ahmadkabi.stories.helper.showToast
 import ahmadkabi.stories.ui.home.story.LoadingStateAdapter
 import ahmadkabi.stories.ui.home.story.ViewModelFactory
