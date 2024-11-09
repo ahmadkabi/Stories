@@ -44,7 +44,7 @@ class MapStoryAdapter :
                     CenterCrop(),
                     RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
                 )
-                .into(binding.ivItemPhoto)
+                .into(binding.img)
 
             binding.txAvatar.text = data.name[0].toString().uppercase()
             binding.tvItemName.text = data.name
@@ -53,7 +53,7 @@ class MapStoryAdapter :
                 val optionsCompat: ActivityOptionsCompat =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                         itemView.context as Activity,
-                        Pair(binding.ivItemPhoto, "photo"),
+                        Pair(binding.img, "photo"),
                         Pair(binding.llUser, "user")
                     )
                 listener.onItemClickListener(data, optionsCompat)

@@ -7,7 +7,7 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_item_photo"
+            android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:padding="1dp"
