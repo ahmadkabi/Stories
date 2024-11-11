@@ -62,6 +62,11 @@ class MapStoryAdapter :
         }
     }
 
+    fun setSelectedStory(story: Story){
+        selectedStory = story
+//        todo update ui
+    }
+
     lateinit var listener: ItemListener
 
     interface ItemListener {
