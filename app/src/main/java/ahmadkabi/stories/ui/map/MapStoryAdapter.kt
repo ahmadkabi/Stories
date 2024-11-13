@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -62,8 +63,21 @@ class MapStoryAdapter :
         }
     }
 
+    private suspend fun updateItemAt(position: Int, newItem: Story) {
+
+        val currentItems = snapshot().items.toMutableList()
+        if (position in currentItems.indices) {
+            currentItems[position] = newItem
+
+            submitData(PagingData.from(currentItems))
+        }
+    }
+
     fun setSelectedStory(story: Story){
         selectedStory = story
+
+        snapshot().items.indexOf(story)
+
 //        todo update ui
     }
 
