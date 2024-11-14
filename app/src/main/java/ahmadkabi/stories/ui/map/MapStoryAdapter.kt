@@ -73,12 +73,14 @@ class MapStoryAdapter :
         }
     }
 
-    fun setSelectedStory(story: Story){
+    suspend fun setSelectedStory(story: Story){
         selectedStory = story
 
-        snapshot().items.indexOf(story)
+        updateItemAt(
+            position = snapshot().items.indexOf(story),
+            newItem = story
+        )
 
-//        todo update ui
     }
 
     lateinit var listener: ItemListener
