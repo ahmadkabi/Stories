@@ -47,6 +47,7 @@ class MapStoryAdapter :
                 )
                 .into(binding.img)
 
+            //todo reflect selected item to the ui
             binding.txAvatar.text = data.name[0].toString().uppercase()
             binding.tvItemName.text = data.name
 

@@ -18,6 +18,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.launch
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.ItemListener {
 
@@ -159,5 +161,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
         val latLng = LatLng(item.lat!!.toDouble(), item.lon!!.toDouble())
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+
+        lifecycleScope.launch {
+            adapter.setSelectedStory(item)
+        }
     }
 }
