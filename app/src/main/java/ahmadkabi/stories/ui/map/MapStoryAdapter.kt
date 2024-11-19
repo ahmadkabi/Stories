@@ -38,6 +38,11 @@ class MapStoryAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
 
+            //todo make selectedStory nullable
+            if(data == selectedStory){
+                binding.img.setBackgroundResource(R.drawable.bg_corner30_teal_overlay50)
+            }
+
             Glide
                 .with(itemView.context)
                 .load(data.photoUrl)
@@ -47,7 +52,6 @@ class MapStoryAdapter :
                 )
                 .into(binding.img)
 
-            //todo reflect selected item to the ui
             binding.txAvatar.text = data.name[0].toString().uppercase()
             binding.tvItemName.text = data.name
 
