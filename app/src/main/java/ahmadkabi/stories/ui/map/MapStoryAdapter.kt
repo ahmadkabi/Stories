@@ -19,7 +19,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 class MapStoryAdapter :
     PagingDataAdapter<Story, MapStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
-    private lateinit var selectedStory: Story
+    private var selectedStory: Story? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
