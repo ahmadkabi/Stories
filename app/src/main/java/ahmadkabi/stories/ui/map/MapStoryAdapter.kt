@@ -38,7 +38,6 @@ class MapStoryAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
 
-            //todo make selectedStory nullable
             if(data == selectedStory){
                 binding.img.setBackgroundResource(R.drawable.bg_corner30_teal_overlay50)
             }
@@ -68,6 +67,15 @@ class MapStoryAdapter :
         }
     }
 
+    suspend fun setSelectedStory(story: Story){
+        selectedStory = story
+
+        updateItemAt(
+            position = snapshot().items.indexOf(story),
+            newItem = story
+        )
+    }
+
     private suspend fun updateItemAt(position: Int, newItem: Story) {
 
         val currentItems = snapshot().items.toMutableList()
@@ -76,16 +84,6 @@ class MapStoryAdapter :
 
             submitData(PagingData.from(currentItems))
         }
-    }
-
-    suspend fun setSelectedStory(story: Story){
-        selectedStory = story
-
-        updateItemAt(
-            position = snapshot().items.indexOf(story),
-            newItem = story
-        )
-
     }
 
     lateinit var listener: ItemListener
