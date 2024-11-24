@@ -81,8 +81,8 @@ class MapStoryAdapter :
         val currentItems = snapshot().items.toMutableList()
         if (position in currentItems.indices) {
             currentItems[position] = newItem
-
             submitData(PagingData.from(currentItems))
+            notifyItemRangeChanged(0, currentItems.size)
         }
     }
 
