@@ -40,7 +40,10 @@ class MapStoryAdapter :
 
             if(data == selectedStory){
                 binding.img.setBackgroundResource(R.drawable.bg_corner30_teal_overlay50)
+            }else{
+                binding.img.setBackgroundResource(R.drawable.bg_corner30_primary_overlay50)
             }
+//            todo make selected item larger
 
             Glide
                 .with(itemView.context)
