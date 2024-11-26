@@ -38,9 +38,9 @@ class MapStoryAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
 
-            if(data == selectedStory){
+            if (data == selectedStory) {
                 binding.img.setBackgroundResource(R.drawable.bg_corner30_teal_overlay50)
-            }else{
+            } else {
                 binding.img.setBackgroundResource(R.drawable.bg_corner30_primary_overlay50)
             }
 //            todo make selected item larger
@@ -52,7 +52,7 @@ class MapStoryAdapter :
                     CenterCrop(),
                     RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
                 )
-                .into(binding.img)
+                .into(if (data == selectedStory) binding.imgSelected else binding.img)
 
             binding.txAvatar.text = data.name[0].toString().uppercase()
             binding.tvItemName.text = data.name
@@ -70,7 +70,7 @@ class MapStoryAdapter :
         }
     }
 
-    suspend fun setSelectedStory(story: Story){
+    suspend fun setSelectedStory(story: Story) {
         selectedStory = story
 
         updateItemAt(
