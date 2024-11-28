@@ -52,7 +52,7 @@ class MapStoryAdapter :
                     CenterCrop(),
                     RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
                 )
-                .into(if (data == selectedStory) binding.imgSelected else binding.img)
+                .into(binding.img)
 
             binding.txAvatar.text = data.name[0].toString().uppercase()
             binding.tvItemName.text = data.name

@@ -17,18 +17,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_travel" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgSelected"
-            android:layout_width="250dp"
-            android:layout_height="180dp"
-            android:visibility="gone"
-            android:background="@drawable/bg_corner30_primary_overlay50"
-            android:padding="1dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_travel" />
-
         <LinearLayout
             android:id="@+id/llUser"
             android:layout_width="wrap_content"
