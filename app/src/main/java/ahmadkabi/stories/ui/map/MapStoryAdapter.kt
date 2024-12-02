@@ -34,6 +34,7 @@ class MapStoryAdapter :
         }
     }
 
+
     inner class MyViewHolder(private val binding: ItemStoryMapBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Story) {
@@ -96,6 +97,9 @@ class MapStoryAdapter :
     }
 
     companion object {
+        const val VIEW_TYPE_NORMAL = 1
+        const val VIEW_TYPE_SELECTED = 2
+
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Story>() {
             override fun areItemsTheSame(oldItem: Story, newItem: Story): Boolean {
                 return oldItem == newItem
