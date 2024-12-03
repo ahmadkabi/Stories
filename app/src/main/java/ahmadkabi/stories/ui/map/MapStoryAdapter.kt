@@ -20,6 +20,36 @@ class MapStoryAdapter :
     PagingDataAdapter<Story, MapStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     private var selectedStory: Story? = null
+    lateinit var listener: ItemListener
+
+    inner class NormalViewHolder(private val binding: ItemStoryMapBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(story: Story) {
+
+            Glide
+                .with(itemView.context)
+                .load(story.photoUrl)
+                .transform(
+                    CenterCrop(),
+                    RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
+                )
+                .into(binding.img)
+
+            binding.txAvatar.text = story.name[0].toString().uppercase()
+            binding.tvItemName.text = story.name
+
+            itemView.setOnClickListener {
+                val optionsCompat: ActivityOptionsCompat =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        itemView.context as Activity,
+                        Pair(binding.img, "photo"),
+                        Pair(binding.llUser, "user")
+                    )
+                listener.onItemClickListener(story, optionsCompat)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
@@ -90,7 +120,6 @@ class MapStoryAdapter :
         }
     }
 
-    lateinit var listener: ItemListener
 
     interface ItemListener {
         fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat)
