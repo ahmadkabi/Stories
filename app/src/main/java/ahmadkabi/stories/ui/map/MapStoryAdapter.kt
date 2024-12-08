@@ -2,6 +2,7 @@ package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.R
 import ahmadkabi.stories.databinding.ItemStoryMapBinding
+import ahmadkabi.stories.databinding.ItemStoryMapSelectedBinding
 import ahmadkabi.stories.domain.model.Story
 import android.app.Activity
 import android.view.LayoutInflater
@@ -52,7 +53,7 @@ class MapStoryAdapter :
     }
 
 
-    inner class SelectedViewHolder(private val binding: ItemStoryMapBinding) :
+    inner class SelectedViewHolder(private val binding: ItemStoryMapSelectedBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(story: Story) {
