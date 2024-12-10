@@ -82,6 +82,11 @@ class MapStoryAdapter :
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
             ItemStoryMapBinding.inflate(LayoutInflater.from(parent.context), parent, false)
