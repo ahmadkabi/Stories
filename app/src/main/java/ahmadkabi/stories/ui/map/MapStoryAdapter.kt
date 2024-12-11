@@ -83,9 +83,12 @@ class MapStoryAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+        return if(snapshot().items[position] == selectedStory){
+            VIEW_TYPE_SELECTED
+        }else{
+            VIEW_TYPE_NORMAL
+        }
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding =
@@ -147,7 +150,6 @@ class MapStoryAdapter :
     }
 
     private suspend fun updateItemAt(position: Int, newItem: Story) {
-
         val currentItems = snapshot().items.toMutableList()
         if (position in currentItems.indices) {
             currentItems[position] = newItem
