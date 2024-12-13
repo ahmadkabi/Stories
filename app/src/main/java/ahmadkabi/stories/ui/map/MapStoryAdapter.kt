@@ -18,7 +18,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class MapStoryAdapter :
-    PagingDataAdapter<Story, MapStoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    PagingDataAdapter<Story, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     private var selectedStory: Story? = null
     lateinit var listener: ItemListener
@@ -90,16 +90,16 @@ class MapStoryAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding =
             ItemStoryMapBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
-            holder.bind(data)
+//            holder.bind(data)
         }
     }
 
