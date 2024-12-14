@@ -83,17 +83,32 @@ class MapStoryAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if(snapshot().items[position] == selectedStory){
+        return if (snapshot().items[position] == selectedStory) {
             VIEW_TYPE_SELECTED
-        }else{
+        } else {
             VIEW_TYPE_NORMAL
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding =
-            ItemStoryMapBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding)
+        val binding = ItemStoryMapBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return when (viewType) {
+            VIEW_TYPE_NORMAL -> {
+                MyViewHolder(binding)
+            }
+
+            VIEW_TYPE_SELECTED -> {
+                MyViewHolder(binding)
+            }
+
+            else -> {
+                MyViewHolder(binding)
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
