@@ -91,22 +91,35 @@ class MapStoryAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = ItemStoryMapBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
         return when (viewType) {
             VIEW_TYPE_NORMAL -> {
-                MyViewHolder(binding)
+                NormalViewHolder(
+                    ItemStoryMapBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
             }
 
             VIEW_TYPE_SELECTED -> {
-                MyViewHolder(binding)
+                SelectedViewHolder(
+                    ItemStoryMapSelectedBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
             }
 
             else -> {
-                MyViewHolder(binding)
+                NormalViewHolder(
+                    ItemStoryMapBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
+                )
             }
         }
     }
