@@ -127,44 +127,8 @@ class MapStoryAdapter :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
+//            TODO handle based on view holder class
 //            holder.bind(data)
-        }
-    }
-
-
-    inner class MyViewHolder(private val binding: ItemStoryMapBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: Story) {
-
-            if (data == selectedStory) {
-                binding.img.setBackgroundResource(R.drawable.bg_corner30_teal_overlay50)
-            } else {
-                binding.img.setBackgroundResource(R.drawable.bg_corner30_primary_overlay50)
-            }
-//            todo make selected item larger
-
-            Glide
-                .with(itemView.context)
-                .load(data.photoUrl)
-                .transform(
-                    CenterCrop(),
-                    RoundedCorners(itemView.context.resources.getDimensionPixelSize(R.dimen.dp_30))
-                )
-                .into(binding.img)
-
-            binding.txAvatar.text = data.name[0].toString().uppercase()
-            binding.tvItemName.text = data.name
-
-            itemView.setOnClickListener {
-                val optionsCompat: ActivityOptionsCompat =
-                    ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        itemView.context as Activity,
-                        Pair(binding.img, "photo"),
-                        Pair(binding.llUser, "user")
-                    )
-                listener.onItemClickListener(data, optionsCompat)
-            }
-
         }
     }
 
