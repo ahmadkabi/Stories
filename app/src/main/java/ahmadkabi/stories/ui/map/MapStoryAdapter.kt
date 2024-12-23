@@ -127,11 +127,10 @@ class MapStoryAdapter :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
-            if(holder is NormalViewHolder){
-                holder.bind(data)
+            when(holder){
+                is NormalViewHolder -> holder.bind(data)
+                is SelectedViewHolder -> holder.bind(data)
             }
-//            TODO handle based on view holder class
-
         }
     }
 
