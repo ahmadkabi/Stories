@@ -158,12 +158,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
-        val latLng = LatLng(item.lat!!.toDouble(), item.lon!!.toDouble())
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+        mMap.moveCamera(
+            CameraUpdateFactory.newLatLng(
+                LatLng(
+                    item.lat!!.toDouble(),
+                    item.lon!!.toDouble()
+                )
+            )
+        )
 
         lifecycleScope.launch {
             adapter.setSelectedStory(item)
         }
+//        todo scroll to selected item
     }
 }
