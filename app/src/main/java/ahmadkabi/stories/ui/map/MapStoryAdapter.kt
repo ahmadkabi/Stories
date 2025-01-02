@@ -127,7 +127,7 @@ class MapStoryAdapter :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = getItem(position)
         if (data != null) {
-            when(holder){
+            when (holder) {
                 is NormalViewHolder -> holder.bind(data)
                 is SelectedViewHolder -> holder.bind(data)
             }
@@ -152,6 +152,7 @@ class MapStoryAdapter :
         }
     }
 
+    fun getItemPosition(item: Story) = snapshot().items.indexOf(item)
 
     interface ItemListener {
         fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat)
