@@ -158,8 +158,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
-//        todo can make moveCamera smoother
-        mMap.moveCamera(
+//        todo move selected recyclerview when map icon is clicked
+        mMap.animateCamera(
             CameraUpdateFactory.newLatLng(
                 LatLng(
                     item.lat!!.toDouble(),
