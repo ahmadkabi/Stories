@@ -107,6 +107,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
 
                 StatusResponse.ERROR -> {
                     showToast(getString(R.string.sorry_something_went_wrong))
+                    finish()
                 }
             }
             progressDialog.dismiss()
