@@ -97,6 +97,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                         }
                     }
 
+                    mMap.setOnMarkerClickListener { marker ->
+
+                        // Return false to indicate that we have not consumed the event and it should continue to be processed.
+                        // Return true if you want to consume the event and prevent the default behavior.
+                        false
+                    }
+
                     mMap.moveCamera(CameraUpdateFactory.zoomTo(4f))
 
                 }
