@@ -88,11 +88,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                     result.body?.forEach {
                         if (it.lat != null && it.lon != null) {
                             val latLng = LatLng(it.lat!!.toDouble(), it.lon!!.toDouble())
-                            mMap.addMarker(
+                            val marker = mMap.addMarker(
                                 MarkerOptions()
                                     .position(latLng)
                                     .title(it.name)
                             )
+                            marker?.tag = it.id
                             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
                         }
                     }
