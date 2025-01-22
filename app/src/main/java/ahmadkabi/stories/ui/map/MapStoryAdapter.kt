@@ -154,8 +154,10 @@ class MapStoryAdapter :
 
     fun getItemPosition(item: Story) = snapshot().items.indexOf(item)
 
-    fun getItemPositionById(id: String) {
-
+    fun getItemPositionById(id: String): Int {
+        return getItemPosition(
+            snapshot().items.first { it.id == id }
+        )
     }
 
     interface ItemListener {
