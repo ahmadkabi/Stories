@@ -160,6 +160,10 @@ class MapStoryAdapter :
         )
     }
 
+    fun getItemById(id: String): Story {
+        return snapshot().items.first { it.id == id }
+    }
+
     interface ItemListener {
         fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat)
     }
