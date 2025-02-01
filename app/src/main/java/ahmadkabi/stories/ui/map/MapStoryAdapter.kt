@@ -143,6 +143,10 @@ class MapStoryAdapter :
         )
     }
 
+    fun setSelectedStoryById(id: String) {
+
+    }
+
     private suspend fun updateItemAt(position: Int, newItem: Story) {
         val currentItems = snapshot().items.toMutableList()
         if (position in currentItems.indices) {
