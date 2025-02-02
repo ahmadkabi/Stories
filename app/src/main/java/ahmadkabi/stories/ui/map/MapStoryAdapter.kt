@@ -143,8 +143,8 @@ class MapStoryAdapter :
         )
     }
 
-    fun setSelectedStoryById(id: String) {
-
+    suspend fun setSelectedStoryById(id: String) {
+        setSelectedStory(getItemById(id))
     }
 
     private suspend fun updateItemAt(position: Int, newItem: Story) {
@@ -164,7 +164,7 @@ class MapStoryAdapter :
         )
     }
 
-    fun getItemById(id: String): Story {
+    private fun getItemById(id: String): Story {
         return snapshot().items.first { it.id == id }
     }
 
