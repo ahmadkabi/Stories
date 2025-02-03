@@ -102,8 +102,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                         binding.recyclerView.smoothScrollToPosition(
                             adapter.getItemPositionById(marker.tag.toString())
                         )
-                        // Return false to indicate that we have not consumed the event and it should continue to be processed.
-                        // Return true if you want to consume the event and prevent the default behavior.
+
+                        lifecycleScope.launch {
+                            adapter.setSelectedStoryById(marker.tag.toString())
+                        }
+
                         false
                     }
 
