@@ -72,6 +72,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
 
                     val stories: PagingData<Story> = PagingData.from(
                         result.body?.map {
+                            if (it.lat != null && it.lon != null) {
+                                val latLng = LatLng(it.lat!!.toDouble(), it.lon!!.toDouble())
+                                val marker = mMap.addMarker(
+                                    MarkerOptions()
+                                        .position(latLng)
+                                        .title(it.name)
+                                )
+                                marker?.tag = it.id
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                            }
+
                             Story(
                                 id = it.id,
                                 name = it.name,
@@ -84,19 +95,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                         } as List<Story>
                     )
                     adapter.submitData(lifecycle, stories)
-
-                    result.body?.forEach {
-                        if (it.lat != null && it.lon != null) {
-                            val latLng = LatLng(it.lat!!.toDouble(), it.lon!!.toDouble())
-                            val marker = mMap.addMarker(
-                                MarkerOptions()
-                                    .position(latLng)
-                                    .title(it.name)
-                            )
-                            marker?.tag = it.id
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-                        }
-                    }
 
                     mMap.setOnMarkerClickListener { marker ->
                         binding.recyclerView.smoothScrollToPosition(
@@ -181,6 +179,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                 )
             )
         )
+
 
         lifecycleScope.launch {
             adapter.setSelectedStory(item)
