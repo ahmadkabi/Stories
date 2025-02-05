@@ -172,7 +172,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
-//        todo move selected recyclerview when map icon is clicked
+//        todo show user name in map marker
         mMap.animateCamera(
             CameraUpdateFactory.newLatLng(
                 LatLng(
