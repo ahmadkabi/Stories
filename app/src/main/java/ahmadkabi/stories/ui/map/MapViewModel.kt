@@ -1,20 +1,24 @@
 package ahmadkabi.stories.ui.map
 
 import ahmadkabi.stories.core.data.StoryRepository
+import ahmadkabi.stories.core.data.source.remote.ApiResponse
 import ahmadkabi.stories.domain.model.Story
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.Marker
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import ahmadkabi.stories.core.data.source.remote.ApiResponse
 
 class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
 
     private val _stories = MutableLiveData<ApiResponse<ArrayList<Story>>>()
     val stories: LiveData<ApiResponse<ArrayList<Story>>>
         get() = _stories
+
+    //todo last here
+    private val markerMap = mutableMapOf<String, Marker>()
 
     fun getMappedStories() {
         viewModelScope.launch {
