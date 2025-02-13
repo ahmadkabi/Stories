@@ -81,7 +81,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                                 )
                                 marker?.tag = it.id
                                 if(marker != null){
-                                    viewModel.markers.add(marker)
+                                    viewModel.addMarker(marker)
                                 }
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
                             }

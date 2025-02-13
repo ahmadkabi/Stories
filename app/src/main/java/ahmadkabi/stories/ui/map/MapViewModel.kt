@@ -18,7 +18,10 @@ class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
         get() = _stories
 
     //todo last here
-    val markers = mutableListOf<Marker>()
+    private val markers = mutableListOf<Marker>()
+    fun addMarker(marker: Marker){
+        markers.add(marker)
+    }
 
     fun getMappedStories() {
         viewModelScope.launch {
