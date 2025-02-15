@@ -17,11 +17,12 @@ class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
     val stories: LiveData<ApiResponse<ArrayList<Story>>>
         get() = _stories
 
-    //todo last here
     private val markers = mutableListOf<Marker>()
     fun addMarker(marker: Marker){
         markers.add(marker)
     }
+
+    fun showMarkerTitle(tag: String){}
 
     fun getMappedStories() {
         viewModelScope.launch {

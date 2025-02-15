@@ -183,7 +183,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
             )
         )
 
-
         lifecycleScope.launch {
             adapter.setSelectedStory(item)
         }
