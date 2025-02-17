@@ -22,7 +22,9 @@ class MapViewModel(private val storyRepository: StoryRepository) : ViewModel() {
         markers.add(marker)
     }
 
-    fun showMarkerTitle(tag: String){}
+    fun showMarkerTitle(tag: String){
+        markers.find { it.tag == tag }?.showInfoWindow()
+    }
 
     fun getMappedStories() {
         viewModelScope.launch {
