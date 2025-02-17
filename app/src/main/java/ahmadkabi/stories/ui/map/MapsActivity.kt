@@ -80,7 +80,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
                                         .title(it.name)
                                 )
                                 marker?.tag = it.id
-                                if(marker != null){
+                                if (marker != null) {
                                     viewModel.addMarker(marker)
                                 }
                                 mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
@@ -173,7 +173,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
     }
 
     override fun onItemClickListener(item: Story, optionsCompat: ActivityOptionsCompat) {
-//        todo show user name in map marker
+        viewModel.showMarkerTitle(item.id)
         mMap.animateCamera(
             CameraUpdateFactory.newLatLng(
                 LatLng(
