@@ -23,8 +23,8 @@ class ItemDecorHorizontal(
         } else {
             outRect.left = leftMarginInterItem
         }
-        outRect.left = bottomMargin
-        outRect.right = topMargin
+        outRect.top = topMargin
+        outRect.bottom = bottomMargin
         if (parent.getChildAdapterPosition(view) == parent.adapter?.itemCount?.minus(1)) {
             outRect.right = rightMarginLastItem
         }
