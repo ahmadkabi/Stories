@@ -150,7 +150,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, MapStoryAdapter.It
             resources.getDimension(R.dimen.dp_16).toInt(),
             resources.getDimension(R.dimen.dp_20).toInt(),
             resources.getDimension(R.dimen.dp_16).toInt(),
-            resources.getDimension(R.dimen.dp_20).toInt()
+            resources.getDimension(R.dimen.dp_10).toInt()
         )
 
         binding.recyclerView.addItemDecoration(itemDecorHorizontal)
